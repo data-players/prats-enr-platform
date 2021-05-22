@@ -1,0 +1,53 @@
+version: '3.5'
+services:
+  fuseki:
+    image: stain/jena-fuseki:3.10.0
+    container_name: fuseki_prats_enr
+    volumes:
+      - ./data/fuseki:/fuseki
+      - ./data/staging:/staging
+    ports:
+      - "3030:3030"
+    expose:
+      - "3030"
+    environment:
+      ADMIN_PASSWORD: "admin"
+
+  middleware:
+    build: middleware
+    container_name: middleware_prats_enr
+    depends_on:
+      - fuseki
+    volumes:
+      - ./middleware/:/app
+      - ./data/fuseki/backups:/app/fuseki-backups # Needed to backup fuseki datasets
+    environment:
+      - SEMAPPS_SPARQL_ENDPOINT=http://fuseki_prats_enr:3030/
+      - SEMAPPS_MAIN_DATASET=localData
+      - SEMAPPS_JENA_USER=admin
+      - SEMAPPS_JENA_PASSWORD=admin
+      - SEMAPPS_HOME_URL=http://localhost:3000/
+      - SEMAPPS_BACKUP_FUSEKI_DATASETS_PATH=/app/fuseki-backups
+    ports:
+      - "3000:3000"
+    expose:
+      - "3000"
+    command: bash -c "npm rebuild && npm install && npm run dev"
+
+  frontend:
+    build: frontend
+    container_name: frontend_prats_enr
+    volumes:
+      - ./frontend:/app
+    environment:
+      - REACT_APP_MIDDLEWARE_URL=http://localhost:3000/
+      - REACT_APP_MAPBOX_ACCESS_TOKEN=pk.eyJ1Ijoic3Jvc3NldDgxIiwiYSI6ImNrbDd0b2VkMzA1dDMycG9iemU4NnpuemsifQ.HvpZ3tnweVHEUYLb0tDvTg
+      - PORT=4000
+    restart: always
+    depends_on:
+      - middleware
+    ports:
+      - "4000:4000"
+    expose:
+      - "4000"
+    command: bash -c "npm rebuild --silent && npm install --silent && npm start"
