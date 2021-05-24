@@ -23,14 +23,14 @@ export default {
   },
   translations: {
     fr: {
-      name: 'Profil |||| Profils',
+      name: 'Portrait |||| Portraits',
       fields: {
         'pair:label': 'Prénom ou pseudo',
         'pair:hasType': 'Type de profil',
         'pair:e-mail': 'Adresse e-mail',
         'pair:image': 'Photo',
         'pair:aboutPage': 'Page de contact',
-        'pair:webPage': 'Avez-vous un site internet ou blog ?',
+        'pair:webPage': 'site internet ou blog',
         'pair:hasLocation': 'Lieu',
         'pair:offers': 'Ressources partagées',
       }

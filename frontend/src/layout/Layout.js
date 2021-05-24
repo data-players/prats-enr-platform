@@ -46,10 +46,11 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const menuItems = {
-  '/Page/projet/show': 'le projet',
-  '/Person': 'Annuaire',
-  '/Event': 'Evenements',
-  '/Page/faq/show': 'Foire aux questions'
+  '/Page/projet/show': 'Le projet',
+  '/News': 'Les actualités',
+  '/Task': 'Les chantiers',
+  '/Person': 'Portraits',
+  '/Page/ressources/show': 'Ressources',
 };
 
 const Layout = ({ appBar, logout, theme, children }) => {

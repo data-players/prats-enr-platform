@@ -56,6 +56,14 @@ module.exports = [
     acceptedTypes: 'pair:Organization'
   },
   {
+    path: '/news',
+    acceptedTypes: 'pair:Document'
+  },
+  {
+    path: '/task',
+    acceptedTypes: 'pair:Task'
+  },
+  {
     path: '/pages'
   },
   {
