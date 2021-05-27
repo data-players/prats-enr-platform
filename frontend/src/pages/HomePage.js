@@ -27,6 +27,11 @@ const HomePage = () => {
     resource: 'News'
   };
 
+  const config4 = {
+    basePath: '/Page',
+    id: process.env.REACT_APP_MIDDLEWARE_URL + 'pages/actualite-intro',
+    resource: 'Page'
+  };
   const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
@@ -108,6 +113,7 @@ const HomePage = () => {
           </Card>
         </Grid>
       </Grid>
+
       <Grid container spacing={0}>
         <Grid item sm={5} classes={mainGridStyle}>
           <Paper classes={mainImageStyles}>
@@ -129,6 +135,7 @@ const HomePage = () => {
           </Paper>
         </Grid>
       </Grid>
+      
       <Grid container spacing={0}>
         <Grid item sm={5} classes={mainGridStyle}>
           <Paper classes={mainImageStyles}>
@@ -140,8 +147,9 @@ const HomePage = () => {
         <Grid item sm={7}>
           <Paper classes={mainImageStyles}>
             <Box component="div" display="inline" classes={mainTextStyles}>
-            Phrase de description de la page. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.
-            </Box>
+              <ShowContextProvider value={useShowController(config4)}>
+                <PageShow {...config4} />
+              </ShowContextProvider>            </Box>
             <ListBase resource="News" basePath="/News" perPage={4}>
               <MasonryList
                 image={record => Array.isArray(record?.image) ? record?.image?.[0] : record?.image}
