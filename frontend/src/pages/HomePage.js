@@ -1,6 +1,6 @@
 import React from 'react';
 import { ListBase, ShowContextProvider, useShowController } from 'react-admin';
-import { MasonryList } from '@semapps/archipelago-layout';
+import { MasonryList,SimpleList } from '@semapps/archipelago-layout';
 import { makeStyles } from '@material-ui/core/styles';
 import CardMedia from '@material-ui/core/CardMedia';
 import Paper from '@material-ui/core/Paper';
@@ -95,9 +95,9 @@ const HomePage = () => {
           <Paper classes={mainImageStyles}>
             <Box component="div" display="inline" classes={mainTextStyles}>
               Pratts-de-Mollo-la-Preste,
-              un territoire rural des Pyrénées 
+              un territoire rural des Pyrénées
               Orientales en transition
-              pour devenir 100% autonome en 
+              pour devenir 100% autonome en
               énergies durables d’ici 2022.
             </Box>
           </Paper>
@@ -135,7 +135,7 @@ const HomePage = () => {
           </Paper>
         </Grid>
       </Grid>
-      
+
       <Grid container spacing={0}>
         <Grid item sm={5} classes={mainGridStyle}>
           <Paper classes={mainImageStyles}>
@@ -151,12 +151,7 @@ const HomePage = () => {
                 <PageShow {...config4} />
               </ShowContextProvider>            </Box>
             <ListBase resource="News" basePath="/News" perPage={4}>
-              <MasonryList
-                image={record => Array.isArray(record?.image) ? record?.image?.[0] : record?.image}
-                content={record => <><div>{record['semapps:title']}</div><div>{record['pair:createdAt']}</div></>}
-                breakpointCols={{ default: 4, 1200: 3, 1000: 2, 700: 1 }}
-                linkType="show"
-              />
+              <SimpleList primaryText={record => record['semapps:title']} secondaryText={record => record['pair:createdAt']} linkType="show" />
             </ListBase>
             <Box classes={divButtonStyle}>
               <Button href="/News" classes={mainButtonStyle}>Voir toutes les actualités</Button>
