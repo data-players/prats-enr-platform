@@ -13,9 +13,9 @@ const config = {
 };
 
 const PageList = props => (
-  <>  
+  <>
     <List {...props}>
-      <SimpleList primaryText={record => record['semapps:title']} leftAvatar={() => <Avatar width="100%"><AnnouncementIcon /></Avatar>} linkType="edit" />
+      <SimpleList primaryText={record => record['semapps:title']} leftAvatar={() => <Avatar width="100%"><AnnouncementIcon /></Avatar>} linkType="show" />
     </List>
   </>
 );

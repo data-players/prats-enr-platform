@@ -1,5 +1,14 @@
 import React from 'react';
-import { ListBase, ShowContextProvider, useShowController } from 'react-admin';
+<<<<<<< HEAD
+import { useShowController, ShowContextProvider } from 'react-admin';
+import { useListController, ListContextProvider } from 'react-admin';
+import { ListBase } from 'react-admin';
+import { MasonryList, LargeLabel } from '@semapps/archipelago-layout';
+import PageShow from "../resources/Page/PageShow";
+import TaskList from "../resources/Task/TaskList";
+import NewsList from "../resources/News/NewsList";
+=======
+import { ListBase } from 'react-admin';
 import { MasonryList } from '@semapps/archipelago-layout';
 import { makeStyles } from '@material-ui/core/styles';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -8,15 +17,41 @@ import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button'
-import PageShow from '../resources/Page/PageShow';
+>>>>>>> 8ba049ca45228294cc2c0a7f1c05b8e62b1c8dd8
 
 const HomePage = () => {
   const config = {
     basePath: '/Page',
-    id: process.env.REACT_APP_MIDDLEWARE_URL + 'pages/demarche',
+    id: process.env.REACT_APP_MIDDLEWARE_URL + 'pages/accueil',
     resource: 'Page'
   };
 
+<<<<<<< HEAD
+  return(
+    <>
+      <ShowContextProvider value={useShowController(config)}>
+        <PageShow {...config} />
+      </ShowContextProvider>
+      <LargeLabel>Les chantiers</LargeLabel>
+      <ListBase resource="Task" basePath="/Task" perPage={4}>
+        <MasonryList
+          image={record => Array.isArray(record?.image) ? record?.image?.[0] : record?.image}
+          content={record => <div>{record['pair:label']}</div>}
+          breakpointCols={{ default: 4, 1200: 3, 1000: 2, 700: 1 }}
+          linkType="show"
+        />
+      </ListBase>
+      <LargeLabel>Les actualités</LargeLabel>
+      <ListBase resource="News" basePath="/News" perPage={4}>
+        <MasonryList
+          image={record => Array.isArray(record?.image) ? record?.image?.[0] : record?.image}
+          content={record => <div>{record['semapps:title']}</div>}
+          breakpointCols={{ default: 4, 1200: 3, 1000: 2, 700: 1 }}
+          linkType="show"
+        />
+      </ListBase>
+
+=======
   const config2 = {
     basePath: '/Task',
     resource: 'Task'
@@ -27,11 +62,6 @@ const HomePage = () => {
     resource: 'News'
   };
 
-  const config4 = {
-    basePath: '/Page',
-    id: process.env.REACT_APP_MIDDLEWARE_URL + 'pages/actualite-intro',
-    resource: 'Page'
-  };
   const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
@@ -113,7 +143,6 @@ const HomePage = () => {
           </Card>
         </Grid>
       </Grid>
-
       <Grid container spacing={0}>
         <Grid item sm={5} classes={mainGridStyle}>
           <Paper classes={mainImageStyles}>
@@ -125,9 +154,10 @@ const HomePage = () => {
         <Grid item sm={7}>
           <Paper classes={mainImageStyles}>
             <Box component="div" display="inline" classes={mainTextStyles}>
-              <ShowContextProvider value={useShowController(config)}>
-                <PageShow {...config} />
-              </ShowContextProvider>
+            Se rendre autonome en électricité à partir 
+            d'énergies renouvelables, de nombreux sites, 
+            en France et dans le monde, sont en passe de le 
+            réaliser. Le projet Prats'EnR est beaucoup plus ambitieux.
             </Box>
             <Box classes={divButtonStyle}>
               <Button href="/Page/demarche/show" classes={mainButtonStyle}>En savoir plus</Button>
@@ -135,7 +165,6 @@ const HomePage = () => {
           </Paper>
         </Grid>
       </Grid>
-      
       <Grid container spacing={0}>
         <Grid item sm={5} classes={mainGridStyle}>
           <Paper classes={mainImageStyles}>
@@ -147,9 +176,8 @@ const HomePage = () => {
         <Grid item sm={7}>
           <Paper classes={mainImageStyles}>
             <Box component="div" display="inline" classes={mainTextStyles}>
-              <ShowContextProvider value={useShowController(config4)}>
-                <PageShow {...config4} />
-              </ShowContextProvider>            </Box>
+            Phrase de description de la page. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.
+            </Box>
             <ListBase resource="News" basePath="/News" perPage={4}>
               <MasonryList
                 image={record => Array.isArray(record?.image) ? record?.image?.[0] : record?.image}
@@ -164,6 +192,7 @@ const HomePage = () => {
           </Paper>
         </Grid>
       </Grid>
+>>>>>>> 8ba049ca45228294cc2c0a7f1c05b8e62b1c8dd8
     </>
   );
 };
