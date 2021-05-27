@@ -1,14 +1,13 @@
 import React from 'react';
-import { useShowController, ShowContextProvider, TextField } from 'react-admin';
 import { ListBase } from 'react-admin';
-import { MasonryList, LargeLabel } from '@semapps/archipelago-layout';
-import PageShow from "../resources/Page/PageShow";
+import { MasonryList } from '@semapps/archipelago-layout';
 import { makeStyles } from '@material-ui/core/styles';
 import CardMedia from '@material-ui/core/CardMedia';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
 import Box from '@material-ui/core/Box';
+import Button from '@material-ui/core/Button'
 
 const HomePage = () => {
   const config = {
@@ -51,7 +50,6 @@ const HomePage = () => {
   const mainGrid = makeStyles({
     root: {
       maxHeight: "416px",
-      
     }
   })
 
@@ -65,9 +63,23 @@ const HomePage = () => {
     },
   });
 
+  const divButton = makeStyles({
+    root: {
+      paddingTop: "50px",
+    }
+  });
+
+  const mainButton = makeStyles({
+    root: {
+      border: "2px solid #FCC72C",
+    }
+  });
+
   const mainImageStyles = mainImage();
   const mainTextStyles = mainText();
   const mainGridStyle = mainGrid();
+  const divButtonStyle = divButton()
+  const mainButtonStyle = mainButton();
   const urlImage = "https://upload.wikimedia.org/wikipedia/commons/4/49/Prats-de-Moll%C3%B3-la_Preste%2C_Eglise_Saintes_Juste_et_Ruffine-PM_47091.jpg";
 
   return(
@@ -84,7 +96,7 @@ const HomePage = () => {
             </Box>
           </Paper>
         </Grid>
-        <Grid item xs={7}>
+        <Grid item sm={7}>
           <Card sx={{ maxWidth: 345 }} >
             <CardMedia
               sx={{ height: 140 }}
@@ -95,19 +107,55 @@ const HomePage = () => {
           </Card>
         </Grid>
       </Grid>
-      <ShowContextProvider value={useShowController(config)}>
-        <PageShow title="Accueil" {...config} />
-      </ShowContextProvider>
-      <LargeLabel>Les actualités</LargeLabel>
-      <ListBase resource="News" basePath="/News" perPage={4}>
-        <MasonryList
-          image={record => Array.isArray(record?.image) ? record?.image?.[0] : record?.image}
-          content={record => <><div>{record['semapps:title']}</div><div>{record['pair:createdAt']}</div></>}
-          breakpointCols={{ default: 4, 1200: 3, 1000: 2, 700: 1 }}
-          linkType="show"
-        />
-      </ListBase>
-
+      <Grid container spacing={0}>
+        <Grid item sm={5} classes={mainGridStyle}>
+          <Paper classes={mainImageStyles}>
+            <Box component="div" display="inline" classes={mainTextStyles}>
+              La démarche
+            </Box>
+          </Paper>
+        </Grid>
+        <Grid item sm={7}>
+          <Paper classes={mainImageStyles}>
+            <Box component="div" display="inline" classes={mainTextStyles}>
+            Se rendre autonome en électricité à partir 
+            d'énergies renouvelables, de nombreux sites, 
+            en France et dans le monde, sont en passe de le 
+            réaliser. Le projet Prats'EnR est beaucoup plus ambitieux.
+            </Box>
+            <Box classes={divButtonStyle}>
+              <Button href="/Page/demarche/show" classes={mainButtonStyle}>En savoir plus</Button>
+            </Box>
+          </Paper>
+        </Grid>
+      </Grid>
+      <Grid container spacing={0}>
+        <Grid item sm={5} classes={mainGridStyle}>
+          <Paper classes={mainImageStyles}>
+            <Box component="div" display="inline" classes={mainTextStyles}>
+              Actualités
+            </Box>
+          </Paper>
+        </Grid>
+        <Grid item sm={7}>
+          <Paper classes={mainImageStyles}>
+            <Box component="div" display="inline" classes={mainTextStyles}>
+            Phrase de description de la page. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.
+            </Box>
+            <ListBase resource="News" basePath="/News" perPage={4}>
+              <MasonryList
+                image={record => Array.isArray(record?.image) ? record?.image?.[0] : record?.image}
+                content={record => <><div>{record['semapps:title']}</div><div>{record['pair:createdAt']}</div></>}
+                breakpointCols={{ default: 4, 1200: 3, 1000: 2, 700: 1 }}
+                linkType="show"
+              />
+            </ListBase>
+            <Box classes={divButtonStyle}>
+              <Button href="/News" classes={mainButtonStyle}>Voir toutes les actualités</Button>
+            </Box>
+          </Paper>
+        </Grid>
+      </Grid>
     </>
   );
 };

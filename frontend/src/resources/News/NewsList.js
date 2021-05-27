@@ -8,15 +8,12 @@ import PageShow from '../Page/PageShow';
 
 const config = {
   basePath: '/Page',
-  id: process.env.REACT_APP_MIDDLEWARE_URL + 'pages/actu',
+  id: process.env.REACT_APP_MIDDLEWARE_URL + 'News',
   resource: 'Page'
 };
 
 const PageList = props => (
-  <>
-    <ShowContextProvider value={useShowController(config)}>
-      <PageShow {...config} />
-    </ShowContextProvider>    
+  <>  
     <List {...props}>
       <SimpleList primaryText={record => record['semapps:title']} leftAvatar={() => <Avatar width="100%"><AnnouncementIcon /></Avatar>} linkType="edit" />
     </List>

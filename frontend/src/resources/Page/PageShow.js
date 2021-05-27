@@ -5,6 +5,7 @@ import { MainList, Show } from '@semapps/archipelago-layout';
 import MarkdownField from "../../markdown/MarkdownField";
 import PageTitle from './PageTitle';
 import useDoubleClick from "../../layout/useDoubleClick";
+import { TextField } from 'ra-ui-materialui';
 
 const useStyles = makeStyles(() => ({
   card: {
