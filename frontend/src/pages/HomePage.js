@@ -1,6 +1,6 @@
 import React from 'react';
 import { ListBase, ShowContextProvider, useShowController } from 'react-admin';
-import { MasonryList,SimpleList } from '@semapps/archipelago-layout';
+import { SimpleList } from '@semapps/archipelago-layout';
 import { makeStyles } from '@material-ui/core/styles';
 import CardMedia from '@material-ui/core/CardMedia';
 import Paper from '@material-ui/core/Paper';
@@ -45,8 +45,18 @@ const HomePage = () => {
 
   const mainImage = makeStyles({
     root: {
+      height:"416px",
       objectFit: 'cover',
-      height :'416px',
+      paddingTop :"80px",
+      paddingLeft : "32px",
+      paddingRight : "32px",
+    },
+  });
+
+  const paper = makeStyles({
+    root: {
+      height:"100%",
+      objectFit: 'cover',
       paddingTop :"80px",
       paddingLeft : "32px",
       paddingRight : "32px",
@@ -55,7 +65,6 @@ const HomePage = () => {
 
   const mainGrid = makeStyles({
     root: {
-      maxHeight: "416px",
     }
   })
 
@@ -83,6 +92,7 @@ const HomePage = () => {
 
   const mainImageStyles = mainImage();
   const mainTextStyles = mainText();
+  const paperStyle = paper();
   const mainGridStyle = mainGrid();
   const divButtonStyle = divButton()
   const mainButtonStyle = mainButton();
@@ -92,7 +102,7 @@ const HomePage = () => {
     <>
       <Grid container spacing={0}>
         <Grid item sm={5} classes={mainGridStyle}>
-          <Paper classes={mainImageStyles}>
+          <Paper classes={paperStyle}>
             <Box component="div" display="inline" classes={mainTextStyles}>
               Pratts-de-Mollo-la-Preste,
               un territoire rural des Pyrénées
@@ -116,14 +126,14 @@ const HomePage = () => {
 
       <Grid container spacing={0}>
         <Grid item sm={5} classes={mainGridStyle}>
-          <Paper classes={mainImageStyles}>
+          <Paper classes={paperStyle}>
             <Box component="div" display="inline" classes={mainTextStyles}>
               La démarche
             </Box>
           </Paper>
         </Grid>
         <Grid item sm={7}>
-          <Paper classes={mainImageStyles}>
+          <Paper classes={paperStyle}>
             <Box component="div" display="inline" classes={mainTextStyles}>
               <ShowContextProvider value={useShowController(config)}>
                 <PageShow {...config} />
@@ -138,14 +148,14 @@ const HomePage = () => {
 
       <Grid container spacing={0}>
         <Grid item sm={5} classes={mainGridStyle}>
-          <Paper classes={mainImageStyles}>
+          <Paper classes={paperStyle}>
             <Box component="div" display="inline" classes={mainTextStyles}>
               Actualités
             </Box>
           </Paper>
         </Grid>
         <Grid item sm={7}>
-          <Paper classes={mainImageStyles}>
+          <Paper classes={paperStyle}>
             <Box component="div" display="inline" classes={mainTextStyles}>
               <ShowContextProvider value={useShowController(config4)}>
                 <PageShow {...config4} />
