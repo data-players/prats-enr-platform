@@ -1,5 +1,5 @@
 import React from 'react';
-import { ListBase } from 'react-admin';
+import { ListBase, ShowContextProvider, useShowController } from 'react-admin';
 import { MasonryList } from '@semapps/archipelago-layout';
 import { makeStyles } from '@material-ui/core/styles';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -8,6 +8,7 @@ import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button'
+import PageShow from '../resources/Page/PageShow';
 
 const HomePage = () => {
   const config = {
@@ -118,10 +119,9 @@ const HomePage = () => {
         <Grid item sm={7}>
           <Paper classes={mainImageStyles}>
             <Box component="div" display="inline" classes={mainTextStyles}>
-            Se rendre autonome en électricité à partir 
-            d'énergies renouvelables, de nombreux sites, 
-            en France et dans le monde, sont en passe de le 
-            réaliser. Le projet Prats'EnR est beaucoup plus ambitieux.
+              <ShowContextProvider value={useShowController(config)}>
+                <PageShow {...config} />
+              </ShowContextProvider>
             </Box>
             <Box classes={divButtonStyle}>
               <Button href="/Page/demarche/show" classes={mainButtonStyle}>En savoir plus</Button>
