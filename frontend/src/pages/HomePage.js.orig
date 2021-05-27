@@ -1,4 +1,13 @@
 import React from 'react';
+<<<<<<< HEAD
+import { useShowController, ShowContextProvider } from 'react-admin';
+import { useListController, ListContextProvider } from 'react-admin';
+import { ListBase } from 'react-admin';
+import { MasonryList, LargeLabel } from '@semapps/archipelago-layout';
+import PageShow from "../resources/Page/PageShow";
+import TaskList from "../resources/Task/TaskList";
+import NewsList from "../resources/News/NewsList";
+=======
 import { ListBase } from 'react-admin';
 import { MasonryList } from '@semapps/archipelago-layout';
 import { makeStyles } from '@material-ui/core/styles';
@@ -8,14 +17,41 @@ import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button'
+>>>>>>> 8ba049ca45228294cc2c0a7f1c05b8e62b1c8dd8
 
 const HomePage = () => {
   const config = {
     basePath: '/Page',
-    id: process.env.REACT_APP_MIDDLEWARE_URL + 'pages/demarche',
+    id: process.env.REACT_APP_MIDDLEWARE_URL + 'pages/accueil',
     resource: 'Page'
   };
 
+<<<<<<< HEAD
+  return(
+    <>
+      <ShowContextProvider value={useShowController(config)}>
+        <PageShow {...config} />
+      </ShowContextProvider>
+      <LargeLabel>Les chantiers</LargeLabel>
+      <ListBase resource="Task" basePath="/Task" perPage={4}>
+        <MasonryList
+          image={record => Array.isArray(record?.image) ? record?.image?.[0] : record?.image}
+          content={record => <div>{record['pair:label']}</div>}
+          breakpointCols={{ default: 4, 1200: 3, 1000: 2, 700: 1 }}
+          linkType="show"
+        />
+      </ListBase>
+      <LargeLabel>Les actualités</LargeLabel>
+      <ListBase resource="News" basePath="/News" perPage={4}>
+        <MasonryList
+          image={record => Array.isArray(record?.image) ? record?.image?.[0] : record?.image}
+          content={record => <div>{record['semapps:title']}</div>}
+          breakpointCols={{ default: 4, 1200: 3, 1000: 2, 700: 1 }}
+          linkType="show"
+        />
+      </ListBase>
+
+=======
   const config2 = {
     basePath: '/Task',
     resource: 'Task'
@@ -156,6 +192,7 @@ const HomePage = () => {
           </Paper>
         </Grid>
       </Grid>
+>>>>>>> 8ba049ca45228294cc2c0a7f1c05b8e62b1c8dd8
     </>
   );
 };
