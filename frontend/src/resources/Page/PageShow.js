@@ -22,14 +22,9 @@ const PageShow = props => {
   const resourceId = props.id.startsWith(process.env.REACT_APP_MIDDLEWARE_URL) ? props.id : process.env.REACT_APP_MIDDLEWARE_URL + 'pages/' + props.id;
   return (
     <Show title={<PageTitle />} classes={{ card: classes.card }} {...props} id={resourceId} hasEdit={false} hasList={false}>
-      <>
-        <Box ref={refCallback}>
-          <MainList>
-            <Typography variant="h3" color="primary" component="h1" id="react-admin-title" />
-            <MarkdownField source="semapps:content" addLabel={false} />
-          </MainList>
-        </Box>
-      </>
+      <MainList>
+        <MarkdownField source="semapps:content" addLabel={false} />
+      </MainList>
     </Show>
   );
 }

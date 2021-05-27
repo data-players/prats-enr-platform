@@ -62,7 +62,6 @@ const Layout = ({ appBar, logout, theme, children }) => {
       <SideMenu menuItems={menuItems} sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
       {React.cloneElement(appBar, { logout, menuItems, setSidebarOpen })}
       <Container maxWidth="lg" disableGutters={xs}>
-        <Typography variant="h4" color="primary" className={classes.title} id="react-admin-title" component="h1" />
         <Box mb={{ xs: 1, sm: 2 }} mt={{ xs: 5, sm: 0 }}>{children}</Box>
         <Box mb={{ xs: 1, sm: 3 }} mr={{ xs: 2, sm: 0 }}>
           <Typography variant="subtitle2" color="textSecondary" align="right" >
