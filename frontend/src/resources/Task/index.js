@@ -26,6 +26,7 @@ export default {
       fields: {
         'pair:label': 'Titre',
         'pair:description': 'Contenu',
+        'pair:hasLocation' : 'Lieu',
       }
     }
   }

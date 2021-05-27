@@ -61,7 +61,8 @@ module.exports = [
   },
   {
     path: '/task',
-    acceptedTypes: 'pair:Task'
+    acceptedTypes: 'pair:Task',
+    dereference: ['pair:hasLocation/pair:hasPostalAddress'],
   },
   {
     path: '/pages'

@@ -4,7 +4,6 @@ import { Container, Box, useMediaQuery, ThemeProvider, makeStyles, Typography } 
 import AppBar from './AppBar';
 import ScrollToTop from './ScrollToTop';
 import SideMenu from './SideMenu';
-import TwitterIcon from '@material-ui/icons/Twitter';
 
 const useStyles = makeStyles(theme => ({
   hero: {
@@ -46,11 +45,11 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const menuItems = {
-  '/Page/projet/show': 'Le projet',
+  '/Page/demarche/show': 'La Démarche',
   '/News': 'Les actualités',
-  '/Task': 'Les chantiers',
-  '/Person': 'Portraits',
-  '/Page/ressources/show': 'Ressources',
+  // '/Task': 'Les chantiers',
+  // '/Person': 'Portraits',
+  // '/Page/ressources/show': 'Ressources',
 };
 
 const Layout = ({ appBar, logout, theme, children }) => {
