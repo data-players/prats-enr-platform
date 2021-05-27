@@ -15,7 +15,7 @@ const NewsShow = props => (
   <Show title={<NewsTitle />} {...props}>
     <MainList>
       <Title source="semapps:title"/>
-      <MarkdownField source="semapps:content" />
+      <MarkdownField source="semapps:content" addLabel={false}/>
     </MainList>
   </Show>
 );
