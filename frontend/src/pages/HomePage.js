@@ -91,7 +91,7 @@ const HomePage = () => {
   return(
     <>
       <Grid container spacing={0}>
-        <Grid item sm={5} classes={mainGridStyle}>
+        <Grid item sm={5} classes={mainGridStyle} xs={12}>
           <Paper classes={mainImageStyles}>
             <Box component="div" display="inline" classes={mainTextStyles}>
               Pratts-de-Mollo-la-Preste,
@@ -102,10 +102,9 @@ const HomePage = () => {
             </Box>
           </Paper>
         </Grid>
-        <Grid item sm={7}>
-          <Card sx={{ maxWidth: 345 }} >
+        <Grid item sm={7} xs={12}>
+          <Card>
             <CardMedia
-              sx={{ height: 140 }}
               image={urlImage}
               title="Contemplative Reptile"
               classes={mainImageStyles}
@@ -115,14 +114,14 @@ const HomePage = () => {
       </Grid>
 
       <Grid container spacing={0}>
-        <Grid item sm={5} classes={mainGridStyle}>
+        <Grid item sm={5} classes={mainGridStyle} xs={12}>
           <Paper classes={mainImageStyles}>
             <Box component="div" display="inline" classes={mainTextStyles}>
               La démarche
             </Box>
           </Paper>
         </Grid>
-        <Grid item sm={7}>
+        <Grid item sm={7} xs={12}>
           <Paper classes={mainImageStyles}>
             <Box component="div" display="inline" classes={mainTextStyles}>
               <ShowContextProvider value={useShowController(config)}>
@@ -137,15 +136,15 @@ const HomePage = () => {
       </Grid>
 
       <Grid container spacing={0}>
-        <Grid item sm={5} classes={mainGridStyle}>
+        <Grid item sm={5} classes={mainGridStyle} xs={12}>
           <Paper classes={mainImageStyles}>
             <Box component="div" display="inline" classes={mainTextStyles}>
               Actualités
             </Box>
           </Paper>
         </Grid>
-        <Grid item sm={7}>
-          <Paper classes={mainImageStyles}>
+        <Grid item sm={7} xs={12}>
+          <Paper classes={mainImageStyles} >
             <Box component="div" display="inline" classes={mainTextStyles}>
               <ShowContextProvider value={useShowController(config4)}>
                 <PageShow {...config4} />
