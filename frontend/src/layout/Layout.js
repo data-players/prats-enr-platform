@@ -45,8 +45,8 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const menuItems = {
-  '/Page/demarche/show': 'La Démarche',
-  '/News': 'Les actualités',
+  '/Page/demarche/show': 'Démarche',
+  '/News': 'Actualités',
   // '/Task': 'Les chantiers',
   // '/Person': 'Portraits',
   // '/Page/ressources/show': 'Ressources',
@@ -61,9 +61,9 @@ const Layout = ({ appBar, logout, theme, children }) => {
       <ScrollToTop />
       <SideMenu menuItems={menuItems} sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
       {React.cloneElement(appBar, { logout, menuItems, setSidebarOpen })}
-      <Container maxWidth="lg" disableGutters={xs}>
-        <Box mb={{ xs: 1, sm: 2 }} mt={{ xs: 5, sm: 0 }}>{children}</Box>
-        <Box mb={{ xs: 1, sm: 3 }} mr={{ xs: 2, sm: 0 }}>
+      <Container maxWidth="lg">
+        <Box >{children}</Box>
+        <Box>
           <Typography variant="subtitle2" color="textSecondary" align="right" >
             <a href="https://www.virtual-assembly.org/semapps/" target="_blank" rel="noopener noreferrer" className={classes.footerLink}>Plateforme collaborative propulsée par SemApps</a>
             &nbsp;&nbsp;|&nbsp;&nbsp;

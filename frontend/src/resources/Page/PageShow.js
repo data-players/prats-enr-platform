@@ -9,7 +9,11 @@ import useDoubleClick from "../../layout/useDoubleClick";
 
 const useStyles = makeStyles(() => ({
   card: {
-    paddingTop: 0
+    paddingTop: 10,
+    boxShadow : 'none'
+  },
+  main: {
+    marginTop: 0,
   }
 }));
 
@@ -21,7 +25,7 @@ const PageShow = props => {
   });
   const resourceId = props.id.startsWith(process.env.REACT_APP_MIDDLEWARE_URL) ? props.id : process.env.REACT_APP_MIDDLEWARE_URL + 'pages/' + props.id;
   return (
-    <Show title={<PageTitle />} classes={{ card: classes.card }} {...props} id={resourceId} hasEdit={false} hasList={false}>
+    <Show title={<PageTitle />} classes={classes} {...props} id={resourceId} hasEdit={false} hasList={false}>
       <MainList>
         <MarkdownField source="semapps:content" addLabel={false} />
       </MainList>
