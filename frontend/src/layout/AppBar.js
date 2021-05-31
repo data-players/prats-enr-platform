@@ -4,6 +4,9 @@ import MenuIcon from '@material-ui/icons/Menu';
 import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
+  bar: {
+    background : theme.palette.primary.light
+  },
   header: {
     position: 'relative',
     padding: 10,
@@ -26,7 +29,7 @@ const useStyles = makeStyles(theme => ({
   logoText: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: theme.palette.primary.text,
+    color: theme.palette.text.primary,
     // verticalAlign: 'middle',
     [theme.breakpoints.down('sm')]: {
       fontSize: 18,
@@ -43,10 +46,10 @@ const useStyles = makeStyles(theme => ({
     fontSize: 18,
     textAlign: 'center',
     lineHeight: 1,
-    color: theme.palette.primary.text
+    color: theme.palette.text.primary
   },
   menuButton: {
-    borderColor: theme.palette.primary.dark,
+    borderColor: theme.palette.text.primary,
   }
 }));
 
@@ -54,7 +57,7 @@ const AppBar = ({ menuItems, setSidebarOpen }) => {
   const classes = useStyles();
   const xs = useMediaQuery(theme => theme.breakpoints.down('xs'));
   return (
-    <MuiAppBar position="sticky">
+    <MuiAppBar position="sticky" className={classes.bar}>
       <Container maxWidth="lg" className={classes.header}>
         <Grid container>
           <Grid item sm={4} xs={10} className={classes.logoArea}>
