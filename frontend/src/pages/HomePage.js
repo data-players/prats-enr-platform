@@ -1,11 +1,11 @@
 import React from 'react';
 import { ListBase, ShowContextProvider, useShowController } from 'react-admin';
 import { SimpleList } from '@semapps/archipelago-layout';
-import { makeStyles } from '@material-ui/core/styles';
+import  createTheme from '@material-ui/core/styles/createTheme';
+import { makeStyles } from '@material-ui/core';
 import CardMedia from '@material-ui/core/CardMedia';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import Card from '@material-ui/core/Card';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button'
 import PageShow from '../resources/Page/PageShow';
@@ -33,10 +33,6 @@ const HomePage = () => {
     resource: 'Page'
   };
 
-  makeStyles(theme => ({
-
-  }))
-
   const mainImage = makeStyles(theme => ({
     root: {
       height:"416px",
@@ -56,27 +52,49 @@ const HomePage = () => {
   }));
 
 
-  const paper = makeStyles({
-    root: {
+  const main = makeStyles({
+    paper : {
       height:"100%",
-      boxSizing: "border-box",
-      padding : "32px"
+      padding : "32px",
+      borderTop: "solid",
+      border: 'none'
+    },
+    paperUp : {
+      height:"100%",
+      padding : "32px",
+      border: 'none'
+    },
+    griditem: {
+      boxShadow: ""
+    },
+    gridContainer: {
+      border: "solid",
+    },
+    eventList: {
+      paddingLeft: "25px"
     },
   });
 
+  const theme = createTheme();
+
   const mainText = makeStyles({
     root: {
+      [theme.breakpoints.down("sm")]: {
+        fontSize: "18px"
+      },
       fontSize: "32px",
       fontFamily: "SF UI Text",
       fontStyle: "normal",
       fontWeight: "normal",
       lineHeight: "125%",
+      fontFamily: "SF UI Text"
     },
   });
 
   const divButton = makeStyles({
     root: {
       paddingTop: "50px",
+      paddingLeft: "25px"
     }
   });
 
@@ -88,17 +106,17 @@ const HomePage = () => {
 
   const mainImageStyles = mainImage();
   const mainTextStyles = mainText();
-  const paperStyle = paper();
+  const mainStyle = main();
   const divButtonStyle = divButton()
   const mainButtonStyle = mainButton();
   const gridItemImageStyle =gridItemImage();
   const urlImage = "https://upload.wikimedia.org/wikipedia/commons/4/49/Prats-de-Moll%C3%B3-la_Preste%2C_Eglise_Saintes_Juste_et_Ruffine-PM_47091.jpg";
 
   return(
-    <Grid container spacing={0}>
+    <Grid container spacing={0} className={mainStyle.gridContainer} >
       <Grid item md={5} sm={12} >
-        <Paper classes={paperStyle} variant="outlined" square>
-          <Box component="div" display="inline" classes={mainTextStyles}>
+        <Paper className={mainStyle.paperUp} variant="outlined" square>
+          <Box component="div" display="inline" classes={mainTextStyles} >
             Pratts-de-Mollo-la-Preste,
             un territoire rural des Pyrénées
             Orientales en transition
@@ -108,7 +126,7 @@ const HomePage = () => {
         </Paper>
       </Grid>
       <Grid item md={7} sm={12} classes={gridItemImageStyle}>
-        <Paper variant="outlined" square>
+        <Paper   square>
             <CardMedia
               image={urlImage}
               title="village"
@@ -116,15 +134,15 @@ const HomePage = () => {
             />
         </Paper>
       </Grid>
-      <Grid item sm={5} xs={12} >
-        <Paper classes={paperStyle} variant="outlined" square>
+      <Grid item sm={5} xs={12} className={mainImageStyles.griditem}>
+        <Paper className={mainStyle.paper} variant="outlined" square>
           <Box component="div" display="inline" classes={mainTextStyles}>
             La démarche
           </Box>
         </Paper>
       </Grid>
       <Grid item sm={7} xs={12}>
-        <Paper classes={paperStyle} variant="outlined" square>
+        <Paper className={mainStyle.paper} variant="outlined" square>
           <Box component="div" display="inline" classes={mainTextStyles}>
             <ShowContextProvider value={useShowController(config)}>
               <PageShow {...config} />
@@ -136,21 +154,21 @@ const HomePage = () => {
         </Paper>
       </Grid>
       <Grid item sm={5} xs={12}>
-        <Paper classes={paperStyle} variant="outlined" square>
+        <Paper className={mainStyle.paper} variant="outlined" square>
           <Box component="div" display="inline" classes={mainTextStyles}>
             Actualités
           </Box>
         </Paper>
       </Grid>
       <Grid item sm={7} xs={12}>
-        <Paper classes={paperStyle} variant="outlined" square>
+        <Paper className={mainStyle.paper} variant="outlined" square>
           <Box component="div" display="inline" classes={mainTextStyles}>
             <ShowContextProvider value={useShowController(config4)}>
               <PageShow {...config4} />
             </ShowContextProvider>
           </Box>
-          <ListBase resource="News" basePath="/News" perPage={4}>
-            <SimpleList primaryText={record => record['semapps:title']} secondaryText={record => record['pair:createdAt']} linkType="show" />
+          <ListBase resource="News" basePath="/News"  perPage={4}>
+            <SimpleList primaryText={record => record['semapps:title']} secondaryText={record => record['pair:createdAt']} linkType="show" className={mainStyle.eventList}/>
           </ListBase>
           <Box classes={divButtonStyle}>
             <Button href="/News" classes={mainButtonStyle}>Voir toutes les actualités</Button>

@@ -5,11 +5,13 @@ import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
   bar: {
-    background : theme.palette.primary.light
+    background : theme.palette.primary.light,
   },
   header: {
     position: 'relative',
-    padding: 10,
+    padding: 0,
+    height:64
+    
   },
   logo: {
     width: 48,
@@ -76,10 +78,10 @@ const AppBar = ({ menuItems, setSidebarOpen }) => {
                 <MenuIcon />
               </IconButton>
             ) : (
-            <Grid container justify="flex-end" spacing={3}>
+            <Grid container justify="flex-end" spacing={0}>
               {Object.keys(menuItems).map(link => (
-                <Grid item md={2} sm={4} key={link}>
-                  <Box display="flex" height={48} alignItems="center" justifyContent="center" border={1} className={classes.menuButton}>
+                <Grid item md={2} sm={4} xs={2} key={link} >
+                  <Box display="flex" height={64} alignItems="center" justifyContent="center" border={1} className={classes.menuButton}>
                     <Link to={link} className={classes.menuLink}>
                       <Typography className={classes.menuText}>
                         {menuItems[link].split('\n').map((item, key) => (
