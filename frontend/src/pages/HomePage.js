@@ -75,10 +75,10 @@ const HomePage = () => {
       boxShadow: ""
     },
     gridContainer: {
-      border: "solid",
-      borderWidth :"2px",
-      borderColor : "grey",
-      borderTopStyle : "none"
+      // border: "solid",
+      // borderWidth :"2px",
+      // borderColor : "grey",
+      // borderTopStyle : "none"
     },
     eventList: {
       paddingLeft: "25px"

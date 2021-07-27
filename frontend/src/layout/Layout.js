@@ -52,7 +52,11 @@ const useStyles = makeStyles(theme => ({
 
 const useContainerStyles = makeStyles(theme => ({
   root:{
-    padding:"0px"
+    padding:"0px",
+    border:"solid",
+    borderTopStyle:"none",
+    borderColor:"grey",
+    borderWidth:"2px"
   }
 }));
 
@@ -86,10 +90,11 @@ const Layout = ({ appBar, logout, theme, children ,dashboard}) => {
             }}/>
           </Box>
         }
-
-
         <BreadcrumbsItem style={{'text-decoration': 'none', 'color':'black'}} to='/'>Accueil</BreadcrumbsItem>
         <Box >{children}</Box>
+
+      </Container>
+      <Container maxWidth="lg">
         <Box>
           <Link to="/Page/mentions-legales/show" className={classes.footerLink}>
             <Typography variant="subtitle2" color="textSecondary" align="right" >
@@ -98,6 +103,7 @@ const Layout = ({ appBar, logout, theme, children ,dashboard}) => {
           </Link>
         </Box>
       </Container>
+
       {/* Required for react-admin optimistic update */}
       <Notification />
     </ThemeProvider>
