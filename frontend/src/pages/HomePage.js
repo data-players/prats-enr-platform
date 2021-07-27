@@ -55,9 +55,9 @@ const HomePage = () => {
 
   const main = makeStyles({
     paper : {
-      height:"100%",
       padding : "32px",
       borderTop: "solid",
+      borderWidth :"2px",
       border: 'none'
     },
     paperUp : {
@@ -69,6 +69,9 @@ const HomePage = () => {
     },
     gridContainer: {
       border: "solid",
+      borderWidth :"2px",
+      borderColor : "grey",
+      borderTopStyle : "none"
     },
     eventList: {
       paddingLeft: "25px"
@@ -128,7 +131,7 @@ const HomePage = () => {
       <Grid item md={5} sm={12} >
         <Paper className={mainStyle.paperUp} variant="outlined" square>
           <Box component="div" display="inline" classes={mainTextStyles} >
-            Pratts-de-Mollo-la-Preste,
+            Prats-de-Mollo-la-Preste,
             un territoire rural des Pyrénées
             Orientales en transition
             pour devenir 100% autonome en

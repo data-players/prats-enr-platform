@@ -6,12 +6,17 @@ import { Link } from 'react-router-dom';
 const useStyles = makeStyles(theme => ({
   bar: {
     background : theme.palette.primary.light,
+    maxWidth: "1280px",
+    margin: "auto",
+    borderStyle:"solid",
+    borderColor:"grey",
+    borderWidth:"2px"
   },
   header: {
-    position: 'relative',
+    // position: 'relative',
     padding: 0,
-    height:64
-    
+    // height:64
+
   },
   logo: {
     width: 48,
@@ -30,7 +35,7 @@ const useStyles = makeStyles(theme => ({
   },
   logoText: {
     fontSize: 20,
-    fontWeight: 'bold',
+    // fontWeight: 'bold',
     color: theme.palette.text.primary,
     // verticalAlign: 'middle',
     [theme.breakpoints.down('sm')]: {
@@ -51,7 +56,11 @@ const useStyles = makeStyles(theme => ({
     color: theme.palette.text.primary
   },
   menuButton: {
-    borderColor: theme.palette.text.primary,
+    // borderColor: theme.palette.text.primary,
+    borderLeftStyle : "solid",
+    borderWidth : "2px",
+    borderColor : "grey"
+
   }
 }));
 
@@ -59,13 +68,13 @@ const AppBar = ({ menuItems, setSidebarOpen }) => {
   const classes = useStyles();
   const xs = useMediaQuery(theme => theme.breakpoints.down('xs'));
   return (
-    <MuiAppBar position="sticky" className={classes.bar}>
+    <MuiAppBar position="sticky" elevation={0} className={classes.bar}>
       <Container maxWidth="lg" className={classes.header}>
         <Grid container>
           <Grid item sm={4} xs={10} className={classes.logoArea}>
             <Link to="/" className={classes.menuLink}>
               {/*<img src={process.env.PUBLIC_URL + '/colibris-blanc.png'} alt="Colibris" className={classes.logo} />*/}
-              <span className={classes.logoText}>Energies de Prats</span>
+              <span className={classes.logoText}>Énergies de Prats</span>
             </Link>
           </Grid>
           <Grid item sm={8} xs={2}>
@@ -81,7 +90,7 @@ const AppBar = ({ menuItems, setSidebarOpen }) => {
             <Grid container justify="flex-end" spacing={0}>
               {Object.keys(menuItems).map(link => (
                 <Grid item md={2} sm={4} xs={2} key={link} >
-                  <Box display="flex" height={64} alignItems="center" justifyContent="center" border={1} className={classes.menuButton}>
+                  <Box display="flex" height={64} alignItems="center" justifyContent="center" className={classes.menuButton}>
                     <Link to={link} className={classes.menuLink}>
                       <Typography className={classes.menuText}>
                         {menuItems[link].split('\n').map((item, key) => (

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Notification, Link } from 'react-admin';
+import { Notification, Link, useResourceContext } from 'react-admin';
 import { Container, Box, useMediaQuery, ThemeProvider, makeStyles, Typography } from '@material-ui/core';
 import AppBar from './AppBar';
 import ScrollToTop from './ScrollToTop';
@@ -8,8 +8,7 @@ import {
   BreadcrumbsProvider,
   Breadcrumbs,
   BreadcrumbsItem
-} from 'react-breadcrumbs-dynamic'
-
+} from 'react-breadcrumbs-dynamic';
 
 const useStyles = makeStyles(theme => ({
   hero: {
@@ -50,6 +49,13 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+
+const useContainerStyles = makeStyles(theme => ({
+  root:{
+    padding:"0px"
+  }
+}));
+
 const menuItems = {
   '/Page/demarche/show': 'Démarche',
   '/News': 'Actualités',
@@ -58,8 +64,13 @@ const menuItems = {
   // '/Page/ressources/show': 'Ressources',
 };
 
-const Layout = ({ appBar, logout, theme, children }) => {
+  // const history = createBrowserHistory();
+
+const Layout = ({ appBar, logout, theme, children ,dashboard}) => {
+
+
   const classes = useStyles();
+  const containerStyles = useContainerStyles()
   const xs = useMediaQuery(theme.breakpoints.down('xs'));
   const [ sidebarOpen, setSidebarOpen] = useState(false);
   return (
@@ -67,19 +78,24 @@ const Layout = ({ appBar, logout, theme, children }) => {
       <ScrollToTop />
       <SideMenu menuItems={menuItems} sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
       {React.cloneElement(appBar, { logout, menuItems, setSidebarOpen })}
-      <Container maxWidth="lg">
-        <div id="breadcrumpContainer" style={{padding:'10px'}}>
-          <Breadcrumbs separator=" / "/>
-        </div>
+      <Container maxWidth="lg" classes={containerStyles}>
+        {window.location.pathname!='/' &&
+          <Box id="breadcrumpContainer" style={{padding:'10px'}}>
+            <Breadcrumbs separator=" / " finalItem="span" finalProps={{
+              style: {color: 'gray'}
+            }}/>
+          </Box>
+        }
+
 
         <BreadcrumbsItem style={{'text-decoration': 'none', 'color':'black'}} to='/'>Accueil</BreadcrumbsItem>
         <Box >{children}</Box>
         <Box>
-          <Typography variant="subtitle2" color="textSecondary" align="right" >
-            <a href="https://www.virtual-assembly.org/semapps/" target="_blank" rel="noopener noreferrer" className={classes.footerLink}>Plateforme collaborative propulsée par SemApps</a>
-            &nbsp;&nbsp;|&nbsp;&nbsp;
-            <Link to="/Page/mentions-legales/show" className={classes.footerLink}>Mentions légales</Link>
-          </Typography>
+          <Link to="/Page/mentions-legales/show" className={classes.footerLink}>
+            <Typography variant="subtitle2" color="textSecondary" align="right" >
+              Mentions légales
+            </Typography>
+          </Link>
         </Box>
       </Container>
       {/* Required for react-admin optimistic update */}

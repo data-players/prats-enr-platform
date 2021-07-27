@@ -6,8 +6,9 @@ import { TextField } from 'ra-ui-materialui';
 import { ShowContextProvider, useShowController } from 'ra-core';
 import PageShow from '../Page/PageShow';
 import {
-  BreadcrumbsItem
-} from 'react-breadcrumbs-dynamic'
+  BreadcrumbsItem,
+  BreadcrumbsItemFinal
+} from '../../common/BreadCrump'
 
 const config = {
   basePath: '/Page',
@@ -17,6 +18,8 @@ const config = {
 
 const PageList = props => (
   <>
+    <BreadcrumbsItem style={{'text-decoration': 'none', 'color':'black'}} to='/News'>Actualités</BreadcrumbsItem>
+
     <List {...props}>
       <SimpleList primaryText={record => record['semapps:title']} leftAvatar={() => <Avatar width="100%"><AnnouncementIcon /></Avatar>} linkType="show" />
     </List>

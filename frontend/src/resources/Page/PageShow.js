@@ -7,8 +7,9 @@ import MarkdownField from "../../markdown/MarkdownField";
 import PageTitle from './PageTitle';
 import useDoubleClick from "../../layout/useDoubleClick";
 import {
-  BreadcrumbsItem
-} from 'react-breadcrumbs-dynamic'
+  BreadcrumbsItem,
+  BreadcrumbsItemFinal
+} from '../../common/BreadCrump'
 
 const useStyles = makeStyles(() => ({
   card: {
@@ -28,14 +29,17 @@ const PageShow = props => {
   // });
   const resourceId = props.id.startsWith(process.env.REACT_APP_MIDDLEWARE_URL) ? props.id : process.env.REACT_APP_MIDDLEWARE_URL + 'pages/' + props.id;
   return (
-    <>
-    
+
       <Show title={<PageTitle />} classes={classes} {...props} id={resourceId} hasEdit={false} hasList={false}>
-        <MainList>
-          <MarkdownField source="semapps:content" addLabel={false} />
-        </MainList>
+        <>
+          <BreadcrumbsItem to='/Page'>Pages</BreadcrumbsItem>
+          <BreadcrumbsItemFinal/>
+          <MainList>
+            <MarkdownField source="semapps:content" addLabel={false} />
+          </MainList>
+        </>
       </Show>
-    </>
+
   );
 }
 
