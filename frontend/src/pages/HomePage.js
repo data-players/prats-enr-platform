@@ -58,6 +58,7 @@ const HomePage = () => {
       padding : "32px",
       borderTop: "solid",
       borderWidth :"2px",
+      borderColor : "grey",
       border: 'none'
     },
     paperUp : {
