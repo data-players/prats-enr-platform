@@ -18,6 +18,12 @@ const HomePage = () => {
     resource: 'Page'
   };
 
+  const configAccueil = {
+    basePath: '/Page',
+    id: process.env.REACT_APP_MIDDLEWARE_URL + 'pages/accueil',
+    resource: 'Page'
+  };
+
   const config2 = {
     basePath: '/Task',
     resource: 'Task'
@@ -132,11 +138,9 @@ const HomePage = () => {
       <Grid item md={5} sm={12} >
         <Paper className={mainStyle.paperUp} variant="outlined" square>
           <Box component="div" display="inline" classes={mainTextStyles} >
-            Prats-de-Mollo-la-Preste,
-            un territoire rural des Pyrénées
-            Orientales en transition
-            pour devenir 100% autonome en
-            énergies durables d’ici 2022.
+            <Show hasEdit={false} classes={mainShowStyle} hasList={false} {...configAccueil}>
+              <MarkdownField source="semapps:content" addLabel={false} />
+            </Show>
           </Box>
         </Paper>
       </Grid>
