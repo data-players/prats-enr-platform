@@ -5,6 +5,9 @@ import AnnouncementIcon from '@material-ui/icons/Announcement';
 import { TextField } from 'ra-ui-materialui';
 import { ShowContextProvider, useShowController } from 'ra-core';
 import PageShow from '../Page/PageShow';
+import {
+  BreadcrumbsItem
+} from 'react-breadcrumbs-dynamic'
 
 const config = {
   basePath: '/Page',

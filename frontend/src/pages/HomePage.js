@@ -1,5 +1,5 @@
 import React from 'react';
-import { ListBase, ShowContextProvider, useShowController } from 'react-admin';
+import { ListBase, ShowContextProvider, useShowController,Show } from 'react-admin';
 import { SimpleList } from '@semapps/archipelago-layout';
 import  createTheme from '@material-ui/core/styles/createTheme';
 import { makeStyles } from '@material-ui/core';
@@ -9,6 +9,7 @@ import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button'
 import PageShow from '../resources/Page/PageShow';
+import MarkdownField from "../markdown/MarkdownField";
 
 const HomePage = () => {
   const config = {
@@ -60,7 +61,6 @@ const HomePage = () => {
       border: 'none'
     },
     paperUp : {
-      height:"100%",
       padding : "32px",
       border: 'none'
     },
@@ -74,6 +74,16 @@ const HomePage = () => {
       paddingLeft: "25px"
     },
   });
+
+  const mainShow = makeStyles(() => ({
+    card: {
+      paddingTop: 0,
+      boxShadow : 'none'
+    },
+    main: {
+      marginTop: 0,
+    }
+  }));
 
   const theme = createTheme();
 
@@ -107,6 +117,7 @@ const HomePage = () => {
   const mainImageStyles = mainImage();
   const mainTextStyles = mainText();
   const mainStyle = main();
+  const mainShowStyle = mainShow();
   const divButtonStyle = divButton()
   const mainButtonStyle = mainButton();
   const gridItemImageStyle =gridItemImage();
@@ -144,9 +155,9 @@ const HomePage = () => {
       <Grid item sm={7} xs={12}>
         <Paper className={mainStyle.paper} variant="outlined" square>
           <Box component="div" display="inline" classes={mainTextStyles}>
-            <ShowContextProvider value={useShowController(config)}>
-              <PageShow {...config} />
-            </ShowContextProvider>
+            <Show hasEdit={false} classes={mainShowStyle} hasList={false} {...config}>
+              <MarkdownField source="semapps:content" addLabel={false} />
+            </Show>
           </Box>
           <Box classes={divButtonStyle}>
             <Button href="/Page/demarche/show" classes={mainButtonStyle}>En savoir plus</Button>
@@ -163,9 +174,9 @@ const HomePage = () => {
       <Grid item sm={7} xs={12}>
         <Paper className={mainStyle.paper} variant="outlined" square>
           <Box component="div" display="inline" classes={mainTextStyles}>
-            <ShowContextProvider value={useShowController(config4)}>
-              <PageShow {...config4} />
-            </ShowContextProvider>
+            <Show hasEdit={false} classes={mainShowStyle} hasList={false} {...config4}>
+              <MarkdownField source="semapps:content" addLabel={false} />
+            </Show>
           </Box>
           <ListBase resource="News" basePath="/News"  perPage={4}>
             <SimpleList primaryText={record => record['semapps:title']} secondaryText={record => record['pair:createdAt']} linkType="show" className={mainStyle.eventList}/>

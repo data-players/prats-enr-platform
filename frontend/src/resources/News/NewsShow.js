@@ -5,6 +5,9 @@ import { MainList, Show} from '@semapps/archipelago-layout';
 import { TextField} from 'react-admin';
 import MarkdownField from "../../markdown/MarkdownField";
 import NewsTitle from './NewsTitle';
+import {
+  BreadcrumbsItem
+} from 'react-breadcrumbs-dynamic'
 
 const Title = ({record,source}) => {
   console.log(record,source);
@@ -12,12 +15,16 @@ const Title = ({record,source}) => {
 }
 
 const NewsShow = props => (
-  <Show title={<NewsTitle />} {...props}>
-    <MainList>
-      <Title source="semapps:title"/>
-      <MarkdownField source="semapps:content" addLabel={false}/>
-    </MainList>
-  </Show>
+  <>
+    <BreadcrumbsItem style={{'text-decoration': 'none', 'color':'black'}} to='/News'>Actualités</BreadcrumbsItem>
+    <Show title={<NewsTitle />} {...props}>
+      <MainList>
+        <Title source="semapps:title"/>
+        <MarkdownField source="semapps:content" addLabel={false}/>
+      </MainList>
+    </Show>
+  </>
+
 );
 
 export default NewsShow;

@@ -10,21 +10,29 @@ import Layout from './layout/Layout';
 import theme from './layout/theme';
 import HomePage from './pages/HomePage';
 
+import {
+  BreadcrumbsProvider,
+  Breadcrumbs,
+  BreadcrumbsItem
+} from 'react-breadcrumbs-dynamic'
+
 const history = createBrowserHistory();
 
 const App = () => (
-  <Admin
-    dataProvider={dataProvider}
-    i18nProvider={i18nProvider}
-    layout={Layout}
-    theme={theme}
-    history={history}
-    dashboard={HomePage}
-  >
-    {Object.entries(resources).map(([key, resource]) => (
-      <Resource key={key} name={key} {...resource.config} />
-    ))}
-  </Admin>
+  <BreadcrumbsProvider>
+    <Admin
+      dataProvider={dataProvider}
+      i18nProvider={i18nProvider}
+      layout={Layout}
+      theme={theme}
+      history={history}
+      dashboard={HomePage}
+    >
+      {Object.entries(resources).map(([key, resource]) => (
+        <Resource key={key} name={key} {...resource.config} />
+      ))}
+    </Admin>
+  </BreadcrumbsProvider>
 );
 
 export default App;

@@ -8,10 +8,16 @@ import {
   MarkdownField,
 } from '@semapps/archipelago-layout';
 import EventTitle from './EventTitle';
+import {
+  BreadcrumbsProvider,
+  Breadcrumbs,
+  BreadcrumbsItem
+} from 'react-breadcrumbs-dynamic'
 
 const EventShow = props => (
   <Show title={<EventTitle />} {...props}>
     <>
+      <BreadcrumbsItem to='/'>Event</BreadcrumbsItem>
       <Hero>
         <DateField source="pair:startDate" showTime />
         <DateField source="pair:endDate" showTime />

@@ -9,8 +9,15 @@ const useStyles = makeStyles(() => ({
   }
 }));
 
+const button = makeStyles({
+  menuButton : {
+    backgroundColor : "red",
+  },
+});
+
 const SideMenu = ({ menuItems, sidebarOpen, setSidebarOpen }) => {
   const classes = useStyles();
+  const buttonStyles = button();
   return (
     <Drawer
       variant="temporary"
@@ -20,6 +27,7 @@ const SideMenu = ({ menuItems, sidebarOpen, setSidebarOpen }) => {
     >
       {Object.keys(menuItems).map(link => (
         <MenuItemLink
+          classes={buttonStyles}
           key={link}
           to={link}
           primaryText={menuItems[link]}

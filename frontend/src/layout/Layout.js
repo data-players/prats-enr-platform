@@ -4,6 +4,12 @@ import { Container, Box, useMediaQuery, ThemeProvider, makeStyles, Typography } 
 import AppBar from './AppBar';
 import ScrollToTop from './ScrollToTop';
 import SideMenu from './SideMenu';
+import {
+  BreadcrumbsProvider,
+  Breadcrumbs,
+  BreadcrumbsItem
+} from 'react-breadcrumbs-dynamic'
+
 
 const useStyles = makeStyles(theme => ({
   hero: {
@@ -62,6 +68,11 @@ const Layout = ({ appBar, logout, theme, children }) => {
       <SideMenu menuItems={menuItems} sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
       {React.cloneElement(appBar, { logout, menuItems, setSidebarOpen })}
       <Container maxWidth="lg">
+        <div id="breadcrumpContainer" style={{padding:'10px'}}>
+          <Breadcrumbs separator=" / "/>
+        </div>
+
+        <BreadcrumbsItem style={{'text-decoration': 'none', 'color':'black'}} to='/'>Accueil</BreadcrumbsItem>
         <Box >{children}</Box>
         <Box>
           <Typography variant="subtitle2" color="textSecondary" align="right" >
