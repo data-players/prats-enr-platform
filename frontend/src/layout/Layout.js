@@ -55,7 +55,7 @@ const useContainerStyles = makeStyles(theme => ({
     padding:"0px",
     border:"solid",
     borderTopStyle:"none",
-    borderColor:"grey",
+    borderColor:"black",
     borderWidth:"2px"
   }
 }));

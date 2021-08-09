@@ -9,7 +9,7 @@ const useStyles = makeStyles(theme => ({
     maxWidth: "1280px",
     margin: "auto",
     borderStyle:"solid",
-    borderColor:"grey",
+    borderColor:"black",
     borderWidth:"2px"
   },
   header: {
@@ -59,7 +59,7 @@ const useStyles = makeStyles(theme => ({
     // borderColor: theme.palette.text.primary,
     borderLeftStyle : "solid",
     borderWidth : "2px",
-    borderColor : "grey"
+    borderColor : "black"
 
   }
 }));

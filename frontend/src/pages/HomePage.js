@@ -64,31 +64,35 @@ const HomePage = () => {
       padding : "32px",
       borderTop: "solid",
       borderWidth :"2px",
-      borderColor : "grey",
+      borderColor : "black",
       border: 'none'
     },
     paperUp : {
       padding : "32px",
-      border: 'none'
-    },
-    griditem: {
-      boxShadow: ""
-    },
-    gridContainer: {
-      // border: "solid",
-      // borderWidth :"2px",
-      // borderColor : "grey",
-      // borderTopStyle : "none"
+      border: 'none',
+      
     },
     eventList: {
       paddingLeft: "25px"
     },
   });
 
+  const phoneBorder = makeStyles({
+    firstGrid: {
+      borderRight : "solid",
+      borderColor : "black",
+      borderRightWidth : "2px"
+    }
+  })
+  const test = makeStyles({
+    firstGrid: {
+    }
+  })
+
   const mainShow = makeStyles(() => ({
     card: {
       paddingTop: 0,
-      boxShadow : 'none'
+      boxShadow : 'none',
     },
     main: {
       marginTop: 0,
@@ -124,6 +128,12 @@ const HomePage = () => {
     }
   });
 
+  if (window.innerWidth > 600) {
+    var phoneCss = phoneBorder();
+  } else {
+    var phoneCss = test();
+  }
+
   const mainImageStyles = mainImage();
   const mainTextStyles = mainText();
   const mainStyle = main();
@@ -134,8 +144,8 @@ const HomePage = () => {
   const urlImage = "https://upload.wikimedia.org/wikipedia/commons/4/49/Prats-de-Moll%C3%B3-la_Preste%2C_Eglise_Saintes_Juste_et_Ruffine-PM_47091.jpg";
 
   return(
-    <Grid container spacing={0} className={mainStyle.gridContainer} >
-      <Grid item md={5} sm={12} >
+    <Grid container spacing={0} >
+      <Grid item md={5} sm={12} className={phoneCss.firstGrid}>
         <Paper className={mainStyle.paperUp} variant="outlined" square>
           <Box component="div" display="inline" classes={mainTextStyles} >
             <Show hasEdit={false} classes={mainShowStyle} hasList={false} {...configAccueil}>
