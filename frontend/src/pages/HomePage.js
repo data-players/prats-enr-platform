@@ -1,5 +1,5 @@
 import React from 'react';
-import { ListBase, ShowContextProvider, useShowController,Show } from 'react-admin';
+import { ListBase, Show } from 'react-admin';
 import { SimpleList } from '@semapps/archipelago-layout';
 import  createTheme from '@material-ui/core/styles/createTheme';
 import { makeStyles } from '@material-ui/core';
@@ -8,7 +8,6 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button'
-import PageShow from '../resources/Page/PageShow';
 import MarkdownField from "../markdown/MarkdownField";
 
 const HomePage = () => {
@@ -58,19 +57,33 @@ const HomePage = () => {
     },
   }));
 
+  const mainShow = makeStyles(() => ({
+    card: {
+      paddingTop: 0,
+      boxShadow : 'none',
+    },
+    main: {
+      marginTop: 0,
+    }
+  }));
 
   const main = makeStyles({
     paper : {
+      height:"100%",
       padding : "32px",
       borderTop: "solid",
-      borderWidth :"2px",
-      borderColor : "black",
       border: 'none'
     },
     paperUp : {
+      height:"100%",
       padding : "32px",
-      border: 'none',
-      
+      border: 'none'
+    },
+    griditem: {
+      boxShadow: ""
+    },
+    gridContainer: {
+      border: "solid",
     },
     eventList: {
       paddingLeft: "25px"
@@ -88,16 +101,6 @@ const HomePage = () => {
     firstGrid: {
     }
   })
-
-  const mainShow = makeStyles(() => ({
-    card: {
-      paddingTop: 0,
-      boxShadow : 'none',
-    },
-    main: {
-      marginTop: 0,
-    }
-  }));
 
   const theme = createTheme();
 
@@ -128,7 +131,8 @@ const HomePage = () => {
     }
   });
 
-  if (window.innerWidth > 600) {
+
+  if (window.innerWidth > 960) {
     var phoneCss = phoneBorder();
   } else {
     var phoneCss = test();
