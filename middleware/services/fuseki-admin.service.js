@@ -1,16 +1,15 @@
 const FusekiAdminService = require('@semapps/fuseki-admin');
-const CONFIG = require('../config');
 
 module.exports = {
   mixins: [FusekiAdminService],
   settings: {
-    url: CONFIG.SPARQL_ENDPOINT,
-    user: CONFIG.JENA_USER,
-    password: CONFIG.JENA_PASSWORD
+    url: process.env.SEMAPPS_SPARQL_ENDPOINT,
+    user: process.env.SEMAPPS_JENA_USER,
+    password: process.env.SEMAPPS_JENA_PASSWORD
   },
   async started() {
     await this.actions.createDataset({
-      dataset: CONFIG.MAIN_DATASET
+      dataset: process.env.SEMAPPS_MAIN_DATASET
     });
-  }
+  }  
 };

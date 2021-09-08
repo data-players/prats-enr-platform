@@ -1,12 +1,11 @@
 const { TripleStoreService } = require('@semapps/triplestore');
-const CONFIG = require('../config');
 
 module.exports = {
   mixins: [TripleStoreService],
   settings: {
-    sparqlEndpoint: CONFIG.SPARQL_ENDPOINT,
-    mainDataset: CONFIG.MAIN_DATASET,
-    jenaUser: CONFIG.JENA_USER,
-    jenaPassword: CONFIG.JENA_PASSWORD
+    sparqlEndpoint: process.env.SEMAPPS_SPARQL_ENDPOINT,
+    mainDataset: process.env.SEMAPPS_MAIN_DATASET,
+    jenaUser: process.env.SEMAPPS_JENA_USER,
+    jenaPassword: process.env.SEMAPPS_JENA_PASSWORD
   }
 };
