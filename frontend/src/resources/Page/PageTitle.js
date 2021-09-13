@@ -1,7 +1,7 @@
 import React from 'react';
 
 const PageTitle = ({ record }) => {
-  return undefined;
+  return <></>;
 };
 
 export default PageTitle;

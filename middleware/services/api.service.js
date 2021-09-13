@@ -1,34 +1,20 @@
 const ApiGatewayService = require('moleculer-web');
+// const { OidcConnector } = require('@semapps/connector');
+const { MIME_TYPES } = require('@semapps/mime-types');
+const path = require('path');
+const urlJoin = require('url-join');
+const {
+  Routes: SparqlEndpointRoutes
+} = require('@semapps/sparql-endpoint');
 
 module.exports = {
   mixins: [ApiGatewayService],
   settings: {
     server: true,
-    routes: [
-      {
-        path: '/context.json',
-        use: [
-          ApiGatewayService.serveStatic('./public/context.json', {
-            setHeaders: res => {
-              res.setHeader('Access-Control-Allow-Origin', '*');
-              res.setHeader('Content-Type', 'application/ld+json; charset=utf-8');
-            }
-          })
-        ]
-      }
-    ],
     cors: {
       origin: '*',
       methods: ['GET', 'PUT', 'PATCH', 'POST', 'DELETE', 'HEAD', 'OPTIONS'],
       exposedHeaders: '*'
     }
   },
-  dependencies: ['ldp', 'sparqlEndpoint', 'mailer'],
-  async started() {
-    [
-      ...(await this.broker.call('ldp.getApiRoutes')),
-      ...(await this.broker.call('sparqlEndpoint.getApiRoutes')),
-      ...(await this.broker.call('mailer.getApiRoutes'))
-    ].forEach(route => this.addRoute(route));
-  }
 };
