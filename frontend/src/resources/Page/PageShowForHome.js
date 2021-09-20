@@ -1,14 +1,10 @@
 import React from 'react';
-import {Typography, Box, makeStyles} from '@material-ui/core';
+import {makeStyles} from '@material-ui/core';
 import { Show } from 'react-admin';
-import { useHistory } from 'react-router-dom';
 import { MainList } from '@semapps/archipelago-layout';
 import MarkdownField from "../../markdown/MarkdownField";
 import PageTitle from './PageTitle';
-import useDoubleClick from "../../layout/useDoubleClick";
-import {
-  BreadcrumbsItem
-} from 'react-breadcrumbs-dynamic'
+
 
 const useStyles = makeStyles(() => ({
   card: {

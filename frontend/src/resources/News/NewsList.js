@@ -2,12 +2,8 @@ import React from 'react';
 import { Avatar } from "@material-ui/core";
 import { List, SimpleList } from '@semapps/archipelago-layout';
 import AnnouncementIcon from '@material-ui/icons/Announcement';
-import { TextField } from 'ra-ui-materialui';
-import { ShowContextProvider, useShowController } from 'ra-core';
-import PageShow from '../Page/PageShow';
 import {
   BreadcrumbsItem,
-  BreadcrumbsItemFinal
 } from '../../common/BreadCrump'
 
 const config = {
