@@ -16,9 +16,9 @@ export default {
     }
   },
   dataModel: {
-    types: ['semapps:Task'],
+    types: ['pair:Task'],
     containerUri: process.env.REACT_APP_MIDDLEWARE_URL + 'task',
-    slugField: 'semapps:title'
+    slugField: 'pair:label'
   },
   translations: {
     fr: {
