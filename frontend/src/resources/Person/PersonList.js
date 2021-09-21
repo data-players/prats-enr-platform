@@ -3,7 +3,6 @@ import { List, SimpleList, ListActions } from '@semapps/archipelago-layout';
 import PersonFilterSidebar from "./PersonFilterSidebar";
 import { Avatar } from "@material-ui/core";
 import PersonIcon from '@material-ui/icons/Person';
-import {TextField} from 'react-admin';
 
 const PersonList = (props) => (
   <List
