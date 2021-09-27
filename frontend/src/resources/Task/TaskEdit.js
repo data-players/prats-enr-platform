@@ -15,7 +15,7 @@ export const TaskEdit = props => (
       </ImageInput>
       <TextInput label="Legende Photo" source='pair:legend' fullWidth />
       <TextInput source="pair:comment" fullWidth />
-      <ReferenceInput reference="Organization" source="pair:hasOrganization" filter={{ a: 'pair:taskOrganization' }}>
+      <ReferenceInput label="Personnes liés au chantier" reference="Person" source="pair:hasPerson">
         <SelectInput optionText="pair:label" />
       </ReferenceInput>
       <MarkdownInput multiline source="pair:description" fullWidth />
