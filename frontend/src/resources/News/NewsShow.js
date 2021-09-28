@@ -1,8 +1,6 @@
 import React from 'react';
-import {Typography, Box, makeStyles} from '@material-ui/core';
-import { useHistory } from 'react-router-dom';
+import {Typography} from '@material-ui/core';
 import { MainList, Show} from '@semapps/archipelago-layout';
-import { TextField, useShowContext} from 'react-admin';
 import MarkdownField from "../../markdown/MarkdownField";
 import NewsTitle from './NewsTitle';
 import {

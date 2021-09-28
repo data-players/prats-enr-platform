@@ -63,8 +63,8 @@ const useContainerStyles = makeStyles(theme => ({
 const menuItems = {
   '/Page/demarche/show': 'Démarche',
   '/News': 'Actualités',
-  // '/Task': 'Les chantiers',
-  // '/Person': 'Portraits',
+  '/Task': 'Les Chantiers',
+  '/Person': 'Portraits',
   // '/Page/ressources/show': 'Ressources',
 };
 

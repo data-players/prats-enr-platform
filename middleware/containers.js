@@ -1,5 +1,8 @@
 module.exports = [
   {
+    path: '/',
+  },
+  {
     path: '/users',
     acceptedTypes: ['pair:Person']
   },
