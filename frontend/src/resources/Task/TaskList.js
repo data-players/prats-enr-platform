@@ -2,6 +2,7 @@ import React from 'react';
 import { Column, ColumnShowLayout, MasonryList, List, MarkdownField } from '@semapps/archipelago-layout';
 import TaskAddonList from '../../addons/TaskAddonList';
 import { Show } from 'react-admin';
+import CustomMasonryList from '../../addons/CustomMasonryList';
 
 const config = {
   basePath: '/Page',
@@ -36,7 +37,7 @@ const TaskList = ({...props}) => {
       <Column xs={12} sm={8} showLabel>
         <List title={<></>} {...props} sort={{ order: 'ASC' }} >
 
-          <MasonryList 
+          <CustomMasonryList 
             image={record => Array.isArray(record?.image) ? record?.image?.[0] : record?.image}
             content={record => <TaskAddonList record={record} />}
             breakpointCols={{ default: 3, 1200: 3, 1000: 2, 700: 1 }}
