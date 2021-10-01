@@ -22,7 +22,6 @@ const NewsShow = props => (
       <BreadcrumbsItem to='/News'>Actualités</BreadcrumbsItem>
       <BreadcrumbsItemFinal/>
       <MainList>
-        <Title source="semapps:title"/>
         <MarkdownField source="semapps:content" addLabel={false}/>
       </MainList>
     </>

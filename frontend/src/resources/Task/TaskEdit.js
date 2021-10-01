@@ -1,7 +1,7 @@
 import React from 'react';
 import { SelectInput, ImageInput, SimpleForm, TextInput } from 'react-admin';
 import { Edit } from '@semapps/archipelago-layout';
-import MarkdownInput from '../../markdown/MarkdownInput'
+import { MarkdownInput } from '@semapps/markdown-components';
 import TaskTitle from './TaskTitle';
 import { ImageField, ReferenceInput } from '@semapps/semantic-data-provider';
 

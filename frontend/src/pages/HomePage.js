@@ -1,7 +1,5 @@
 import React from 'react';
-import { ListBase, Show } from 'react-admin';
-import { SimpleList } from '@semapps/archipelago-layout';
-import  createTheme from '@material-ui/core/styles/createTheme';
+import { ListBase, Show ,SimpleList} from 'react-admin';
 import { makeStyles } from '@material-ui/core';
 import CardMedia from '@material-ui/core/CardMedia';
 import Paper from '@material-ui/core/Paper';
@@ -44,22 +42,17 @@ const HomePage = () => {
       height:"416px",
       boxSizing: "border-box",
       objectFit: 'cover',
-      padding: "32px",
+      // padding: "32px",
       [theme.breakpoints.down('sm')]: {
         height:"200px",
       }
     },
   }));
 
-  const gridItemImage = makeStyles(theme => ({
-    root: {
-      width:"100%"
-    },
-  }));
 
   const mainShow = makeStyles(() => ({
     card: {
-      paddingTop: 0,
+      padding: 0,
       boxShadow : 'none',
     },
     main: {
@@ -67,44 +60,72 @@ const HomePage = () => {
     }
   }));
 
-  const main = makeStyles({
+
+  const griditem={
+    boxShadow: "",
+    border: "none",
+    borderBottom: "solid",
+    borderBottomWidth : "1px",
+    padding : "20px",
+    width: "100%",
+  }
+
+  const main = makeStyles(theme => ({
     paper : {
-      height:"100%",
-      padding : "32px",
-      borderTop: "solid",
-      border: 'none'
-    },
-    paperUp : {
-      height:"100%",
-      padding : "32px",
       border: 'none'
     },
     griditem: {
-      boxShadow: ""
+      ...griditem,
+      [theme.breakpoints.up("xs")]: {
+        paddingLeft: "0px"
+      },
+      [theme.breakpoints.down("xs")]: {
+        paddingLeft: "20px"
+      },
     },
+    griditemLeft: {
+      ...griditem,
+      [theme.breakpoints.down("xs")]: {
+        borderBottom: "none"
+      },
+
+    },
+    griditemWithoutPadding: {
+      ...griditem,
+      padding : "0px",
+      [theme.breakpoints.up("xs")]: {
+        borderLeft: "solid",
+        borderLeftWidth : "1px",
+        borderTop: "none",
+      },
+      [theme.breakpoints.down("xs")]: {
+        borderTop: "solid",
+        borderTopWidth : "1px",
+        borderLeft: "none"
+      },
+    },
+    griditemWithoutBorder: {
+      ...griditem,
+      borderBottom : "none",
+      [theme.breakpoints.up("xs")]: {
+        paddingLeft: "0px"
+      },
+      [theme.breakpoints.down("xs")]: {
+        paddingLeft: "20px"
+      },
+    },
+    griditemWithoutBorderLeft: {
+      ...griditem,
+      borderBottom : "none"
+    },
+
     gridContainer: {
       border: "solid",
     },
-    eventList: {
-      paddingLeft: "25px"
-    },
-  });
+  }));
 
-  const phoneBorder = makeStyles({
-    firstGrid: {
-      borderRight : "solid",
-      borderColor : "black",
-      borderRightWidth : "2px"
-    }
-  })
-  const test = makeStyles({
-    firstGrid: {
-    }
-  })
 
-  const theme = createTheme();
-
-  const mainText = makeStyles({
+  const mainText = makeStyles(theme => ({
     root: {
       [theme.breakpoints.down("sm")]: {
         fontSize: "18px"
@@ -116,12 +137,13 @@ const HomePage = () => {
       lineHeight: "125%",
       fontFamily: "SF UI Text"
     },
-  });
+  }))
+
+
 
   const divButton = makeStyles({
     root: {
       paddingTop: "50px",
-      paddingLeft: "25px"
     }
   });
 
@@ -131,34 +153,34 @@ const HomePage = () => {
     }
   });
 
-
-  if (window.innerWidth > 960) {
-    var phoneCss = phoneBorder();
-  } else {
-    var phoneCss = test();
-  }
-
   const mainImageStyles = mainImage();
   const mainTextStyles = mainText();
   const mainStyle = main();
   const mainShowStyle = mainShow();
   const divButtonStyle = divButton()
   const mainButtonStyle = mainButton();
-  const gridItemImageStyle =gridItemImage();
   const urlImage = "https://upload.wikimedia.org/wikipedia/commons/4/49/Prats-de-Moll%C3%B3-la_Preste%2C_Eglise_Saintes_Juste_et_Ruffine-PM_47091.jpg";
+
+  const rowStyle = (record, index) => ({
+      borderBottomStyle: "solid",
+      borderTopStyle: index==0?"solid":"none",
+      borderWidth:"1px",
+      borderColor:"grey"
+  });
+
 
   return(
     <Grid container spacing={0} >
-      <Grid item md={5} sm={12} className={phoneCss.firstGrid}>
-        <Paper className={mainStyle.paperUp} variant="outlined" square>
-          <Box component="div" display="inline" classes={mainTextStyles} >
+      <Grid item sm={5} xs={12} className={mainStyle.griditemLeft}>
+        <Paper className={mainStyle.paper} variant="outlined" square>
+          <Box component="div" classes={mainTextStyles} >
             <Show hasEdit={false} classes={mainShowStyle} hasList={false} {...configAccueil}>
               <MarkdownField source="semapps:content" addLabel={false} />
             </Show>
           </Box>
         </Paper>
       </Grid>
-      <Grid item md={7} sm={12} classes={gridItemImageStyle}>
+      <Grid item sm={7} xs={12} className={mainStyle.griditemWithoutPadding}>
         <Paper   square>
             <CardMedia
               image={urlImage}
@@ -167,16 +189,16 @@ const HomePage = () => {
             />
         </Paper>
       </Grid>
-      <Grid item sm={5} xs={12} className={mainImageStyles.griditem}>
+      <Grid item sm={5} xs={12} className={mainStyle.griditemLeft}>
         <Paper className={mainStyle.paper} variant="outlined" square>
-          <Box component="div" display="inline" classes={mainTextStyles}>
-            La démarche
+          <Box component="div" classes={mainTextStyles}>
+            Actions
           </Box>
         </Paper>
       </Grid>
-      <Grid item sm={7} xs={12}>
+      <Grid item sm={7} xs={12} className={mainStyle.griditem}>
         <Paper className={mainStyle.paper} variant="outlined" square>
-          <Box component="div" display="inline" classes={mainTextStyles}>
+          <Box component="div" classes={mainTextStyles}>
             <Show hasEdit={false} classes={mainShowStyle} hasList={false} {...config}>
               <MarkdownField source="semapps:content" addLabel={false} />
             </Show>
@@ -186,22 +208,22 @@ const HomePage = () => {
           </Box>
         </Paper>
       </Grid>
-      <Grid item sm={5} xs={12}>
+      <Grid item sm={5} xs={12} className={mainStyle.griditemWithoutBorderLeft}>
         <Paper className={mainStyle.paper} variant="outlined" square>
-          <Box component="div" display="inline" classes={mainTextStyles}>
+          <Box component="div" classes={mainTextStyles}>
             Actualités
           </Box>
         </Paper>
       </Grid>
-      <Grid item sm={7} xs={12}>
+      <Grid item sm={7} xs={12} className={mainStyle.griditemWithoutBorder}>
         <Paper className={mainStyle.paper} variant="outlined" square>
-          <Box component="div" display="inline" classes={mainTextStyles}>
+          <Box component="div" classes={mainTextStyles}>
             <Show hasEdit={false} classes={mainShowStyle} hasList={false} {...config4}>
               <MarkdownField source="semapps:content" addLabel={false} />
             </Show>
           </Box>
           <ListBase resource="News" basePath="/News"  perPage={4}>
-            <SimpleList primaryText={record => record['semapps:title']} secondaryText={record => record['pair:createdAt']} linkType="show" className={mainStyle.eventList}/>
+            <SimpleList primaryText={record => record['semapps:title']} secondaryText={record => record['pair:createdAt']} linkType="show"  rowStyle={rowStyle}/>
           </ListBase>
           <Box classes={divButtonStyle}>
             <Button href="/News" classes={mainButtonStyle}>Voir toutes les actualités</Button>

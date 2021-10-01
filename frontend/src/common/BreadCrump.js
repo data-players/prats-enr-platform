@@ -30,13 +30,10 @@ export const BreadcrumbsItem = ({children,to,...otherProps}) => {
   )
 }
 
-const BreadcrumbsItemFinalInside = ({children, ...otherProps}) => {
-
-  // console.log('ShowContextLayout record',otherProps.record);
-
+const BreadcrumbsItemFinalInside = ({children,record, ...otherProps}) => {
   return (
     <BreadcrumbsItem style={{'text-decoration': 'none', 'color':'black'}} to={'./'+otherProps?.record?.['semapps:id']}>
-      {otherProps?.record?.['semapps:title']}
+      {record?.['semapps:title']||record?.['pair:label']}
     </BreadcrumbsItem>
   )
 }
