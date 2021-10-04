@@ -31,7 +31,6 @@ const CustomMasonryList = ({ image, content, actions, breakpointCols, linkType }
       <Masonry breakpointCols={breakpointCols} className={classes.grid} columnClassName={classes.column}>
         {ids.map(id => {
           const imageUrl = typeof image === 'function' ? image(data[id]) : image;
-          console.log("ici : ",linkToRecord(basePath, id).replace("undefined", "task"));
 
           return (
             <Card key={id} className={classes.card} variant="outlined"  >

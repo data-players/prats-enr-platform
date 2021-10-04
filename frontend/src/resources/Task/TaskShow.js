@@ -1,9 +1,8 @@
 import React, { cloneElement, Fragment } from 'react';
-import { Column, ColumnShowLayout, MainList, Show } from '@semapps/archipelago-layout';
+import { MainList, Show } from '@semapps/archipelago-layout';
 import {TextField} from 'react-admin';
 import { MarkdownField } from '@semapps/markdown-components';
 import TaskTitle from './TaskTitle';
-import { MapField } from '@semapps/geo-components';
 import { makeStyles } from '@material-ui/core';
 import { ImageField } from '@semapps/semantic-data-provider';
 import {
