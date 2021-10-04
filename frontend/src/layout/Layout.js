@@ -65,7 +65,7 @@ const menuItems = {
   '/News': 'Actualités',
   '/Task': 'Les Chantiers',
   '/Person': 'Portraits',
-  // '/Page/ressources/show': 'Ressources',
+  '/Page/ressources/show': 'Ressources',
 };
 
   // const history = createBrowserHistory();
