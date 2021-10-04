@@ -1,15 +1,18 @@
-FROM node:12.16-alpine
+FROM node:13.14-alpine
 
 RUN node -v
 RUN npm -v
 
-RUN npm install pm2 -g
-
-RUN apk add --update --no-cache autoconf bash libtool automake python alpine-sdk openssh-keygen rsync sshpass openssh yarn nano
-
 WORKDIR /app
 
-RUN mkdir ~/.ssh && touch ~/.ssh/known_hosts && ssh-keyscan gateways.storage.gra.cloud.ovh.net >> ~/.ssh/known_hosts
+RUN npm install pm2 -g
+
+RUN apk add --update --no-cache autoconf libtool automake alpine-sdk
+
+RUN apk add --update --no-cache git bash yarn nano npm
+
+RUN yarn global add yalc
+RUN yarn global add nodemon
 
 COPY . /app
 

@@ -1,15 +1,14 @@
-FROM node:12.16-alpine
+FROM node:14.15-alpine
+
+RUN node -v
+RUN npm -v
 
 WORKDIR /app
 
 RUN apk add --update --no-cache git bash yarn nano
 
-RUN yarn global add serve
+RUN apk add --update --no-cache autoconf libtool automake alpine-sdk
 
 COPY . /app
 
 RUN yarn install
-
-RUN yarn run build
-
-CMD serve -s build -l 4000

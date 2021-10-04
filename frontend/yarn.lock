@@ -1673,7 +1673,7 @@
     react-leaflet "^3.1.0"
     react-leaflet-markercluster "^3.0.0-rc1"
 
-"@semapps/markdown-components@^0.3.8":
+"@semapps/markdown-components@^0.3.7":
   version "0.3.8"
   resolved "https://registry.yarnpkg.com/@semapps/markdown-components/-/markdown-components-0.3.8.tgz#e8e9215dbd3ced5c1479aa1db0f7e18e6d32eac7"
   integrity sha512-Fm+fREKFxFYa+J2F96MHMWaTYFo1tqIcHa8JRkec9wTIc+5h1Zs7ez2TaN4cuokDYbFU2QEl9mWXJl9icQJJzg==

@@ -2,7 +2,7 @@ version: '3.5'
 services:
   fuseki:
     image: stain/jena-fuseki:3.10.0
-    container_name: fuseki_prats_enr
+    container_name: fuseki_aurba
     volumes:
       - ./data/fuseki:/fuseki
       - ./data/staging:/staging
@@ -15,14 +15,15 @@ services:
 
   middleware:
     build: middleware
-    container_name: middleware_prats_enr
+    container_name: middleware_aurba
     depends_on:
       - fuseki
     volumes:
       - ./middleware/:/app
+      - ./../semapps:/semapps
       - ./data/fuseki/backups:/app/fuseki-backups # Needed to backup fuseki datasets
     environment:
-      - SEMAPPS_SPARQL_ENDPOINT=http://fuseki_prats_enr:3030/
+      - SEMAPPS_SPARQL_ENDPOINT=http://fuseki_aurba:3030/
       - SEMAPPS_MAIN_DATASET=localData
       - SEMAPPS_JENA_USER=admin
       - SEMAPPS_JENA_PASSWORD=admin
@@ -32,21 +33,22 @@ services:
       - "3000:3000"
     expose:
       - "3000"
-    command: bash -c "yarn install && npm run dev"
+    command: bash -c "yarn install && npm run devwithlink"
 
   frontend:
     build: frontend
-    container_name: frontend_prats_enr
+    container_name: frontend_aurba
     volumes:
       - ./frontend:/app
+      - ./../semapps:/semapps
     environment:
       - REACT_APP_MIDDLEWARE_URL=http://localhost:3000/
-      - REACT_APP_MAPBOX_ACCESS_TOKEN=pk.eyJ1Ijoic3Jvc3NldDgxIiwiYSI6ImNrbDd0b2VkMzA1dDMycG9iemU4NnpuemsifQ.HvpZ3tnweVHEUYLb0tDvTg
-      - PORT=4000
+      - REACT_APP_MAPBOX_ACCESS_TOKEN=
+      - PORT=5000
     depends_on:
       - middleware
     ports:
-      - "4000:4000"
+      - "5000:5000"
     expose:
-      - "4000"
-    command: bash -c "yarn install && npm start"
+      - "5000"
+    command: bash -c "yarn install && npm run startwithlink"

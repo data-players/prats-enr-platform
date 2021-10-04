@@ -9,6 +9,7 @@
   ],
   "scripts": {
     "dev": "moleculer-runner --repl --hot services",
+    "devwithlink": "make link & sleep 5 && npm run dev",
     "start": "moleculer-runner --instances=max services",
     "link-all": "npm link @semapps/activitypub && npm link @semapps/ldp && npm link @semapps/webhooks"
   },
