@@ -34,7 +34,7 @@ const CustomMasonryList = ({ image, content, actions, breakpointCols, linkType }
           console.log("ici : ",linkToRecord(basePath, id).replace("undefined", "task"));
 
           return (
-            <Card key={id} className={classes.card}>
+            <Card key={id} className={classes.card} variant="outlined"  >
               <Link to={linkToRecord(basePath, id).replace("undefined", "task") + "/" + linkType}>
                 <CardActionArea>
                   {imageUrl && <CardMedia className={classes.media} image={imageUrl} />}
