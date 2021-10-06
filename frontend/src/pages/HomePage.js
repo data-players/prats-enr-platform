@@ -223,7 +223,7 @@ const HomePage = () => {
             </Show>
           </Box>
           <ListBase resource="News" basePath="/News"  perPage={4}>
-            <SimpleList primaryText={record => record['semapps:title']} secondaryText={record => record['pair:createdAt']} linkType="show"  rowStyle={rowStyle}/>
+            <SimpleList secondaryText={record => record['semapps:title']} primaryText={record => record['pair:createdAt']} linkType="show"  rowStyle={rowStyle}/>
           </ListBase>
           <Box classes={divButtonStyle}>
             <Button href="/News" classes={mainButtonStyle}>Voir toutes les actualités</Button>
