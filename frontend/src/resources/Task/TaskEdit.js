@@ -19,11 +19,9 @@ export const TaskEdit = props => (
         <SelectInput optionText="pair:label" />
       </ReferenceInput>
       <MarkdownInput multiline source="pair:description" fullWidth />
-      <SelectInput source="pair:hasStatus" choices={[
-          { id: 'Running', name: 'En Cours' },
-          { id: 'Ended', name: 'Terminé' },
-          { id: 'Coming', name: 'A Venir' },
-      ]} />
+      <ReferenceInput label="Statut" reference="Status" source="pair:taskStatus">
+        <SelectInput optionText="pair:label" />
+      </ReferenceInput>
     </SimpleForm>
   </Edit>
 );

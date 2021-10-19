@@ -5,15 +5,11 @@ import {useShowContext,useEditContext} from 'react-admin';
 const ShowContextLayout = ({children, ...otherProps}) => {
   let showProps = useShowContext();
   let editProps = useEditContext();
-  console.log("showProps",showProps);
-  console.log("editProps",editProps);
 
   const basePath = showProps.basePath!=null?showProps.basePath:editProps.basePath;
   const loaded = showProps.loaded!=null?showProps.loaded:editProps.loaded;
   const record = showProps.record!=null?showProps.record:editProps.record;
   const resource = showProps.resource!=null?showProps.resource:editProps.resource;
-
-   console.log('record',record);
 
   return React.Children.map(children, layout =>
     layout && React.cloneElement(layout, {

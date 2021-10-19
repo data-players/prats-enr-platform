@@ -23,13 +23,6 @@ module.exports = [
   {
     path: '/status',
     acceptedTypes: [
-      'pair:Status',
-      'pair:ActivityStatus',
-      'pair:AgentStatus',
-      'pair:DocumentStatus',
-      'pair:EventStatus',
-      'pair:IdeaStatus',
-      'pair:ProjectStatus',
       'pair:TaskStatus'
     ]
   },

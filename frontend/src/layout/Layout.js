@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import { Notification, Link, useResourceContext } from 'react-admin';
-import { Container, Box, useMediaQuery, ThemeProvider, makeStyles, Typography } from '@material-ui/core';
+import { Notification, ImageField } from 'react-admin';
+import { Container, Box, useMediaQuery, ThemeProvider, makeStyles, Link, Typography } from '@material-ui/core';
 import AppBar from './AppBar';
 import ScrollToTop from './ScrollToTop';
 import SideMenu from './SideMenu';
 import {
-  BreadcrumbsProvider,
   Breadcrumbs,
   BreadcrumbsItem
 } from 'react-breadcrumbs-dynamic';
+import { Column, ColumnShowLayout } from '@semapps/archipelago-layout';
 
 const useStyles = makeStyles(theme => ({
   hero: {
@@ -46,6 +46,9 @@ const useStyles = makeStyles(theme => ({
   },
   footerIcon: {
     marginBottom: -5
+  },
+  footerlinkPosition: {
+    marginLeft: "40px",
   }
 }));
 
@@ -94,14 +97,33 @@ const Layout = ({ appBar, logout, theme, children ,dashboard}) => {
         <Box >{children}</Box>
 
       </Container>
-      <Container maxWidth="lg">
-        <Box>
-          <Link to="/Page/mentions-legales/show" className={classes.footerLink}>
-            <Typography variant="subtitle2" color="textSecondary" align="right" >
-              Mentions légales
-            </Typography>
-          </Link>
-        </Box>
+      <Container maxWidth="lg" className={containerStyles.root}>
+        <ColumnShowLayout>
+          <Column xs={12} sm={2} >
+            <Box className={classes.footerlinkPosition}>
+              <Link to="/Page/mentions-legales/show" className={classes.footerLink}>
+                <Typography variant="subtitle2" color="textSecondary" align="left" >
+                  Contenus footer
+                </Typography>
+              </Link>
+              <Link to="/Page/mentions-legales/show" className={classes.footerLink}>
+                <Typography variant="subtitle2" color="textSecondary" align="left" >
+                  Mentions légales
+                </Typography>
+              </Link>
+              <Link to="/Page/mentions-legales/show" className={classes.footerLink}>
+                <Typography variant="subtitle2" color="textSecondary" align="left" >
+                  Licence contenus
+                </Typography>
+              </Link>
+            </Box>
+          </Column>
+          <Column xs={12} sm={10} >
+            <div>
+              <img src="../../public/logo192.png" />
+            </div>
+          </Column>
+        </ColumnShowLayout>
       </Container>
 
       {/* Required for react-admin optimistic update */}

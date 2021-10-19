@@ -35,9 +35,11 @@ const useStyles = makeStyles(theme => ({
   },
   logoText: {
     fontSize: 20,
+    fontFamily: "Arial, Helvetica, sans-serif" ,
     // fontWeight: 'bold',
     color: theme.palette.text.primary,
     // verticalAlign: 'middle',
+    marginLeft : "10px",
     [theme.breakpoints.down('sm')]: {
       fontSize: 18,
     }
