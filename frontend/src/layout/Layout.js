@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Notification, ImageField } from 'react-admin';
+import { Notification } from 'react-admin';
 import { Container, Box, useMediaQuery, ThemeProvider, makeStyles, Link, Typography } from '@material-ui/core';
 import AppBar from './AppBar';
 import ScrollToTop from './ScrollToTop';
@@ -108,17 +108,17 @@ const Layout = ({ appBar, logout, theme, children ,dashboard}) => {
         <ColumnShowLayout>
           <Column xs={12} sm={2} >
             <Box className={classes.footerlinkPosition}>
-              <Link to="/Page/mentions-legales/show" className={classes.footerLink}>
+              <Link href="/Page/mentions-legales/show" className={classes.footerLink}>
                 <Typography variant="subtitle2" color="textSecondary" align="left" >
                   Contenus footer
                 </Typography>
               </Link>
-              <Link to="/Page/mentions-legales/show" className={classes.footerLink}>
+              <Link href="/Page/mentions-legales/show" className={classes.footerLink}>
                 <Typography variant="subtitle2" color="textSecondary" align="left" >
                   Mentions légales
                 </Typography>
               </Link>
-              <Link to="/Page/mentions-legales/show" className={classes.footerLink}>
+              <Link href="/Page/mentions-legales/show" className={classes.footerLink}>
                 <Typography variant="subtitle2" color="textSecondary" align="left" >
                   Licence contenus
                 </Typography>
