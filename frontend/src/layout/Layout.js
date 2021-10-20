@@ -45,17 +45,24 @@ const useStyles = makeStyles(theme => ({
     }
   },
   footerIcon: {
-    marginBottom: -5
+    marginBottom: -5,
+    float:"right"
   },
   footerlinkPosition: {
-    marginLeft: "40px",
+    marginTop:"10px"
   }
 }));
 
 
 const useContainerStyles = makeStyles(theme => ({
   root:{
-    padding:"0px",
+    border:"solid",
+    borderTopStyle:"none",
+    borderColor:"black",
+    borderWidth:"2px"
+  },
+  containerFooter: {
+    padding: "40px",
     border:"solid",
     borderTopStyle:"none",
     borderColor:"black",
@@ -97,7 +104,7 @@ const Layout = ({ appBar, logout, theme, children ,dashboard}) => {
         <Box >{children}</Box>
 
       </Container>
-      <Container maxWidth="lg" className={containerStyles.root}>
+      <Container maxWidth="lg" className={containerStyles.containerFooter}>
         <ColumnShowLayout>
           <Column xs={12} sm={2} >
             <Box className={classes.footerlinkPosition}>
@@ -120,7 +127,7 @@ const Layout = ({ appBar, logout, theme, children ,dashboard}) => {
           </Column>
           <Column xs={12} sm={10} >
             <div>
-              <img src="../../public/logo192.png" />
+              <img className={classes.footerIcon} src={process.env.PUBLIC_URL + '/footer.png'} alt="logo" />
             </div>
           </Column>
         </ColumnShowLayout>
