@@ -11,7 +11,7 @@ import MarkdownField from "../markdown/MarkdownField";
 const HomePage = () => {
   const config = {
     basePath: '/Page',
-    id: process.env.REACT_APP_MIDDLEWARE_URL + 'pages/demarche',
+    id: process.env.REACT_APP_MIDDLEWARE_URL + 'pages/accueil-actions',
     resource: 'Page'
   };
 
@@ -124,22 +124,18 @@ const HomePage = () => {
     },
   }));
 
-
   const mainText = makeStyles(theme => ({
     root: {
       [theme.breakpoints.down("sm")]: {
         fontSize: "18px"
       },
       fontSize: "32px",
-      fontFamily: "SF UI Text",
+      fontFamily: "Arial",
       fontStyle: "normal",
       fontWeight: "normal",
       lineHeight: "125%",
-      fontFamily: "SF UI Text"
     },
   }))
-
-
 
   const divButton = makeStyles({
     root: {
@@ -152,6 +148,15 @@ const HomePage = () => {
       border: "2px solid #FCC72C",
     }
   });
+
+  const NewsList = ({source}) => {
+    return (
+      <div style={{padding:"31px 0px"}}>
+        <div style={{color:"grey", fontSize:"20px"}}>{source["pair:createdAt"]}</div>
+        <div style={{color:"black", fontSize:"24px"}}>{source["semapps:title"]}</div>
+      </div>
+    )
+  }
 
   const mainImageStyles = mainImage();
   const mainTextStyles = mainText();
@@ -204,7 +209,7 @@ const HomePage = () => {
             </Show>
           </Box>
           <Box classes={divButtonStyle}>
-            <Button href="/Page/demarche/show" classes={mainButtonStyle}>En savoir plus</Button>
+            <Button href="/Page/accueil-actions/show" classes={mainButtonStyle}>En savoir plus</Button>
           </Box>
         </Paper>
       </Grid>
@@ -223,7 +228,7 @@ const HomePage = () => {
             </Show>
           </Box>
           <ListBase resource="News" basePath="/News"  perPage={4}>
-            <SimpleList primaryText={record => record['semapps:title']} secondaryText={record => record['pair:createdAt']} linkType="show"  rowStyle={rowStyle}/>
+            <SimpleList primaryText={record => <NewsList source={record}/>} linkType="show"  rowStyle={rowStyle}/>
           </ListBase>
           <Box classes={divButtonStyle}>
             <Button href="/News" classes={mainButtonStyle}>Voir toutes les actualités</Button>

@@ -1,13 +1,10 @@
-import { default as React, cloneElement} from 'react';
-import { Avatar } from "@material-ui/core";
-import { Column, ColumnShowLayout, MarkdownField } from '@semapps/archipelago-layout';
+import { default as React } from 'react';
+import { MarkdownField } from '@semapps/archipelago-layout';
 import { Show, Toolbar,  CreateButton, List, SimpleList} from 'react-admin';
-import AnnouncementIcon from '@material-ui/icons/Announcement';
 import {
   BreadcrumbsItem,
 } from '../../common/BreadCrump'
 import { makeStyles } from '@material-ui/core/styles';
-
 
 
 const useStylesWideToolbar= makeStyles({
@@ -23,16 +20,17 @@ const useStylesWideToolbar= makeStyles({
 const rowStyle = (record, index) => ({
     borderBottomStyle: "solid",
     borderTopStyle: index==0?"solid":"none",
-    borderWidth:"1px"
+    borderWidth:"1px",
 });
 
 const showStyle = makeStyles({
     card: {
         // backgroundColor : "red",
-        boxShadow: "none"
+        boxShadow: "none",
+        fontStyle: "Arial",
+        fontSize:"32px"
     }
 });
-
 
 const config = {
   basePath: '/Page',
@@ -45,13 +43,17 @@ const config = {
 const ListActions = ({...props}) => {
     const classesWideToolbar = useStylesWideToolbar();
     const showClasses = showStyle();
+
     return (
       <Toolbar classes={classesWideToolbar}>
         <div>
-          <h1 style={{
-            marginLeft: 40
-          }}>Actualités</h1>
-          <Show title={<></>} hasEdit={false} hasList={false} {...config} classes={showClasses}>
+          <div style={{
+            marginLeft: 25,
+            fontStyle: "arial",
+            fontSize: "48px",
+            color:"#333333"
+          }}>Actualités</div>
+          <Show hasEdit={false} hasList={false} {...config} classes={showClasses}>
             <MarkdownField source="semapps:content" addLabel={false} />
           </Show>
         </div>
@@ -60,16 +62,24 @@ const ListActions = ({...props}) => {
     )
 }
 
+const NewsList = ({source}) => {
+  let options = { year: 'numeric', month: 'long', day: 'numeric' };
+  return (
+    <div style={{padding:"31px 0px"}}>
+      <div style={{color:"grey", fontSize:"20px"}}>{new Date(source["pair:createdAt"]).toLocaleDateString("fr-FR", options)}</div>
+      <div style={{color:"black", fontSize:"24px"}}>{source["semapps:title"]}</div>
+    </div>
+  )
+}
 
-const PageList = ({...props}) => {
+const PageList = props => {
+
     return <>
-        <BreadcrumbsItem style={{'text-decoration': 'none', 'color':'black'}} to='/News'>Actualités</BreadcrumbsItem>
+        <BreadcrumbsItem to='/News'>Actualités</BreadcrumbsItem>
         <List {...props} actions={<ListActions />}  >
-          <SimpleList primaryText={record => record['semapps:title']} leftAvatar={() => <Avatar width="100%"><AnnouncementIcon /></Avatar>} linkType="show" rowStyle={rowStyle}/>
+          <SimpleList primaryText={record => <NewsList source={record}/>} linkType="show" rowStyle={rowStyle}/>
         </List>
     </>
 };
-
-
 
 export default PageList;
