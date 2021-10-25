@@ -45,12 +45,8 @@ const useStyles = makeStyles(theme => ({
     }
   },
   footerIcon: {
-    marginBottom: -5,
-    float:"right"
-  },
-  footerXsIcon: {
-    marginBottom: -5,
-    float:"center"
+    objectFit: 'contain',
+    width: '100%'
   },
   footerlinkPosition: {
     marginTop:"10px"
@@ -112,7 +108,7 @@ const Layout = ({ appBar, logout, theme, children ,dashboard}) => {
       </Container>
       <Container maxWidth="lg" className={containerStyles.containerFooter}>
         <ColumnShowLayout>
-          <Column xs={12} sm={2} >
+          <Column xs={12} sm={4} >
             <Box className={classes.footerlinkPosition}>
               <Link href="/Page/mentions-legales/show" className={classes.footerLink}>
                 <Typography variant="subtitle2" color="textSecondary" align="left" >
@@ -131,17 +127,8 @@ const Layout = ({ appBar, logout, theme, children ,dashboard}) => {
               </Link>
             </Box>
           </Column>
-          <Column xs={12} sm={10} >
-            {xs || sm ? (
-              <div>
-                <img className={classes.footerXsIcon} src={process.env.PUBLIC_URL + '/footer.png'} width="290" height="42" alt="logo" />
-              </div>
-            ) : (
-            <div>
-              <img className={classes.footerIcon} src={process.env.PUBLIC_URL + '/footer.png'} alt="logo" />
-            </div>
-            )}
-            
+          <Column xs={12} sm={8} >
+            <img className={classes.footerIcon} src={process.env.PUBLIC_URL + '/footer.png'} alt="logo" />
           </Column>
         </ColumnShowLayout>
       </Container>
