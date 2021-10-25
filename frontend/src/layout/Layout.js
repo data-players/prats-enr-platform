@@ -90,6 +90,7 @@ const Layout = ({ appBar, logout, theme, children ,dashboard}) => {
   const classes = useStyles();
   const containerStyles = useContainerStyles()
   const xs = useMediaQuery(theme.breakpoints.down('xs'));
+  const sm = useMediaQuery(theme.breakpoints.down('sm'));
   const [ sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
@@ -131,7 +132,7 @@ const Layout = ({ appBar, logout, theme, children ,dashboard}) => {
             </Box>
           </Column>
           <Column xs={12} sm={10} >
-            {xs ? (
+            {xs || sm ? (
               <div>
                 <img className={classes.footerXsIcon} src={process.env.PUBLIC_URL + '/footer.png'} width="290" height="42" alt="logo" />
               </div>
