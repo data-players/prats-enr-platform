@@ -7,8 +7,11 @@ import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button'
 import MarkdownField from "../markdown/MarkdownField";
+import moment from 'moment';
+import 'moment/locale/fr'
 
 const HomePage = () => {
+  moment.locale('fr');
   const config = {
     basePath: '/Page',
     id: process.env.REACT_APP_MIDDLEWARE_URL + 'pages/accueil-actions',
@@ -152,7 +155,7 @@ const HomePage = () => {
   const NewsList = ({source}) => {
     return (
       <div style={{padding:"31px 0px"}}>
-        <div style={{color:"grey", fontSize:"20px"}}>{source["pair:createdAt"]}</div>
+        <div style={{color:"grey", fontSize:"20px"}}>{moment(source["pair:createdAt"]).format('D MMMM YYYY')}</div>
         <div style={{color:"black", fontSize:"24px"}}>{source["semapps:title"]}</div>
       </div>
     )

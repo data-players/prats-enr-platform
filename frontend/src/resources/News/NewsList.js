@@ -5,6 +5,8 @@ import {
   BreadcrumbsItem,
 } from '../../common/BreadCrump'
 import { makeStyles } from '@material-ui/core/styles';
+import moment from 'moment';
+import 'moment/locale/fr'
 
 
 const useStylesWideToolbar= makeStyles({
@@ -66,14 +68,14 @@ const NewsList = ({source}) => {
   let options = { year: 'numeric', month: 'long', day: 'numeric' };
   return (
     <div style={{padding:"31px 0px"}}>
-      <div style={{color:"grey", fontSize:"20px"}}>{new Date(source["pair:createdAt"]).toLocaleDateString("fr-FR", options)}</div>
+      <div style={{color:"grey", fontSize:"20px"}}>{moment(source["pair:createdAt"]).format('D MMMM YYYY')}</div>
       <div style={{color:"black", fontSize:"24px"}}>{source["semapps:title"]}</div>
     </div>
   )
 }
 
 const PageList = props => {
-
+    moment.locale('fr');
     return <>
         <BreadcrumbsItem to='/News'>Actualités</BreadcrumbsItem>
         <List {...props} actions={<ListActions />}  >
