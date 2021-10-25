@@ -209,7 +209,7 @@ const HomePage = () => {
             </Show>
           </Box>
           <Box classes={divButtonStyle}>
-            <Button href="/Page/accueil-actions/show" classes={mainButtonStyle}>En savoir plus</Button>
+            <Button href="/Page/demarche/show" classes={mainButtonStyle}>En savoir plus</Button>
           </Box>
         </Paper>
       </Grid>
