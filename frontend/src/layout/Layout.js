@@ -48,6 +48,10 @@ const useStyles = makeStyles(theme => ({
     marginBottom: -5,
     float:"right"
   },
+  footerXsIcon: {
+    marginBottom: -5,
+    float:"center"
+  },
   footerlinkPosition: {
     marginTop:"10px"
   }
@@ -87,6 +91,7 @@ const Layout = ({ appBar, logout, theme, children ,dashboard}) => {
   const containerStyles = useContainerStyles()
   const xs = useMediaQuery(theme.breakpoints.down('xs'));
   const [ sidebarOpen, setSidebarOpen] = useState(false);
+
   return (
     <ThemeProvider theme={theme}>
       <ScrollToTop />
@@ -126,9 +131,16 @@ const Layout = ({ appBar, logout, theme, children ,dashboard}) => {
             </Box>
           </Column>
           <Column xs={12} sm={10} >
+            {xs ? (
+              <div>
+                <img className={classes.footerXsIcon} src={process.env.PUBLIC_URL + '/footer.png'} width="290" height="42" alt="logo" />
+              </div>
+            ) : (
             <div>
               <img className={classes.footerIcon} src={process.env.PUBLIC_URL + '/footer.png'} alt="logo" />
             </div>
+            )}
+            
           </Column>
         </ColumnShowLayout>
       </Container>
