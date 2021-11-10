@@ -230,7 +230,7 @@ const HomePage = () => {
               <MarkdownField source="semapps:content" addLabel={false} />
             </Show>
           </Box>
-          <ListBase resource="News" basePath="/News"  perPage={4}>
+          <ListBase resource="News" basePath="/News" sort={{field:"pair:createdAt", order:'DESC'}} perPage={4}>
             <SimpleList primaryText={record => <NewsList source={record}/>} linkType="show"  rowStyle={rowStyle}/>
           </ListBase>
           <Box classes={divButtonStyle}>

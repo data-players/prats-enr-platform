@@ -9,8 +9,6 @@ import {
 } from '@semapps/archipelago-layout';
 import EventTitle from './EventTitle';
 import {
-  BreadcrumbsProvider,
-  Breadcrumbs,
   BreadcrumbsItem
 } from 'react-breadcrumbs-dynamic'
 

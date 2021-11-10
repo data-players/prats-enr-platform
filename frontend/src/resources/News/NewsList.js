@@ -78,8 +78,8 @@ const PageList = props => {
     moment.locale('fr');
     return <>
         <BreadcrumbsItem to='/News'>Actualités</BreadcrumbsItem>
-        <List {...props} actions={<ListActions />}  >
-          <SimpleList primaryText={record => <NewsList source={record}/>} linkType="show" rowStyle={rowStyle}/>
+        <List {...props} sort={{field:"pair:createdAt", order:'DESC'}} actions={<ListActions />}  >
+          <SimpleList  primaryText={record => <NewsList source={record}/>} linkType="show" rowStyle={rowStyle}/>
         </List>
     </>
 };
