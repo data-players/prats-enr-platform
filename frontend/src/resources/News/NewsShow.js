@@ -13,21 +13,24 @@ const Title = ({record,source}) => {
   return<Typography variant="h1">{record[source]}</Typography>
 }
 
-const useMdStyles= makeStyles({
-  root: {
-      backgroundColor : "red",
-  }
-});
+const imgMD = ({children,src,...props}) => {
+  return (<>
+    <div {...props}>
+      <img src={src} style={{width:"100%"}}></img>
+    </div>
+  </>)
+}
 
 const NewsShow = props => {
-  const mdStyle = useMdStyles();
   return (
     <Show title={<NewsTitle />} {...props}>
       <>
         <BreadcrumbsItem to='/News'>Actualités</BreadcrumbsItem>
         <BreadcrumbsItemFinal/>
-        <MainList classes={mdStyle} id="myList" >
-          <MarkdownField id="myMarkdown" class="markdownClass" source="semapps:content" addLabel={false} />
+        <MainList  >
+          <MarkdownField overrides={{
+              img: imgMD,
+          }} source="semapps:content" addLabel={false} />
         </MainList>
       </>
     </Show>
