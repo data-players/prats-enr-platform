@@ -2,3 +2,4 @@
 /.idea
 /letsencrypt
 /middleware/logs
+.vscode
