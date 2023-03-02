@@ -2,7 +2,6 @@ import React from 'react';
 import { Show } from "@semapps/archipelago-layout";
 import WorksiteTitle from "./WorksiteTitle";
 import MarkdownField from "../../markdown/MarkdownField";
-import { TextField } from 'react-admin';
 
 const WorksiteShow = props => (
     <Show title={<WorksiteTitle />} {...props}>
