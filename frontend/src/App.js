@@ -12,8 +12,6 @@ import HomePage from './pages/HomePage';
 
 import {
   BreadcrumbsProvider,
-  Breadcrumbs,
-  BreadcrumbsItem
 } from 'react-breadcrumbs-dynamic'
 
 const history = createBrowserHistory();

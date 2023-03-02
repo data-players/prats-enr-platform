@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Notification } from 'react-admin';
-import { Container, Box, useMediaQuery, ThemeProvider, makeStyles, Link, Typography } from '@material-ui/core';
+import { Container, Box, ThemeProvider, makeStyles, Link, Typography } from '@material-ui/core';
 import AppBar from './AppBar';
 import ScrollToTop from './ScrollToTop';
 import SideMenu from './SideMenu';
@@ -74,19 +74,20 @@ const menuItems = {
   '/Page/demarche/show': 'Projets',
   '/News': 'Actualités',
   '/Task': 'Actions',
+  '/Worksite': 'Chantiers'
   //'/Person': 'Portraits',
   //'/Page/ressources/show': 'Ressources',
 };
 
   // const history = createBrowserHistory();
 
-const Layout = ({ appBar, logout, theme, children ,dashboard}) => {
+const Layout = ({ appBar, logout, theme, children }) => {
 
 
   const classes = useStyles();
   const containerStyles = useContainerStyles()
-  const xs = useMediaQuery(theme.breakpoints.down('xs'));
-  const sm = useMediaQuery(theme.breakpoints.down('sm'));
+  // const xs = useMediaQuery(theme.breakpoints.down('xs'));
+  // const sm = useMediaQuery(theme.breakpoints.down('sm'));
   const [ sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
@@ -95,7 +96,7 @@ const Layout = ({ appBar, logout, theme, children ,dashboard}) => {
       <SideMenu menuItems={menuItems} sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
       {React.cloneElement(appBar, { logout, menuItems, setSidebarOpen })}
       <Container maxWidth="lg" classes={containerStyles}>
-        {window.location.pathname!='/' &&
+        {window.location.pathname!=='/' &&
           <Box id="breadcrumpContainer" style={{padding:'10px'}}>
             <Breadcrumbs separator=" / " finalItem="span" finalProps={{
               style: {color: 'gray'}

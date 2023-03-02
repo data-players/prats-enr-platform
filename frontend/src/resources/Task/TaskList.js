@@ -1,5 +1,5 @@
 import React from 'react';
-import { Column, ColumnShowLayout, MasonryList, List, MarkdownField } from '@semapps/archipelago-layout';
+import { List, MarkdownField } from '@semapps/archipelago-layout';
 import TaskAddonList from '../../addons/TaskAddonList';
 import { Show ,Toolbar,  CreateButton} from 'react-admin';
 import CustomMasonryList from '../../addons/CustomMasonryList';
@@ -48,13 +48,6 @@ const ListActions = ({...props}) => {
       </Toolbar>
     )
 }
-
-const asideStyle = makeStyles({
-    root: {
-        order : -1,
-    }
-});
-
 
 
 const Aside = () => (

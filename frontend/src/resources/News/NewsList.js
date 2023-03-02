@@ -21,7 +21,7 @@ const useStylesWideToolbar= makeStyles({
 
 const rowStyle = (record, index) => ({
     borderBottomStyle: "solid",
-    borderTopStyle: index==0?"solid":"none",
+    borderTopStyle: index===0?"solid":"none",
     borderWidth:"1px",
 });
 
@@ -39,8 +39,6 @@ const config = {
   id: process.env.REACT_APP_MIDDLEWARE_URL + 'pages/actus',
   resource: 'Page'
 };
-
-
 
 const ListActions = ({...props}) => {
     const classesWideToolbar = useStylesWideToolbar();
@@ -65,7 +63,7 @@ const ListActions = ({...props}) => {
 }
 
 const NewsList = ({source}) => {
-  let options = { year: 'numeric', month: 'long', day: 'numeric' };
+  // let options = { year: 'numeric', month: 'long', day: 'numeric' };
   return (
     <div style={{padding:"31px 0px"}}>
       <div style={{color:"grey", fontSize:"20px"}}>{moment(source["pair:createdAt"]).format('D MMMM YYYY')}</div>

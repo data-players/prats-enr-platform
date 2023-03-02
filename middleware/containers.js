@@ -65,5 +65,8 @@ module.exports = [
   },
   {
     path: '/files'
+  },
+  {
+    path: '/worksites',
   }
 ];

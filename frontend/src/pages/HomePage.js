@@ -24,15 +24,15 @@ const HomePage = () => {
     resource: 'Page'
   };
 
-  const config2 = {
-    basePath: '/Task',
-    resource: 'Task'
-  };
+  // const config2 = {
+  //   basePath: '/Task',
+  //   resource: 'Task'
+  // };
 
-  const config3 = {
-    basePath: '/News',
-    resource: 'News'
-  };
+  // const config3 = {
+  //   basePath: '/News',
+  //   resource: 'News'
+  // };
 
   const config4 = {
     basePath: '/Page',
@@ -171,7 +171,7 @@ const HomePage = () => {
 
   const rowStyle = (record, index) => ({
       borderBottomStyle: "solid",
-      borderTopStyle: index==0?"solid":"none",
+      borderTopStyle: index===0?"solid":"none",
       borderWidth:"1px",
       borderColor:"grey"
   });

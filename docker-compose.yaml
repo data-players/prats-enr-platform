@@ -39,7 +39,7 @@ services:
       - SEMAPPS_MAIN_DATASET=localData
       - SEMAPPS_JENA_USER=admin
       - SEMAPPS_JENA_PASSWORD=admin
-      - SEMAPPS_HOME_URL=https://data.energiesdeprats.fr/
+      - SEMAPPS_HOME_URL=http://localhost:3000/
       - SEMAPPS_BACKUP_FUSEKI_DATASETS_PATH=/app/fuseki-backups
       # - SEMAPPS_FTP_HOST=dataplayers.exavault.com
       # - SEMAPPS_FTP_PORT=22
@@ -60,7 +60,7 @@ services:
     volumes:
       - ./../prats-enr-platform/frontend:/app
     environment:
-      - REACT_APP_MIDDLEWARE_URL=https://data.energiesdeprats.fr/
+      - REACT_APP_MIDDLEWARE_URL=http://localhost:3000/
       - REACT_APP_MAPBOX_ACCESS_TOKEN=pk.eyJ1Ijoic3Jvc3NldDgxIiwiYSI6ImNrbDd0b2VkMzA1dDMycG9iemU4NnpuemsifQ.HvpZ3tnweVHEUYLb0tDvTg
       - PORT=4000
     restart: always

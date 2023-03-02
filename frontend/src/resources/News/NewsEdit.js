@@ -1,5 +1,5 @@
 import React from 'react';
-import { SimpleForm, TextInput, DateInput ,useEditContext} from 'react-admin';
+import { SimpleForm, TextInput, DateInput } from 'react-admin';
 import { Edit } from '@semapps/archipelago-layout';
 import MarkdownInput from '../../markdown/MarkdownInput'
 import NewsTitle from './NewsTitle';

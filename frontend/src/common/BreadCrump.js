@@ -7,7 +7,6 @@ const ShowContextLayout = ({children, ...otherProps}) => {
   let editProps = useEditContext();
 
   const basePath = showProps.basePath!=null?showProps.basePath:editProps.basePath;
-  const loaded = showProps.loaded!=null?showProps.loaded:editProps.loaded;
   const record = showProps.record!=null?showProps.record:editProps.record;
   const resource = showProps.resource!=null?showProps.resource:editProps.resource;
 

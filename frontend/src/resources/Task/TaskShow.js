@@ -1,5 +1,5 @@
-import React, {ChipField} from 'react';
-import { MainList, Show, AvatarField } from '@semapps/archipelago-layout';
+import React from 'react';
+import { MainList, Show } from '@semapps/archipelago-layout';
 import {TextField} from 'react-admin';
 import { MarkdownField } from '@semapps/markdown-components';
 import TaskTitle from './TaskTitle';
