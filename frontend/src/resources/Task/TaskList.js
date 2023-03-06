@@ -67,7 +67,7 @@ const Aside = () => (
 const TaskList = ({...props}) => {
     return <>
         <BreadcrumbsItem style={{'text-decoration': 'none', 'color':'black'}} to='/Task'>Chantiers</BreadcrumbsItem>
-        <List aside={<Aside />} title={<></>} {...props} sort={{ order: 'ASC' }} actions={<ListActions />} >
+        <List /*aside={<Aside />}*/ title={<></>} {...props} sort={{ order: 'ASC' }} actions={<ListActions />} >
           <CustomMasonryList
             image={record => Array.isArray(record?.image) ? record?.image?.[0] : record?.image}
             content={record => <TaskAddonList record={record} />}
