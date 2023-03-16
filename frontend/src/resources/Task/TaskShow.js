@@ -21,6 +21,9 @@ const mainImage = makeStyles({
 const text = makeStyles({
   legend: {
     paddingLeft: '25px',
+  },
+  comment: {
+    fontSize: "23px",
   }
 })
 
@@ -34,10 +37,10 @@ const TaskShow = props => {
       <BreadcrumbsItemFinal/>
       
       <MainList>
-        <ReferenceField addLabel={false} source="pair:taskStatus" reference="Status">
+        {/* <ReferenceField addLabel={false} source="pair:taskStatus" reference="Status">
           <Chip source="pair:label" />
-        </ReferenceField>
-        <MarkdownField source="pair:comment" addLabel={false} />
+        </ReferenceField> */}
+        <TextField source="pair:comment" addLabel={false} className={textStyles.comment} />
         <ImageField source="image" classes={mainImageStyles}/>
         <TextField label="Courte description" source="pair:legend" className={textStyles.legend} addLabel={false} />
         <MarkdownField source="pair:description" addLabel={false} />

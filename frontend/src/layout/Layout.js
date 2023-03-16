@@ -74,7 +74,6 @@ const menuItems = {
   '/Page/demarche/show': 'Projets',
   '/News': 'Actualités',
   '/Task': 'Sites',
-  // '/Worksite': 'Chantiers'
   //'/Person': 'Portraits',
   //'/Page/ressources/show': 'Ressources',
 };

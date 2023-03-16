@@ -14,14 +14,11 @@ export const TaskEdit = props => (
         <ImageField source="src" />
       </ImageInput>
       <TextInput label="Legende Photo" source='pair:legend' fullWidth />
-      <TextInput source="pair:comment" fullWidth />
-      <ReferenceInput label="Personnes liés au chantier" reference="Person" source="pair:hasPerson">
+      <TextInput label="Commentaire" source="pair:comment" fullWidth />
+      {/* <ReferenceInput label="Personnes liés au chantier" reference="Person" source="pair:hasPerson">
         <SelectInput optionText="pair:label" />
-      </ReferenceInput>
+      </ReferenceInput> */}
       <MarkdownInput multiline source="pair:description" fullWidth />
-      <ReferenceInput label="Statut" reference="Status" source="pair:taskStatus">
-        <SelectInput optionText="pair:label" />
-      </ReferenceInput>
     </SimpleForm>
   </Edit>
 );

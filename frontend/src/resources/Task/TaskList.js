@@ -49,21 +49,6 @@ const ListActions = ({...props}) => {
     )
 }
 
-
-const Aside = () => (
-    <div style={{ width: "300px", order: -1, padding :"20px" }}>
-      <div>
-        <div>Status</div>
-        <br/>
-        <div>▶︎ À venir</div>
-        <br/>
-        <div>● En cours</div>
-        <br/>
-        <div>■ Terminé</div>
-      </div>
-    </div>
-);
-
 const TaskList = ({...props}) => {
     return <>
         <BreadcrumbsItem style={{'text-decoration': 'none', 'color':'black'}} to='/Task'>Chantiers</BreadcrumbsItem>
