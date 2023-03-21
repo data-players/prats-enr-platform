@@ -20,7 +20,7 @@ export const TaskEdit = props => (
       <TextInput label="Propriétaire" source="prats:owner" fullWidth />
       <TextInput label="Bénéficiaire/Exploitant" source="prats:user" fullWidth />
       <TextInput label="Gestionnaire" source="prats:administrator" fullWidth />
-      <LocationInput label="address" source="pair:hasLocation" fullWidth />
+      <LocationInput label="Address" source="pair:hasLocation" fullWidth />
       {/* <ReferenceInput label="Personnes liés au chantier" reference="Person" source="pair:hasPerson">
         <SelectInput optionText="pair:label" />
       </ReferenceInput> */}
