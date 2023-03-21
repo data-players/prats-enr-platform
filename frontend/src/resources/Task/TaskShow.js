@@ -5,10 +5,12 @@ import { MarkdownField } from '@semapps/markdown-components';
 import TaskTitle from './TaskTitle';
 import { makeStyles, Chip } from '@material-ui/core';
 import { ImageField, ReferenceField } from '@semapps/semantic-data-provider';
+import { MapField } from '@semapps/geo-components';
 import {
   BreadcrumbsItem,
   BreadcrumbsItemFinal
 } from '../../common/BreadCrump'
+import TextFieldWithTitle from '../../common/TextFieldWithTitile';
 
 const mainImage = makeStyles({
   image: {
@@ -24,6 +26,9 @@ const text = makeStyles({
   },
   comment: {
     fontSize: "23px",
+  },
+  owner: {
+    fontSize: "40px"
   }
 })
 
@@ -44,6 +49,15 @@ const TaskShow = props => {
         <ImageField source="image" classes={mainImageStyles}/>
         <TextField label="Courte description" source="pair:legend" className={textStyles.legend} addLabel={false} />
         <MarkdownField source="pair:description" addLabel={false} />
+        <TextFieldWithTitle className={textStyles.owner} source="prats:owner" title="Propiétaire" padding={true} />
+        <TextFieldWithTitle source="prats:user" title="Bénéficiaire/Exploitant" />
+        <TextFieldWithTitle source="prats:administrator" title="Géstionnaire" />
+        <MapField
+          source="pair:hasLocation"
+          address={record => record['pair:hasLocation'] && record['pair:hasLocation']['pair:label']}
+          latitude={record => record['pair:hasLocation'] && record['pair:hasLocation']['pair:latitude']}
+          longitude={record => record['pair:hasLocation'] && record['pair:hasLocation']['pair:longitude']}
+        />
       </MainList>
     </>
   </Show>
