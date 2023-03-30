@@ -17,7 +17,7 @@ module.exports = {
       }
     },
     cronJob: {
-      time: '15 4 * * *',
+      time: '50 6 * * *',
       timeZone: 'Europe/Paris'
     }
   },
