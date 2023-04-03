@@ -17,7 +17,7 @@ module.exports = {
       }
     },
     cronJob: {
-      time: '50 6 * * *',
+      time: '0 4 * * *',
       timeZone: 'Europe/Paris'
     }
   },
@@ -31,10 +31,11 @@ module.exports = {
             user: CONFIG.BACKUP_SERVER_USER,
             password: CONFIG.BACKUP_SERVER_PASSWORD,
             host: CONFIG.BACKUP_SERVER_HOST,
-            path: CONFIG.BACKUP_SERVER_PATH
+            path: CONFIG.BACKUP_SERVER_PATH,
+            port: CONFIG.BACKUP_SERVER_PORT,
           });
 
-          fs.readdir(ctx.params.path, async function (err, files) {
+          fs.readdir("/app/fuseki-backups", async function (err, files) {
             if (err) {
                 return console.log('Unable to scan directory: ' + err);
                 reject('Unable to scan directory: ' + err.message)
@@ -43,12 +44,12 @@ module.exports = {
             files = files.map(function (fileName) {
               return {
                 name: fileName,
-                diff: (now - fs.statSync(ctx.params.path + '/' + fileName).mtime) / 1000
+                diff: (now - fs.statSync("/app/fuseki-backups" + '/' + fileName).mtime) / 1000
               };
             }).filter(f=>f.diff<60)
 
             for (var file of files) {
-              await sftp.put(ctx.params.path + '/' +file.name, process.env.SEMAPPS_FTP_PATH +file.name);
+              await sftp.put("/app/fuseki-backups" + '/' +file, "/backups/prats/backup/" +file);
             }
 
             resolve()
@@ -60,3 +61,5 @@ module.exports = {
     }
   }
 };
+
+// call backup.syncWithRemoteServer
