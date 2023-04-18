@@ -65,5 +65,17 @@ module.exports = [
   },
   {
     path: '/files'
-  }
+  },
+  {
+    path: '/project',
+    acceptedTypes: 'pair:Project',
+  },
+  {
+    path: '/portrait',
+    acceptedTypes: 'pair:Portrait',
+  },
+  {
+    path: '/resource',
+    acceptedTypes: 'pair:Resource',
+  },
 ];

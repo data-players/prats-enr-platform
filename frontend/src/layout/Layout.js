@@ -71,10 +71,11 @@ const useContainerStyles = makeStyles(theme => ({
 }));
 
 const menuItems = {
-  '/Page/demarche/show': 'Projets',
+  '/Project': 'Projets',
   '/News': 'Actualités',
   '/Task': 'Sites',
-  //'/Person': 'Portraits',
+  '/Portrait': 'Portraits',
+  '/Resource': 'Ressources',
   //'/Page/ressources/show': 'Ressources',
 };
 

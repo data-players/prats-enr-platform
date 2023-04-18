@@ -6,6 +6,29 @@ import {
   BreadcrumbsItem,
   BreadcrumbsItemFinal
 } from '../../common/BreadCrump'
+import { DateField, ReferenceArrayField, SimpleList, TextField } from 'react-admin';
+import { makeStyles } from '@material-ui/core';
+import DescriptionIcon from '@material-ui/icons/Description';
+
+const mainImage = makeStyles({
+  image: {
+    objectFit: 'cover',
+    width: '100%',
+    maxHeight :'30em'
+  }
+});
+
+const text = makeStyles({
+  legend: {
+    paddingLeft: '25px',
+  },
+  comment: {
+    fontSize: "23px",
+  },
+  time: {
+    fontSize: "30px"
+  }
+})
 
 const imgMD = ({children,src,...props}) => {
   return (<>
@@ -16,15 +39,25 @@ const imgMD = ({children,src,...props}) => {
 }
 
 const NewsShow = props => {
+  const classes = text();
   return (
     <Show title={<NewsTitle />} {...props}>
       <>
         <BreadcrumbsItem to='/News'>Actualités</BreadcrumbsItem>
         <BreadcrumbsItemFinal/>
+
         <MainList  >
+          <DateField source="pair:createdAt" label="Horaire" showTime className={classes.time} />
           <MarkdownField overrides={{
               img: imgMD,
-          }} source="semapps:content" addLabel={false} />
+          }} source="pair:description" label="Description" />
+        <ReferenceArrayField label="Ressources Liés Au Projet" source="pair:hasResource" reference="Resource">
+          <SimpleList
+              primaryText={record => record && record['pair:label']}
+              leftIcon={() => <DescriptionIcon />}
+              linkType="show"
+            />          
+        </ReferenceArrayField>
         </MainList>
       </>
     </Show>

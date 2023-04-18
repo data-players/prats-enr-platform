@@ -1,5 +1,5 @@
 import React from 'react';
-import { SimpleForm, TextInput, DateInput } from 'react-admin';
+import { SimpleForm, TextInput, DateInput, ReferenceArrayInput, AutocompleteArrayInput } from 'react-admin';
 import { Edit } from '@semapps/archipelago-layout';
 import MarkdownInput from '../../markdown/MarkdownInput'
 import NewsTitle from './NewsTitle';
@@ -13,9 +13,13 @@ export const NewsEdit = props => (
     <SimpleForm redirect="show">
       <BreadcrumbsItem to='/News'>Actualités</BreadcrumbsItem>
       <BreadcrumbsItemFinal/>
-      <TextInput source="semapps:title" fullWidth />
-      <MarkdownInput multiline source="semapps:content" fullWidth />
-      <DateInput source="pair:createdAt" />
+
+      <TextInput label="Titre" source="pair:label" fullWidth />
+      <DateInput label="Horaire" source="pair:createdAt" />
+      <MarkdownInput multiline source="pair:description" fullWidth />
+      <ReferenceArrayInput label="Ressources liés" reference="Resource" source="pair:hasResource">
+        <AutocompleteArrayInput optionText="pair:label" fullWidth/>
+      </ReferenceArrayInput> 
     </SimpleForm>
   </Edit>
 );

@@ -1,67 +1,52 @@
 import React from 'react';
-import { List, MarkdownField } from '@semapps/archipelago-layout';
 import TaskAddonList from '../../addons/TaskAddonList';
-import { Show ,Toolbar,  CreateButton} from 'react-admin';
+import { List} from 'react-admin';
 import CustomMasonryList from '../../addons/CustomMasonryList';
+import { MapList } from '@semapps/geo-components';
 import {
   BreadcrumbsItem,
 } from '../../common/BreadCrump'
 import { makeStyles } from '@material-ui/core/styles';
+import MapIcon from '@material-ui/icons/Map';
+import ListIcon from '@material-ui/icons/List';
+import { MultiViewsList, SimpleList } from '@semapps/archipelago-layout';
 
-
-const useStylesWideToolbar= makeStyles({
-    toolbar: {
-        flex : 1,
-        justifyContent :"space-between",
-        alignItems : "flex-start",
-        backgroundColor : "white"
-    }
-});
-
-const config = {
-  basePath: '/Page',
-  id: process.env.REACT_APP_MIDDLEWARE_URL + 'pages/chantiers',
-  resource: 'Page'
-};
-
-const showStyle = makeStyles({
-    card: {
-        // backgroundColor : "red",
-        boxShadow: "none"
-    }
-});
-
-const ListActions = ({...props}) => {
-    const classesWideToolbar = useStylesWideToolbar();
-    const showClasses = showStyle();
-    return (
-      <Toolbar classes={classesWideToolbar}>
-        <div>
-          <h1 style={{
-            marginLeft: 40
-          }}>Chantiers</h1>
-        <Show title={<></>} hasEdit={false} hasList={false} {...config} classes={showClasses}>
-            <MarkdownField source="semapps:content" addLabel={false} />
-          </Show>
-        </div>
-        <CreateButton/>
-      </Toolbar>
-    )
-}
-
-const TaskList = ({...props}) => {
-    return <>
-        <BreadcrumbsItem style={{'text-decoration': 'none', 'color':'black'}} to='/Task'>Chantiers</BreadcrumbsItem>
-        <List /*aside={<Aside />}*/ title={<></>} {...props} sort={{ order: 'ASC' }} actions={<ListActions />} >
+const TaskList = props => (
+  <MultiViewsList
+    ListComponent={List}
+    views={{
+      list: {
+        label: 'Liste',
+        icon: ListIcon,
+        sort: { field: 'pair:label', order: 'ASC' },
+        perPage: 25,
+        list: (
           <CustomMasonryList
             image={record => Array.isArray(record?.image) ? record?.image?.[0] : record?.image}
             content={record => <TaskAddonList record={record} />}
             breakpointCols={{ default: 3, 1200: 3, 1000: 2, 700: 1 }}
             linkType="show"
           />
-        </List>
-
-    </>
-};
+        )
+      },
+      map: {
+        label: 'Carte',
+        icon: MapIcon,
+        perPage: 500,
+        pagination: false,
+        list: (
+          <MapList
+            latitude={record => record['pair:hasLocation'] && record['pair:hasLocation']['pair:latitude']}
+            longitude={record => record['pair:hasLocation'] && record['pair:hasLocation']['pair:longitude']}
+            label={record => record['pair:label']}
+            description={record => record['pair:comment']}
+            scrollWheelZoom
+          />
+        )
+      }
+    }}
+    {...props}
+  />
+);
 
 export default TaskList;

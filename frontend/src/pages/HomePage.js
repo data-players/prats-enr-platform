@@ -200,7 +200,7 @@ const HomePage = () => {
       <Grid item sm={5} xs={12} className={mainStyle.griditemLeft}>
         <Paper className={mainStyle.paper} variant="outlined" square>
           <Box component="div" classes={mainTextStyles}>
-            Sites
+            Sites De Production
           </Box>
         </Paper>
       </Grid>
@@ -216,14 +216,14 @@ const HomePage = () => {
           </Box>
         </Paper>
       </Grid>
-      <Grid item sm={5} xs={12} className={mainStyle.griditemWithoutBorderLeft}>
+      <Grid item sm={5} xs={12} className={mainStyle.griditemLeft}>
         <Paper className={mainStyle.paper} variant="outlined" square>
           <Box component="div" classes={mainTextStyles}>
             Actualités
           </Box>
         </Paper>
       </Grid>
-      <Grid item sm={7} xs={12} className={mainStyle.griditemWithoutBorder}>
+      <Grid item sm={7} xs={12} className={mainStyle.griditem}>
         <Paper className={mainStyle.paper} variant="outlined" square>
           <Box component="div" classes={mainTextStyles}>
             <Show hasEdit={false} classes={mainShowStyle} hasList={false} {...config4}>
@@ -239,6 +239,7 @@ const HomePage = () => {
         </Paper>
       </Grid>
     </Grid>
+    
   );
 };
 

@@ -5,7 +5,7 @@ import { Create } from '@semapps/archipelago-layout';
 const NewsCreate = props => (
   <Create {...props}>
     <SimpleForm>
-      <TextInput source="semapps:title" validate={[required()]} fullWidth />
+      <TextInput source="pair:label" validate={[required()]} fullWidth />
       <DateInput source="pair:createdAt" validate={[required()]} />
     </SimpleForm>
   </Create>

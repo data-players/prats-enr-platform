@@ -16,16 +16,17 @@ export default {
     }
   },
   dataModel: {
-    types: ['semapps:Document'],
+    types: ['pair:Document'],
     containerUri: process.env.REACT_APP_MIDDLEWARE_URL + 'news',
-    slugField: 'semapps:title'
+    slugField: 'pair:label',
+    forceArray: ['pair:hasResource']
   },
   translations: {
     fr: {
       name: 'Actualité |||| Les actualités',
       fields: {
-        'semapps:title': 'Titre',
-        'semapps:content': 'Contenu',
+        'pair:label': 'Titre',
+        'pair:description': 'Contenu',
       }
     }
   }

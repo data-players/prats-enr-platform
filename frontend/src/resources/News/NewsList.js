@@ -54,7 +54,7 @@ const ListActions = ({...props}) => {
             color:"#333333"
           }}>Actualités</div>
           <Show hasEdit={false} hasList={false} {...config} classes={showClasses}>
-            <MarkdownField source="semapps:content" addLabel={false} />
+            <MarkdownField source="pair:description" addLabel={false} />
           </Show>
         </div>
         <CreateButton/>
@@ -67,7 +67,7 @@ const NewsList = ({source}) => {
   return (
     <div style={{padding:"31px 0px"}}>
       <div style={{color:"grey", fontSize:"20px"}}>{moment(source["pair:createdAt"]).format('D MMMM YYYY')}</div>
-      <div style={{color:"black", fontSize:"24px"}}>{source["semapps:title"]}</div>
+      <div style={{color:"black", fontSize:"24px"}}>{source["pair:label"]}</div>
     </div>
   )
 }
