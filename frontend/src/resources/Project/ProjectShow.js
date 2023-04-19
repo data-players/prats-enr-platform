@@ -37,7 +37,7 @@ const ProjectShow = props => {
 
   return <Show title={<ProjectTitle />} {...props}>
     <>        
-      <BreadcrumbsItem to='/Project'>Chantiers</BreadcrumbsItem>
+      <BreadcrumbsItem to='/Project'>Projets</BreadcrumbsItem>
       <BreadcrumbsItemFinal/>
     
       <MainList>

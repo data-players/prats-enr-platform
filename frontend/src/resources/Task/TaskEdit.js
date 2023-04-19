@@ -4,7 +4,6 @@ import { Edit } from '@semapps/archipelago-layout';
 import { MarkdownInput } from '@semapps/markdown-components';
 import TaskTitle from './TaskTitle';
 import { ImageField, ReferenceInput } from '@semapps/semantic-data-provider';
-import LocationInput from '../../common/LocationInput';
 
 export const TaskEdit = props => (
   <Edit title={<TaskTitle />} {...props}>
@@ -26,7 +25,7 @@ export const TaskEdit = props => (
       <ImageInput source="image" accept="image/*">
         <ImageField source="src" />
       </ImageInput>
-      <LocationInput ti="Addresse" source="pair:hasLocation" fullWidth />
+      {/* <LocationInput ti="Addresse" source="pair:hasLocation" fullWidth /> */}
       <TextInput label="Latitude" source="prats:lat" fullWidth />
       <TextInput label="Longitude" source="prats:lng" fullWidth />
     </SimpleForm>

@@ -34,9 +34,6 @@ const BreadcrumbsItemFinalInside = ({children,record, ...otherProps}) => {
 }
 
 export const BreadcrumbsItemFinal = ({children, ...otherProps}) => {
-
-  // console.log('ShowContextLayout record',otherProps.record);
-
   return (
     <ShowContextLayout>
       <BreadcrumbsItemFinalInside></BreadcrumbsItemFinalInside>

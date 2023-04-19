@@ -6,17 +6,9 @@ import {
   BreadcrumbsItem,
   BreadcrumbsItemFinal
 } from '../../common/BreadCrump'
-import { DateField, ReferenceArrayField, SimpleList, TextField } from 'react-admin';
+import { DateField, ReferenceArrayField, SimpleList } from 'react-admin';
 import { makeStyles } from '@material-ui/core';
 import DescriptionIcon from '@material-ui/icons/Description';
-
-const mainImage = makeStyles({
-  image: {
-    objectFit: 'cover',
-    width: '100%',
-    maxHeight :'30em'
-  }
-});
 
 const text = makeStyles({
   legend: {

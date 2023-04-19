@@ -14,7 +14,7 @@ export const ResourceEdit = props => (
       <ImageInput source="image" accept="image/*">
         <ImageField source="src" />
       </ImageInput>
-      <TextInput label="Site internet" source="pair:homePage" fullWidth/>
+      <TextInput label="Lien Externe" source="pair:homePage" fullWidth/>
     </SimpleForm>
   </Edit>
 );

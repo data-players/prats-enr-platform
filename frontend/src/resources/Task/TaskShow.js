@@ -1,6 +1,6 @@
 import React from 'react';
-import { AvatarField, MainList, Show } from '@semapps/archipelago-layout';
-import {ChipField, ReferenceArrayField, SimpleList, TextField} from 'react-admin';
+import { MainList, Show } from '@semapps/archipelago-layout';
+import {ChipField, TextField} from 'react-admin';
 import { MarkdownField } from '@semapps/markdown-components';
 import TaskTitle from './TaskTitle';
 import { Grid, makeStyles } from '@material-ui/core';
@@ -9,8 +9,7 @@ import {
   BreadcrumbsItem,
   BreadcrumbsItemFinal
 } from '../../common/BreadCrump'
-import AccountBoxIcon from '@material-ui/icons/AccountBox';
-import { MapField } from '@semapps/geo-components';
+import CustomMapField from './CustomMapField';
 
 const mainImage = makeStyles({
   image: {
@@ -41,7 +40,7 @@ const TaskShow = props => {
 
   return <Show title={<TaskTitle />} {...props}>
     <Grid container spacing={2}>
-      <BreadcrumbsItem to='/Task'>Chantiers</BreadcrumbsItem>
+      <BreadcrumbsItem to='/Task'>Sites</BreadcrumbsItem>
       <BreadcrumbsItemFinal/>
 
       <Grid item md={12} xs={12}>
@@ -86,14 +85,7 @@ const TaskShow = props => {
       </Grid>
 
       <Grid item md={12} xs={12} >
-        <MainList >
-          <MapField
-            source="pair:hasLocation"
-            address={record => record['pair:hasLocation'] && record['pair:hasLocation']['pair:label']}
-            latitude={record => record['pair:hasLocation'] && record['pair:hasLocation']['pair:latitude']}
-            longitude={record => record['pair:hasLocation'] && record['pair:hasLocation']['pair:longitude']}
-          />
-        </MainList>
+          <CustomMapField />
       </Grid>
       <Grid item md={4} xs={4}>
         <MainList >

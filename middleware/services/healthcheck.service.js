@@ -20,7 +20,6 @@ module.exports = {
       const data = await getDataDirNumber()
       const msBetweenDates = Math.abs(Fs.statSync(dir+data.dataD).birthtime.getTime() - new Date().getTime());
       const hoursBetweenDates = msBetweenDates / (60 * 60 * 1000);
-      console.log("lol");
       if ( data.count != 1 || hoursBetweenDates > 24) {
         throw new MoleculerError("Count Or date is wrong", 500, "ERR_COMPACT", {
           name: data.DataD,

@@ -24,21 +24,23 @@ const HomePage = () => {
     resource: 'Page'
   };
 
-  // const config2 = {
-  //   basePath: '/Task',
-  //   resource: 'Task'
-  // };
-
-  // const config3 = {
-  //   basePath: '/News',
-  //   resource: 'News'
-  // };
-
   const config4 = {
     basePath: '/Page',
     id: process.env.REACT_APP_MIDDLEWARE_URL + 'pages/actualite-intro',
     resource: 'Page'
   };
+
+  const configMonthlyGraphique = {
+    basePath: '/Page',
+    id: process.env.REACT_APP_MIDDLEWARE_URL + 'pages/accueil-monthly-graphique',
+    resource: 'Page'
+  }
+
+  const configDailyGraphique = {
+    basePath: '/Page',
+    id: process.env.REACT_APP_MIDDLEWARE_URL + 'pages/accueil-daily-graphique',
+    resource: 'Page'
+  }
 
   const mainImage = makeStyles(theme => ({
     root: {
@@ -138,6 +140,10 @@ const HomePage = () => {
       fontWeight: "normal",
       lineHeight: "125%",
     },
+    graphText: {
+      fontSize: "25px",
+      textAlign: "center"
+    }
   }))
 
   const divButton = makeStyles({
@@ -200,7 +206,7 @@ const HomePage = () => {
       <Grid item sm={5} xs={12} className={mainStyle.griditemLeft}>
         <Paper className={mainStyle.paper} variant="outlined" square>
           <Box component="div" classes={mainTextStyles}>
-            Sites De Production
+            Le Projets
           </Box>
         </Paper>
       </Grid>
@@ -216,14 +222,34 @@ const HomePage = () => {
           </Box>
         </Paper>
       </Grid>
-      <Grid item sm={5} xs={12} className={mainStyle.griditemLeft}>
+
+      <Grid item sm={6} xs={12} className={mainStyle.griditem}>
+        <Paper className={mainStyle.paper} variant="outlined" square>
+          <Box component="div" className={mainTextStyles.graphText} >
+            <Show hasEdit={false} classes={mainShowStyle} hasList={false} {...configDailyGraphique}>
+              <MarkdownField source="semapps:content" addLabel={false} />
+            </Show>
+          </Box>
+        </Paper>
+      </Grid>
+      <Grid item sm={6} xs={12} className={mainStyle.griditem}>
+        <Paper className={mainStyle.paper} variant="outlined" square>
+          <Box component="div" className={mainTextStyles.graphText} >
+            <Show hasEdit={false} classes={mainShowStyle} hasList={false} {...configMonthlyGraphique}>
+              <MarkdownField source="semapps:content" addLabel={false} />
+            </Show>
+          </Box>
+        </Paper>
+      </Grid>
+
+      <Grid item sm={5} xs={12} className={mainStyle.griditemWithoutBorderLeft}>
         <Paper className={mainStyle.paper} variant="outlined" square>
           <Box component="div" classes={mainTextStyles}>
             Actualités
           </Box>
         </Paper>
       </Grid>
-      <Grid item sm={7} xs={12} className={mainStyle.griditem}>
+      <Grid item sm={7} xs={12} className={mainStyle.griditemWithoutBorder}>
         <Paper className={mainStyle.paper} variant="outlined" square>
           <Box component="div" classes={mainTextStyles}>
             <Show hasEdit={false} classes={mainShowStyle} hasList={false} {...config4}>

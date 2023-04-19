@@ -1,7 +1,7 @@
 import React from 'react';
-import { List, MarkdownField } from '@semapps/archipelago-layout';
+import { List } from '@semapps/archipelago-layout';
 import TaskAddonList from '../../addons/TaskAddonList';
-import { Show ,Toolbar,  CreateButton} from 'react-admin';
+import { Toolbar,  CreateButton} from 'react-admin';
 import CustomMasonryList from '../../addons/CustomMasonryList';
 import {
   BreadcrumbsItem,
@@ -19,28 +19,14 @@ const useStylesWideToolbar= makeStyles({
     }
 });
 
-const config = {
-  basePath: '/Page',
-  id: process.env.REACT_APP_MIDDLEWARE_URL + 'pages/chantiers',
-  resource: 'Page'
-};
-
-const showStyle = makeStyles({
-    card: {
-        // backgroundColor : "red",
-        boxShadow: "none"
-    }
-});
-
 const ListActions = ({...props}) => {
     const classesWideToolbar = useStylesWideToolbar();
-    const showClasses = showStyle();
     return (
       <Toolbar classes={classesWideToolbar}>
         <div>
           <h1 style={{
             marginLeft: 40
-          }}>Chantiers</h1>
+          }}>Projets</h1>
         </div>
         <CreateButton/>
       </Toolbar>
@@ -49,7 +35,7 @@ const ListActions = ({...props}) => {
 
 const ProjectList = ({...props}) => {
     return <>
-        <BreadcrumbsItem style={{'text-decoration': 'none', 'color':'black'}} to='/Project'>Chantiers</BreadcrumbsItem>
+        <BreadcrumbsItem style={{'text-decoration': 'none', 'color':'black'}} to='/Project'>Projets</BreadcrumbsItem>
         <List aside={<ProjectFilterSidebar />} title={<></>} {...props} sort={{ order: 'ASC' }} actions={<ListActions />} >
           <CustomMasonryList
             image={record => Array.isArray(record?.image) ? record?.image?.[0] : record?.image}

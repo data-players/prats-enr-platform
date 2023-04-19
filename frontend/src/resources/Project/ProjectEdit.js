@@ -3,7 +3,7 @@ import { ImageInput, SimpleForm, TextInput, AutocompleteArrayInput } from 'react
 import { Edit } from '@semapps/archipelago-layout';
 import { MarkdownInput } from '@semapps/markdown-components';
 import ProjectTitle from './ProjectTitle';
-import { ImageField, ReferenceArrayInput, ReferenceInput } from '@semapps/semantic-data-provider';
+import { ImageField, ReferenceArrayInput } from '@semapps/semantic-data-provider';
 
 export const ProjectEdit = props => (
   <Edit title={<ProjectTitle />} {...props}>

@@ -3,8 +3,8 @@ import { MainList, Show } from '@semapps/archipelago-layout';
 import {TextField, UrlField} from 'react-admin';
 import { MarkdownField } from '@semapps/markdown-components';
 import PortraitTitle from './PortraitTitle';
-import { makeStyles, Chip } from '@material-ui/core';
-import { ImageField, ReferenceField } from '@semapps/semantic-data-provider';
+import { makeStyles } from '@material-ui/core';
+import { ImageField } from '@semapps/semantic-data-provider';
 import {
   BreadcrumbsItem,
   BreadcrumbsItemFinal
@@ -36,7 +36,7 @@ const PortraitShow = props => {
 
   return <Show title={<PortraitTitle />} {...props}>
     <>        
-      <BreadcrumbsItem to='/Portrait'>Chantiers</BreadcrumbsItem>
+      <BreadcrumbsItem to='/Portrait'>Portraits</BreadcrumbsItem>
       <BreadcrumbsItemFinal/>
       
       <MainList>

@@ -1,7 +1,7 @@
 import React from 'react';
-import { List, MarkdownField } from '@semapps/archipelago-layout';
+import { List } from '@semapps/archipelago-layout';
 import TaskAddonList from '../../addons/TaskAddonList';
-import { Show ,Toolbar,  CreateButton} from 'react-admin';
+import { Toolbar,  CreateButton} from 'react-admin';
 import CustomMasonryList from '../../addons/CustomMasonryList';
 import {
   BreadcrumbsItem,
@@ -18,22 +18,8 @@ const useStylesWideToolbar= makeStyles({
     }
 });
 
-const config = {
-  basePath: '/Page',
-  id: process.env.REACT_APP_MIDDLEWARE_URL + 'pages/chantiers',
-  resource: 'Page'
-};
-
-const showStyle = makeStyles({
-    card: {
-        // backgroundColor : "red",
-        boxShadow: "none"
-    }
-});
-
 const ListActions = ({...props}) => {
     const classesWideToolbar = useStylesWideToolbar();
-    const showClasses = showStyle();
     return (
       <Toolbar classes={classesWideToolbar}>
         <div>

@@ -9,6 +9,5 @@ theme.palette.primary.contrastText = '#FFFFFF';
 
 // theme.typography.h1.color = '#e8048b';
 
-console.log(theme.palette);
 
 export default theme;

@@ -22,7 +22,7 @@ export default {
   },
   translations: {
     fr: {
-      name: 'Chantier |||| Les chantiers',
+      name: 'Site de Production |||| Les Site de Production',
       fields: {
         'pair:label': 'Titre',
         'pair:description': 'Contenu',

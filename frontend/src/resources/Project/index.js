@@ -23,7 +23,7 @@ export default {
   },
   translations: {
     fr: {
-      name: 'Chantier |||| Les chantiers',
+      name: 'Projet |||| Les projets',
       fields: {
         'pair:label': 'Titre',
         'pair:description': 'Contenu',
