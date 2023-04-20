@@ -23,9 +23,9 @@ const TaskAddonList = ({ record }) => {
   return (
     <Box className={classes.content}>
       <Typography variant="h5" color="textPrimary">{record?.['pair:label']}</Typography>
-      <Typography variant="body2" color="textSecondary">
+      {/* <Typography variant="body2" color="textSecondary">
         {record?.['pair:description']}
-      </Typography>
+      </Typography> */}
     </Box>
   );
 }
