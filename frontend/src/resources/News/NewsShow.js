@@ -40,7 +40,7 @@ const NewsShow = props => {
         <BreadcrumbsItemFinal/>
 
         <MainList  >
-          <DateField source="pair:createdAt" label="Horaire" showTime className={classes.time} />
+          <DateField source="pair:createdAt" label="Horaire" className={classes.time} />
           <MarkdownField overrides={{
               img: imgMD,
           }} source="pair:description" label="Description" />
