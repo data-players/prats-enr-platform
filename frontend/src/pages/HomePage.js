@@ -206,7 +206,7 @@ const HomePage = () => {
       <Grid item sm={5} xs={12} className={mainStyle.griditemLeft}>
         <Paper className={mainStyle.paper} variant="outlined" square>
           <Box component="div" classes={mainTextStyles}>
-            Le Projets
+            Le Projet
           </Box>
         </Paper>
       </Grid>
