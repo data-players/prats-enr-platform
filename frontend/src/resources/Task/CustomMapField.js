@@ -6,9 +6,7 @@ import { useRecordContext } from 'react-admin';
 const CustomMapField = ({ latitude, longitude, height, addLabel, ...rest }) => {
   const record = useRecordContext();
   const position = [record["prats:lat"], record["prats:lng"]];
-  console.log(position)
   if (!position[0] || !position[1]) return null;
-  console.group("coucou2")  
 
   return (
     <Box>
