@@ -8,7 +8,7 @@ const ResourceList = props => (
   <>
     <BreadcrumbsItem style={{'text-decoration': 'none', 'color':'black'}} to='/Resource'>Resources</BreadcrumbsItem>
     <List {...props}>
-      <SimpleList primaryText={record => record['pair:label']} leftAvatar={() => <Avatar width="100%"><DescriptionIcon /></Avatar>} linkType="edit" />
+      <SimpleList primaryText={record => record['pair:label']} leftAvatar={() => <Avatar width="100%"><DescriptionIcon /></Avatar>} linkType="show" />
     </List>
   </>
 
