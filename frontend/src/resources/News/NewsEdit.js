@@ -7,6 +7,7 @@ import {
   BreadcrumbsItem,
   BreadcrumbsItemFinal
 } from '../../common/BreadCrump'
+import { DateTimeInput } from '@semapps/date-components';
 
 export const NewsEdit = props => (
   <Edit title={<NewsTitle />} {...props}>
@@ -15,7 +16,7 @@ export const NewsEdit = props => (
       <BreadcrumbsItemFinal/>
 
       <TextInput label="Titre" source="pair:label" fullWidth />
-      <DateInput label="Horaire" source="pair:createdAt" />
+      <DateTimeInput label="Horaire" source="pair:createdAt" />
       <MarkdownInput multiline source="pair:description" fullWidth />
       <ReferenceArrayInput label="Ressources liés" reference="Resource" source="pair:hasResource">
         <AutocompleteArrayInput optionText="pair:label" fullWidth/>
