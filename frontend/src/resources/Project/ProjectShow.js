@@ -42,7 +42,7 @@ const ProjectShow = props => {
     
       <MainList>
         <TextField source="pair:comment" addLabel={false} className={textStyles.comment} />
-        <MarkdownField label="Description" source="pair:description" />
+        <MarkdownField addLabel={false} source="pair:description" />
         <ImageField source="image" classes={mainImageStyles}/>
         <UrlField label="Site internet" source="pair:homePage" />
         <ReferenceArrayField label="Portraits Liés Au Projet" source="pair:hasPortrait" reference="Portrait">
