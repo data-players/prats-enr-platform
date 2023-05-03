@@ -15,7 +15,7 @@ const mainImage = makeStyles({
   image: {
     objectFit: 'cover',
     width: '100%',
-    maxHeight :'30em'
+    maxHeight :'100%'
   }
 });
 
