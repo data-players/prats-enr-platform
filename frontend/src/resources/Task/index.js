@@ -22,7 +22,7 @@ export default {
   },
   translations: {
     fr: {
-      name: 'Site de Production |||| Les Site de Production',
+      name: 'Site de Production |||| Les Sites de Production',
       fields: {
         'pair:label': 'Titre',
         'pair:description': 'Contenu',
