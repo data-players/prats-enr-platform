@@ -28,6 +28,7 @@ export default {
         'pair:label': 'Titre',
         'pair:description': 'Contenu',
         'pair:hasLocation' : 'Lieu',
+        'pair:logo': "logo"
       }
     }
   }

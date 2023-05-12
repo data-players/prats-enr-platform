@@ -1,15 +1,17 @@
 import React from 'react';
 import { MainList, Show } from '@semapps/archipelago-layout';
-import {ChipField, TextField} from 'react-admin';
+import {SimpleList, TextField} from 'react-admin';
 import { MarkdownField } from '@semapps/markdown-components';
 import TaskTitle from './TaskTitle';
 import { Grid, makeStyles } from '@material-ui/core';
-import { ImageField, ReferenceField } from '@semapps/semantic-data-provider';
+import { ImageField, ReferenceArrayField, ReferenceField } from '@semapps/semantic-data-provider';
 import {
   BreadcrumbsItem,
   BreadcrumbsItemFinal
 } from '../../common/BreadCrump'
 import CustomMapField from './CustomMapField';
+import AccountBoxIcon from '@material-ui/icons/AccountBox';
+
 
 const mainImage = makeStyles({
   image: {
@@ -34,6 +36,10 @@ const text = makeStyles({
   }
 })
 
+const Test = (props) => {
+  console.log("props")
+}
+
 const TaskShow = props => {
   const mainImageStyles = mainImage();
   const classes = text();
@@ -47,29 +53,44 @@ const TaskShow = props => {
         <TextField source="pair:comment" addLabel={false} className={classes.comment} />
         <ImageField source="image" classes={mainImageStyles}/>
         <MainList>
-          <MarkdownField label="description" source="pair:description" />        
+          <MarkdownField label="description" source="pair:description" addLabel={false} />
+          <MarkdownField label="graph" source="prats:graphic" addLabel={false} />                
         </MainList>
       </Grid>
 
       <Grid item md={4} xs={4} >
         <MainList>
-          <ReferenceField label="Gestionnaire" reference="Portrait" source="prats:hasManager" >
-            <ChipField source="pair:label"  />
-          </ReferenceField>        
+          <ReferenceArrayField label="Gestionnaire" source="prats:hasManager" reference="Portrait">
+            <SimpleList
+              primaryText={record => record && record['pair:label']}
+              leftIcon={() => <AccountBoxIcon />}
+              linkType="show"
+            />         
+          </ReferenceArrayField>  
         </MainList>      
       </Grid>
+
       <Grid item md={4} xs={4} >
         <MainList  >
-          <ReferenceField label="Exploitant" reference="Portrait" source="prats:hasOperator" >
-            <ChipField source="pair:label"  />
-          </ReferenceField>        
+          <ReferenceArrayField label="Exploitant" reference="Portrait" source="prats:hasOperator" >
+            <SimpleList
+              primaryText={record => record && record['pair:label']}
+              leftIcon={() => <AccountBoxIcon />}
+              linkType="show"
+            />    
+          </ReferenceArrayField>
+
         </MainList>
       </Grid>
       <Grid item md={4} xs={4} >
         <MainList>
-          <ReferenceField label="Bénéficiaire" reference="Portrait" source="prats:hasBeneficiary" >
-            <ChipField source="pair:label"  />
-          </ReferenceField>        
+          <ReferenceArrayField label="Bénéficiaire" reference="Portrait" source="prats:hasBeneficiary" >
+            <SimpleList
+                primaryText={record => record && record['pair:label']}
+                leftIcon={() => <AccountBoxIcon />}
+                linkType="show"
+              />            
+            </ReferenceArrayField>        
         </MainList>      
       </Grid>
 

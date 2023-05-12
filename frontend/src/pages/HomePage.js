@@ -203,22 +203,26 @@ const HomePage = () => {
             />
         </Paper>
       </Grid>
+
       <Grid item sm={5} xs={12} className={mainStyle.griditemLeft}>
         <Paper className={mainStyle.paper} variant="outlined" square>
           <Box component="div" classes={mainTextStyles}>
-            Le Projet
+            Actualités
           </Box>
         </Paper>
       </Grid>
       <Grid item sm={7} xs={12} className={mainStyle.griditem}>
         <Paper className={mainStyle.paper} variant="outlined" square>
           <Box component="div" classes={mainTextStyles}>
-            <Show hasEdit={false} classes={mainShowStyle} hasList={false} {...config}>
+            <Show hasEdit={false} classes={mainShowStyle} hasList={false} {...config4}>
               <MarkdownField source="semapps:content" addLabel={false} />
             </Show>
           </Box>
+          <ListBase resource="News" basePath="/News" sort={{field:"pair:createdAt", order:'DESC'}} perPage={2}>
+            <SimpleList primaryText={record => <NewsList source={record}/>} linkType="show"  rowStyle={rowStyle}/>
+          </ListBase>
           <Box classes={divButtonStyle}>
-            <Button href="/Page/demarche/show" classes={mainButtonStyle}>En savoir plus</Button>
+            <Button href="/News" classes={mainButtonStyle}>Voir toutes les actualités</Button>
           </Box>
         </Paper>
       </Grid>
@@ -245,22 +249,19 @@ const HomePage = () => {
       <Grid item sm={5} xs={12} className={mainStyle.griditemWithoutBorderLeft}>
         <Paper className={mainStyle.paper} variant="outlined" square>
           <Box component="div" classes={mainTextStyles}>
-            Actualités
+            Le Projet
           </Box>
         </Paper>
       </Grid>
       <Grid item sm={7} xs={12} className={mainStyle.griditemWithoutBorder}>
         <Paper className={mainStyle.paper} variant="outlined" square>
           <Box component="div" classes={mainTextStyles}>
-            <Show hasEdit={false} classes={mainShowStyle} hasList={false} {...config4}>
+            <Show hasEdit={false} classes={mainShowStyle} hasList={false} {...config}>
               <MarkdownField source="semapps:content" addLabel={false} />
             </Show>
           </Box>
-          <ListBase resource="News" basePath="/News" sort={{field:"pair:createdAt", order:'DESC'}} perPage={4}>
-            <SimpleList primaryText={record => <NewsList source={record}/>} linkType="show"  rowStyle={rowStyle}/>
-          </ListBase>
           <Box classes={divButtonStyle}>
-            <Button href="/News" classes={mainButtonStyle}>Voir toutes les actualités</Button>
+            <Button href="/Page/demarche/show" classes={mainButtonStyle}>En savoir plus</Button>
           </Box>
         </Paper>
       </Grid>

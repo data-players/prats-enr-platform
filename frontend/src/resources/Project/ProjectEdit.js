@@ -14,6 +14,9 @@ export const ProjectEdit = props => (
       <ImageInput source="image" accept="image/*">
         <ImageField source="src" />
       </ImageInput>
+      <ImageInput source="pair:logo" accept="image/*">
+        <ImageField source="src" />
+      </ImageInput>
       <TextInput label="Site internet" source="pair:homePage" fullWidth />
       <ReferenceArrayInput label="Portrait lié" reference="Portrait" source="pair:hasPortrait">
         <AutocompleteArrayInput optionText="pair:label" fullWidth/>

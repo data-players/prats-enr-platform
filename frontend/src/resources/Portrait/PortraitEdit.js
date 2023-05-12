@@ -14,7 +14,11 @@ export const PortraitEdit = props => (
       <ImageInput source="image" accept="image/*">
         <ImageField source="src" />
       </ImageInput>
+      <ImageInput label="logo" source="pair:logo" accept="image/*">
+        <ImageField source="src" />
+      </ImageInput>
       <TextInput label="Site internet" source="pair:homePage" fullWidth/>
+      <TextInput label="Ordre dans la liste : choisir un chiffre, 1 sera le premier à afficher" source='prats:listOrder' fullWidth />
     </SimpleForm>
   </Edit>
 );

@@ -41,7 +41,7 @@ const ResourceShow = props => {
       
       <MainList>
         <TextField source="pair:comment" addLabel={false} className={textStyles.comment} />
-        <MarkdownField label="Description" source="pair:description" />
+        <MarkdownField label="Description" source="pair:description" addLabel={false} />
         <ImageField source="image" classes={mainImageStyles}/>
         <UrlField label="Lien Externe" source='pair:homePage' />
       </MainList>

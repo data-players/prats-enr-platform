@@ -11,6 +11,7 @@ export const TaskEdit = props => (
       <TextInput source="pair:label" fullWidth />
       <TextInput label="Courte Description" source="pair:comment" fullWidth />
       <MarkdownInput multiline source="pair:description" fullWidth />
+      <MarkdownInput label="Insérez ici vos graphiques d'énergies" multiline source="prats:graphic" fullWidth />
       <TextInput label="Energie" source='prats:powerEnergy' fullWidth />
       <TextInput label="Propriétaire" source="prats:owner" fullWidth />
       <ReferenceInput label="Gestionnaire" reference="Portrait" source="prats:hasManager">
@@ -23,6 +24,9 @@ export const TaskEdit = props => (
         <SelectInput optionText="pair:label" fullWidth/>
       </ReferenceInput> 
       <ImageInput source="image" accept="image/*">
+        <ImageField source="src" />
+      </ImageInput>
+      <ImageInput source="pair:logo" accept="image/*">
         <ImageField source="src" />
       </ImageInput>
       {/* <LocationInput ti="Addresse" source="pair:hasLocation" fullWidth /> */}

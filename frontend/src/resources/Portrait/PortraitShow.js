@@ -41,7 +41,7 @@ const PortraitShow = props => {
       
       <MainList>
         <TextField source="pair:comment" addLabel={false} className={textStyles.comment} />
-        <MarkdownField label="Description" source="pair:description" />
+        <MarkdownField label="Description" source="pair:description" addLabel={false} />
         <ImageField source="image" classes={mainImageStyles}/>
         <UrlField label="Site internet" source='pair:homePage' />
       </MainList>

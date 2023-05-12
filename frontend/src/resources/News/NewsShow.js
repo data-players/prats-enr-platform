@@ -40,10 +40,10 @@ const NewsShow = props => {
         <BreadcrumbsItemFinal/>
 
         <MainList  >
-          <DateField source="pair:createdAt" label="Horaire" className={classes.time} />
+          <DateField source="pair:createdAt" label="Date" className={classes.time} />
           <MarkdownField overrides={{
               img: imgMD,
-          }} source="pair:description" label="Description" />
+          }} source="pair:description" label="Description" addLabel={false} />
         <ReferenceArrayField label="Ressources Liés Au Projet" source="pair:hasResource" reference="Resource">
           <SimpleList
               primaryText={record => record && record['pair:label']}

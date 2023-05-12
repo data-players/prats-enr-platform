@@ -41,11 +41,11 @@ services:
       - SEMAPPS_JENA_PASSWORD=admin
       - SEMAPPS_HOME_URL=http://localhost:3000/
       - SEMAPPS_BACKUP_FUSEKI_DATASETS_PATH=/app/fuseki-backups
-      # - SEMAPPS_FTP_HOST=ftp-ftpgo.data-players.com
-      # - SEMAPPS_FTP_PORT=2022
-      # - SEMAPPS_FTP_USER=backup
-      # - SEMAPPS_FTP_PASSWORD=b4ckup8462
-      # - SEMAPPS_FTP_PATH=/backups/prats/backup/
+      - SEMAPPS_FTP_HOST=ftp-ftpgo.data-players.com
+      - SEMAPPS_FTP_PORT=2022
+      - SEMAPPS_FTP_USER=backup
+      - SEMAPPS_FTP_PASSWORD=b4ckup8462
+      - SEMAPPS_FTP_PATH=/backups/prats/backup/
     ports:
       - "3000:3000"
     command: bash -c "yarn install && pm2-runtime 'yarn run dev'"

@@ -19,6 +19,12 @@
     "id": "@id",
     "type": "@type",
 
+    "pair:hasPortrait": {
+      "@type": "@id"
+    },
+    "pair:portraitOf": {
+      "@type": "@id"
+    },
     "image": {
       "@id": "as:image",
       "@type": "@id"
@@ -26,7 +32,6 @@
     "pair:image": {
       "@type": "@id"
     },
-
     "pair:about": {
       "@type": "@id"
     },

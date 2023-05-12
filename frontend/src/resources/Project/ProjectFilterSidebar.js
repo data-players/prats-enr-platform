@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, CardContent, makeStyles } from '@material-ui/core';
 import { ReferenceFilter } from '@semapps/archipelago-layout';
+import AccountBoxIcon from '@material-ui/icons/AccountBox';
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -28,6 +29,7 @@ const ProjectFilterSidebar = () => {
           source="pair:hasPortrait"
           limit={100}
           sort={{ field: 'pair:label', order: 'ASC' }}
+          icon={<AccountBoxIcon/>}
         />
       </CardContent>
     </Card>
