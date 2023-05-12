@@ -26,9 +26,6 @@ export const TaskEdit = props => (
       <ImageInput source="image" accept="image/*">
         <ImageField source="src" />
       </ImageInput>
-      <ImageInput source="pair:logo" accept="image/*">
-        <ImageField source="src" />
-      </ImageInput>
       {/* <LocationInput ti="Addresse" source="pair:hasLocation" fullWidth /> */}
       <TextInput label="Latitude" source="prats:lat" fullWidth />
       <TextInput label="Longitude" source="prats:lng" fullWidth />

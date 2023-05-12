@@ -36,10 +36,6 @@ const text = makeStyles({
   }
 })
 
-const Test = (props) => {
-  console.log("props")
-}
-
 const TaskShow = props => {
   const mainImageStyles = mainImage();
   const classes = text();
