@@ -1,5 +1,5 @@
 import React from 'react';
-import { DateInput, SimpleForm, TextInput, required } from 'react-admin';
+import { SimpleForm, TextInput, required } from 'react-admin';
 import { Create } from '@semapps/archipelago-layout';
 import { DateTimeInput } from '@semapps/date-components';
 

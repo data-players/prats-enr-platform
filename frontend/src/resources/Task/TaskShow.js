@@ -4,7 +4,7 @@ import {SimpleList, TextField} from 'react-admin';
 import { MarkdownField } from '@semapps/markdown-components';
 import TaskTitle from './TaskTitle';
 import { Grid, makeStyles } from '@material-ui/core';
-import { ImageField, ReferenceArrayField, ReferenceField } from '@semapps/semantic-data-provider';
+import { ImageField, ReferenceArrayField } from '@semapps/semantic-data-provider';
 import {
   BreadcrumbsItem,
   BreadcrumbsItemFinal

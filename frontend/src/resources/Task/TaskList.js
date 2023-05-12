@@ -1,7 +1,7 @@
 import React from 'react';
 import TaskAddonList from '../../addons/TaskAddonList';
 import { List, ImageField, ShowButton,TextField } from 'react-admin';
-import { Avatar, Box, makeStyles, Typography } from '@material-ui/core';
+import { Box, makeStyles, Typography } from '@material-ui/core';
 import CustomMasonryList from '../../addons/CustomMasonryList';
 import { MapList } from '@semapps/geo-components';
 import {
