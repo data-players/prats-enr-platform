@@ -1,14 +1,17 @@
 import React from 'react';
-import { ListBase, Show ,SimpleList} from 'react-admin';
-import { makeStyles } from '@material-ui/core';
+import { ListBase, Show ,SimpleList, TextField, ImageField, ShowButton } from 'react-admin';
+import { makeStyles, Typography } from '@material-ui/core';
 import CardMedia from '@material-ui/core/CardMedia';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button'
 import MarkdownField from "../markdown/MarkdownField";
+import { MapList } from '@semapps/geo-components';
 import moment from 'moment';
 import 'moment/locale/fr'
+
+
 
 const HomePage = () => {
   moment.locale('fr');
@@ -127,6 +130,16 @@ const HomePage = () => {
     gridContainer: {
       border: "solid",
     },
+    popupImageContainer: {
+      textAlign: 'center'
+    },
+    popupTitle: {
+      fontWeight: 600,
+      textTransform: 'capitalize'
+    },
+    popupTextContainer: {
+      marginBottom: theme.spacing(1)
+    },
   }));
 
   const mainText = makeStyles(theme => ({
@@ -223,6 +236,36 @@ const HomePage = () => {
           </ListBase>
           <Box classes={divButtonStyle}>
             <Button href="/News" classes={mainButtonStyle}>Voir toutes les actualités</Button>
+          </Box>
+        </Paper>
+      </Grid>
+
+      <Grid item sm={12} xs={12} className={mainStyle.griditem}>
+        <Paper className={mainStyle.paper} variant="outlined" square>
+          <Box component="div" className={mainTextStyles.graphText} >
+            <ListBase resource="Task" basePath="/Task" perPage={1000} >
+              <MapList
+                latitude={record => record['prats:lat']}
+                longitude={record => record['prats:lng']}
+                label={record => record['pair:label']}
+                description={record => record['pair:comment']}
+                scrollWheelZoom
+                popupContent={({ record, basePath }) => (
+                  <>
+                    <Box className={mainStyle.popupImageContainer}>
+                      <ImageField record={record} source="image" className={mainStyle.popupImage} />
+                    </Box>
+                    <Box className={mainStyle.popupTextContainer}>
+                      <Typography component="h3">
+                        <TextField record={record} source="pair:label" className={mainStyle.popupTitle} />
+                      </Typography>
+                      <TextField record={record['pair:hasLocation']} source="pair:label" />
+                    </Box>
+                    <ShowButton record={record} basePath={basePath} label ={"+ d'infos"}/>
+                  </>
+                )}
+              />
+            </ListBase>            
           </Box>
         </Paper>
       </Grid>
