@@ -6,7 +6,6 @@ const main = makeStyles(theme => ({
     popupImage: {
       position: "absolute",
       opacity:"0.3",
-      marginLeft: "5%",
     },
   }));
 
