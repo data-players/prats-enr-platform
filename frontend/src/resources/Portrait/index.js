@@ -12,7 +12,7 @@ export default {
     edit: PortraitEdit,
     icon: BuildIcon,
     options: {
-      label: 'Actualité'
+      label: 'Portraits'
     }
   },
   dataModel: {

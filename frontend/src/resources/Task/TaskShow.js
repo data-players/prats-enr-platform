@@ -41,83 +41,28 @@ const TaskShow = props => {
   const classes = text();
 
   return <Show title={<TaskTitle />} {...props}>
-    <Grid container spacing={2}>
+    <>
       <BreadcrumbsItem to='/Task'>Sites</BreadcrumbsItem>
       <BreadcrumbsItemFinal/>
-
-      <Grid item md={12} xs={12}>
+      <MainList>
         <TextField source="pair:comment" addLabel={false} className={classes.comment} />
         <ImageField source="image" classes={mainImageStyles}/>
-        <MainList>
-          <MarkdownField label="description" source="pair:description" addLabel={false} />
-          <MarkdownField label="graph" source="prats:graphic" addLabel={false} />                
-        </MainList>
-      </Grid>
-
-      <Grid item md={4} xs={4} >
-        <MainList>
-          <ReferenceArrayField label="Gestionnaire" source="prats:hasManager" reference="Portrait">
-            <SimpleList
-              primaryText={record => record && record['pair:label']}
-              leftIcon={() => <AccountBoxIcon />}
-              linkType="show"
-            />         
-          </ReferenceArrayField>  
-        </MainList>      
-      </Grid>
-
-      <Grid item md={4} xs={4} >
-        <MainList  >
-          <ReferenceArrayField label="Exploitant" reference="Portrait" source="prats:hasOperator" >
-            <SimpleList
-              primaryText={record => record && record['pair:label']}
-              leftIcon={() => <AccountBoxIcon />}
-              linkType="show"
-            />    
-          </ReferenceArrayField>
-
-        </MainList>
-      </Grid>
-      <Grid item md={4} xs={4} >
-        <MainList>
-          <ReferenceArrayField label="Bénéficiaire" reference="Portrait" source="prats:hasBeneficiary" >
-            <SimpleList
-                primaryText={record => record && record['pair:label']}
-                leftIcon={() => <AccountBoxIcon />}
-                linkType="show"
-              />            
-            </ReferenceArrayField>        
-        </MainList>      
-      </Grid>
-
-      <Grid item md={4} xs={4} >
-        <MainList>
-          <TextField label="Propriétaire" source="prats:owner" className={classes.item} />
-        </MainList>
-      </Grid>
-      <Grid item md={4} xs={4} >
-        <MainList>
-          <TextField label="Energie" source='prats:powerEnergy' className={classes.item} />
-        </MainList>      
-      </Grid>
-
-      <Grid item md={12} xs={12} >
-          <CustomMapField />
-      </Grid>
-      <Grid item md={4} xs={4}>
-        <MainList >
-          <TextField label="Latitude" source="prats:lat" fullWidth />
-        </MainList>
-      </Grid>
-      <Grid item md={4} xs={4}>
-        <MainList >
-          <TextField label="Longitude" source="prats:lng" fullWidth />
-        </MainList>
-      </Grid>
-    </Grid>
-
-     
-
+        <MarkdownField label="description" source="pair:description" addLabel={false} />
+        <MarkdownField label="graph" source="prats:graphic" addLabel={false} />                
+        <ReferenceArrayField label="Portraits affilié au site" source="pair:hasPortrait" reference="Portrait">
+          <SimpleList
+            primaryText={record => record && record['pair:label']}
+            leftIcon={() => <AccountBoxIcon />}
+            linkType="show"
+          />         
+        </ReferenceArrayField>
+        <TextField label="Propriétaire" source="prats:owner" className={classes.item} />
+        <TextField label="Energie" source='prats:powerEnergy' className={classes.item} />      
+        <CustomMapField />
+        <TextField label="Latitude" source="prats:lat" fullWidth />
+        <TextField label="Longitude" source="prats:lng" fullWidth />
+      </MainList>
+    </>
   </Show>
 }
 

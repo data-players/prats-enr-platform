@@ -10,6 +10,7 @@ import MarkdownField from "../markdown/MarkdownField";
 import { MapList } from '@semapps/geo-components';
 import moment from 'moment';
 import 'moment/locale/fr'
+import PopupDailyGraphic from '../common/PopupDailyGraphic';
 
 
 
@@ -131,7 +132,12 @@ const HomePage = () => {
       border: "solid",
     },
     popupImageContainer: {
-      textAlign: 'center'
+      textAlign: 'center',
+    },
+    popupImage: {
+      position: "absolute",
+      opacity:"0.3",
+      marginLeft: "5%",
     },
     popupTitle: {
       fontWeight: 600,
@@ -250,16 +256,16 @@ const HomePage = () => {
                 label={record => record['pair:label']}
                 description={record => record['pair:comment']}
                 scrollWheelZoom
-                popupContent={({ record, basePath }) => (
+                popupContent={({record, basePath }) => (
                   <>
                     <Box className={mainStyle.popupImageContainer}>
-                      <ImageField record={record} source="image" className={mainStyle.popupImage} />
+                      <PopupDailyGraphic record={record} source="prats:dailyGraphiqueID" />
                     </Box>
                     <Box className={mainStyle.popupTextContainer}>
                       <Typography component="h3">
                         <TextField record={record} source="pair:label" className={mainStyle.popupTitle} />
                       </Typography>
-                      <TextField record={record['pair:hasLocation']} source="pair:label" />
+                      <TextField record={record} source="pair:comment" />
                     </Box>
                     <ShowButton record={record} basePath={basePath} label ={"+ d'infos"}/>
                   </>

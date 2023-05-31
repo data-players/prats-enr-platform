@@ -41,9 +41,9 @@ const ProjectShow = props => {
       <BreadcrumbsItemFinal/>
     
       <MainList>
+        <ImageField source="image" classes={mainImageStyles}/>
         <TextField source="pair:comment" addLabel={false} className={textStyles.comment} />
         <MarkdownField addLabel={false} source="pair:description" />
-        <ImageField source="image" classes={mainImageStyles}/>
         <UrlField label="Site internet" source="pair:homePage" />
         <ReferenceArrayField label="Portraits Liés Au Projet" source="pair:hasPortrait" reference="Portrait">
           <SimpleList
