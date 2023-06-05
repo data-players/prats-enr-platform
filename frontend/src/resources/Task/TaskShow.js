@@ -48,7 +48,8 @@ const TaskShow = props => {
         <TextField source="pair:comment" addLabel={false} className={classes.comment} />
         <ImageField source="image" classes={mainImageStyles}/>
         <MarkdownField label="description" source="pair:description" addLabel={false} />
-        <MarkdownField label="graph" source="prats:graphic" addLabel={false} />                
+        <MarkdownField label="graph" source="prats:graphic" addLabel={false} />   
+        <TextField label="Propriétaire" source="prats:owner" className={classes.item} />             
         <ReferenceArrayField label="Portraits affilié au site" source="pair:hasPortrait" reference="Portrait">
           <SimpleList
             primaryText={record => record && record['pair:label']}
@@ -56,7 +57,6 @@ const TaskShow = props => {
             linkType="show"
           />         
         </ReferenceArrayField>
-        <TextField label="Propriétaire" source="prats:owner" className={classes.item} />
         <TextField label="Energie" source='prats:powerEnergy' className={classes.item} />      
         <CustomMapField />
         <TextField label="Latitude" source="prats:lat" fullWidth />
