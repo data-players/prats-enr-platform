@@ -43,7 +43,6 @@ const PortraitList = ({...props}) => {
             linkType="show"
           />
         </List>
-
     </>
 };
 

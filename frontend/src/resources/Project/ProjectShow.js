@@ -45,7 +45,15 @@ const ProjectShow = props => {
         <TextField source="pair:comment" addLabel={false} className={textStyles.comment} />
         <MarkdownField addLabel={false} source="pair:description" />
         <UrlField label="Site internet" source="pair:homePage" />
+        <UrlField label="Site internet" source="prats:link" />
         <ReferenceArrayField label="Portraits Liés Au Projet" source="pair:hasPortrait" reference="Portrait">
+          <SimpleList
+            primaryText={record => record && record['pair:label']}
+            leftIcon={() => <AccountBoxIcon />}
+            linkType="show"
+          />         
+        </ReferenceArrayField>
+        <ReferenceArrayField label="Ressources Liées Au Projet" source="pair:hasResource" reference="Resource">
           <SimpleList
             primaryText={record => record && record['pair:label']}
             leftIcon={() => <AccountBoxIcon />}

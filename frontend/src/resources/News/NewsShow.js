@@ -6,7 +6,7 @@ import {
   BreadcrumbsItem,
   BreadcrumbsItemFinal
 } from '../../common/BreadCrump'
-import { DateField, SimpleList } from 'react-admin';
+import { DateField, SimpleList, UrlField } from 'react-admin';
 import { ReferenceArrayField } from '@semapps/semantic-data-provider';
 import { makeStyles } from '@material-ui/core';
 import DescriptionIcon from '@material-ui/icons/Description';
@@ -40,17 +40,18 @@ const NewsShow = props => {
         <BreadcrumbsItemFinal/>
 
         <MainList  >
-          <DateField source="pair:createdAt" label="Date" className={classes.time} />
+          <DateField source="pair:createdAt" addLabel={false} className={classes.time} />
           <MarkdownField overrides={{
               img: imgMD,
           }} source="pair:description" label="Description" addLabel={false} />
-        <ReferenceArrayField label="Ressources Liés Au Projet" source="pair:hasResource" reference="Resource">
-          <SimpleList
-              primaryText={record => record && record['pair:label']}
-              leftIcon={() => <DescriptionIcon />}
-              linkType="show"
-            />          
-        </ReferenceArrayField>
+          <UrlField label="Lien extérieur" source="prats:link" />
+          <ReferenceArrayField label="Ressources Liés Au Projet" source="pair:hasResource" reference="Resource">
+            <SimpleList
+                primaryText={record => record && record['pair:label']}
+                leftIcon={() => <DescriptionIcon />}
+                linkType="show"
+              />          
+          </ReferenceArrayField>
         </MainList>
       </>
     </Show>

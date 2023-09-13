@@ -167,7 +167,7 @@ const HomePage = () => {
 
   const divButton = makeStyles({
     root: {
-      paddingTop: "50px",
+      paddingTop: "20px",
     }
   });
 
@@ -198,7 +198,8 @@ const HomePage = () => {
       borderBottomStyle: "solid",
       borderTopStyle: index===0?"solid":"none",
       borderWidth:"1px",
-      borderColor:"grey"
+      borderColor:"grey",
+      height: "85px"
   });
 
 

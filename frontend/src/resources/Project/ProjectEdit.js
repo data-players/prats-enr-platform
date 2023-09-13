@@ -18,7 +18,11 @@ export const ProjectEdit = props => (
         <ImageField source="src" />
       </ImageInput>
       <TextInput label="Site internet" source="pair:homePage" fullWidth />
-      <ReferenceArrayInput label="Portrait lié" reference="Portrait" source="pair:hasPortrait">
+      <TextInput label="Lien extérieur" source="prats:link" fullWidth />
+      <ReferenceArrayInput label="Portraits liés" reference="Portrait" source="pair:hasPortrait">
+        <AutocompleteArrayInput optionText="pair:label" fullWidth/>
+      </ReferenceArrayInput> 
+      <ReferenceArrayInput label="Ressources liées" reference="Resource" source="pair:hasResource">
         <AutocompleteArrayInput optionText="pair:label" fullWidth/>
       </ReferenceArrayInput> 
     </SimpleForm>

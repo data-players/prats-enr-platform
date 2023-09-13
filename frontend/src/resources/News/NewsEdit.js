@@ -17,6 +17,7 @@ export const NewsEdit = props => (
       <TextInput label="Titre" source="pair:label" fullWidth />
       <DateInput label="Horaire" source="pair:createdAt" />
       <MarkdownInput multiline source="pair:description" fullWidth />
+      <TextInput label="Lien extérieur" source="prats:link" fullWidth />
       <ReferenceArrayInput label="Ressources liés" reference="Resource" source="pair:hasResource">
         <AutocompleteArrayInput optionText="pair:label" fullWidth/>
       </ReferenceArrayInput> 
