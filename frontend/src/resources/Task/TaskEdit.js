@@ -1,5 +1,5 @@
 import React from 'react';
-import { AutocompleteArrayInput, ImageInput, SelectInput, SimpleForm, TextInput } from 'react-admin';
+import { AutocompleteArrayInput, ImageInput, NumberInput, SimpleForm, TextInput } from 'react-admin';
 import { Edit } from '@semapps/archipelago-layout';
 import { MarkdownInput } from '@semapps/markdown-components';
 import TaskTitle from './TaskTitle';
@@ -23,6 +23,8 @@ export const TaskEdit = props => (
       {/* <LocationInput ti="Addresse" source="pair:hasLocation" fullWidth /> */}
       <TextInput label="Latitude" source="prats:lat" fullWidth />
       <TextInput label="Longitude" source="prats:lng" fullWidth />
+      <TextInput label="Identidiant webdyn" source="prats:webdynID" fullWidth />
+      <NumberInput label="Facteur de production" source="prats:productionFactor" fullWidth />
       <TextInput label="Id du graphique journalié" source="prats:dailyGraphiqueID" fullWidth />
     </SimpleForm>
   </Edit>
