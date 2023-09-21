@@ -23,7 +23,7 @@ const PopupDailyGraphic = ({record, source}) => {
     return (
         <>
             <ImageField record={record} source="image" className={mainStyle.popupImage} />
-            <iframe src={link} width="100%" height="200" frameborder="0"></iframe>
+            <iframe title="zobi" src={link} width="100%" height="200" frameborder="0"></iframe>
             <div style={{fontStyle: "italic", color:"grey"}} >Graphique de production énergétique quotidienne</div>
         </>
     )

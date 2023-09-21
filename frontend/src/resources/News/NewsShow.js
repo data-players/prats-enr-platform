@@ -6,7 +6,7 @@ import {
   BreadcrumbsItem,
   BreadcrumbsItemFinal
 } from '../../common/BreadCrump'
-import { DateField, SimpleList, UrlField, useRecordContext } from 'react-admin';
+import {  SimpleList, UrlField, useRecordContext } from 'react-admin';
 import { ReferenceArrayField } from '@semapps/semantic-data-provider';
 import { makeStyles } from '@material-ui/core';
 import DescriptionIcon from '@material-ui/icons/Description';

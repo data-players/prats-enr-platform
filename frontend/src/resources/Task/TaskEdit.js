@@ -3,7 +3,7 @@ import { AutocompleteArrayInput, ImageInput, SimpleForm, TextInput } from 'react
 import { Edit } from '@semapps/archipelago-layout';
 import { MarkdownInput } from '@semapps/markdown-components';
 import TaskTitle from './TaskTitle';
-import { ImageField, ReferenceArrayInput, ReferenceInput } from '@semapps/semantic-data-provider';
+import { ImageField, ReferenceArrayInput } from '@semapps/semantic-data-provider';
 
 export const TaskEdit = props => (
   <Edit title={<TaskTitle />} {...props}>

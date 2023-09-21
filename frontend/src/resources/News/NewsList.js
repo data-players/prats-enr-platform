@@ -1,22 +1,10 @@
 import { default as React } from 'react';
-import { MarkdownField } from '@semapps/archipelago-layout';
-import { Show, Toolbar,  CreateButton, List, SimpleList} from 'react-admin';
+import { List, SimpleList} from 'react-admin';
 import {
   BreadcrumbsItem,
 } from '../../common/BreadCrump'
-import { makeStyles } from '@material-ui/core/styles';
 import moment from 'moment';
 import 'moment/locale/fr'
-
-
-const useStylesWideToolbar= makeStyles({
-    toolbar: {
-        flex : 1,
-        justifyContent :"space-between",
-        alignItems : "flex-start",
-        backgroundColor : "white"
-    }
-});
 
 
 const rowStyle = (record, index) => ({
@@ -24,43 +12,6 @@ const rowStyle = (record, index) => ({
     borderTopStyle: index===0?"solid":"none",
     borderWidth:"1px",
 });
-
-const showStyle = makeStyles({
-    card: {
-        // backgroundColor : "red",
-        boxShadow: "none",
-        fontStyle: "Arial",
-        fontSize:"32px"
-    }
-});
-
-const config = {
-  basePath: '/Page',
-  id: process.env.REACT_APP_MIDDLEWARE_URL + 'pages/actus',
-  resource: 'Page'
-};
-
-const ListActions = ({...props}) => {
-    const classesWideToolbar = useStylesWideToolbar();
-    const showClasses = showStyle();
-
-    return (
-      <Toolbar classes={classesWideToolbar}>
-        <div>
-          <div style={{
-            marginLeft: 25,
-            fontStyle: "arial",
-            fontSize: "48px",
-            color:"#333333"
-          }}>Actualités</div>
-          <Show hasEdit={false} hasList={false} {...config} classes={showClasses}>
-            <MarkdownField source="pair:description" addLabel={false} />
-          </Show>
-        </div>
-        <CreateButton/>
-      </Toolbar>
-    )
-}
 
 const NewsList = ({source}) => {
   // let options = { year: 'numeric', month: 'long', day: 'numeric' };
@@ -76,7 +27,7 @@ const PageList = props => {
     moment.locale('fr');
     return <>
         <BreadcrumbsItem to='/News'>Actualités</BreadcrumbsItem>
-        <List {...props} sort={{field:"pair:createdAt", order:'DESC'}} actions={<ListActions />}  >
+        <List {...props} sort={{field:"pair:createdAt", order:'DESC'}}   >
           <SimpleList  primaryText={record => <NewsList source={record}/>} linkType="show" rowStyle={rowStyle}/>
         </List>
     </>
