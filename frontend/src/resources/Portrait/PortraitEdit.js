@@ -1,5 +1,5 @@
 import React from 'react';
-import { ImageInput, SimpleForm, TextInput, AutocompleteArrayInput, NumberInput } from 'react-admin';
+import { ImageInput, SimpleForm, TextInput, AutocompleteArrayInput } from 'react-admin';
 import { Edit } from '@semapps/archipelago-layout';
 import { MarkdownInput } from '@semapps/markdown-components';
 import PortraitTitle from './PortraitTitle';
@@ -24,7 +24,7 @@ export const PortraitEdit = props => (
       <ReferenceArrayInput label="Projets liées" reference="Project" source="pair:hasProject">
         <AutocompleteArrayInput optionText="pair:label" fullWidth/>
       </ReferenceArrayInput> 
-      <NumberInput label="Ordre dans la liste : choisir un chiffre, 1 sera le premier à afficher" source='prats:listOrder' fullWidth />
+      <TextInput label="Ordre dans la liste : choisir un chiffre, 1 sera le premier à afficher" source='prats:listOrder' fullWidth />
     </SimpleForm>
   </Edit>
 );
