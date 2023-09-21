@@ -6,7 +6,7 @@ import { BreadcrumbsItem } from '../../common/BreadCrump';
 
 const ResourceList = props => (
   <>
-    <BreadcrumbsItem style={{'text-decoration': 'none', 'color':'black'}} to='/Resource'>Resources</BreadcrumbsItem>
+    <BreadcrumbsItem style={{'text-decoration': 'none', 'color':'black'}} to='/Resource'>Ressources</BreadcrumbsItem>
     <List {...props} sort={{ field: 'prats:listOrder', order:'ASC' }} >
       <SimpleList primaryText={record => record['pair:label']} leftAvatar={() => <Avatar width="100%"><DescriptionIcon /></Avatar>} linkType="show" />
     </List>

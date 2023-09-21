@@ -21,6 +21,9 @@ export const ProjectEdit = props => (
       <TextInput label="Lien extérieur" source="prats:link" fullWidth />
       <ReferenceArrayInput label="Portraits liés" reference="Portrait" source="pair:hasPortrait">
         <AutocompleteArrayInput optionText="pair:label" fullWidth/>
+      </ReferenceArrayInput>
+      <ReferenceArrayInput label="Actualitées liées" reference="News" source="pair:hasNews">
+        <AutocompleteArrayInput optionText="pair:label" fullWidth/>
       </ReferenceArrayInput> 
       <ReferenceArrayInput label="Ressources liées" reference="Resource" source="pair:hasResource">
         <AutocompleteArrayInput optionText="pair:label" fullWidth/>

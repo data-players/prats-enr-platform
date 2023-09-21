@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, makeStyles, Typography } from '@material-ui/core';
+import MarkdownField from '../markdown/MarkdownField';
 
 const useStyles = makeStyles(() => ({
   content: {
@@ -23,9 +24,8 @@ const TaskAddonList = ({ record }) => {
   return (
     <Box className={classes.content}>
       <Typography variant="h5" color="textPrimary">{record?.['pair:label']}</Typography>
-      <Typography variant="body2" color="textSecondary">
-        {record?.['pair:description']}
-      </Typography>
+      <MarkdownField variant="body2" color="textSecondary" source='pair:description' record={record}>
+      </MarkdownField>
     </Box>
   );
 }

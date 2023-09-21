@@ -1,14 +1,16 @@
 import React from 'react';
 import { MainList, Show } from '@semapps/archipelago-layout';
-import {TextField, UrlField} from 'react-admin';
+import { SimpleList, TextField, UrlField } from 'react-admin';
 import { MarkdownField } from '@semapps/markdown-components';
 import PortraitTitle from './PortraitTitle';
 import { makeStyles } from '@material-ui/core';
-import { ImageField } from '@semapps/semantic-data-provider';
+import { ImageField, ReferenceArrayField } from '@semapps/semantic-data-provider';
 import {
   BreadcrumbsItem,
   BreadcrumbsItemFinal
 } from '../../common/BreadCrump'
+import WorkIcon from '@material-ui/icons/Work';
+import DescriptionIcon from '@material-ui/icons/Description';
 
 const mainImage = makeStyles({
   image: {
@@ -44,6 +46,20 @@ const PortraitShow = props => {
         <MarkdownField label="Description" source="pair:description" addLabel={false} />
         <ImageField source="image" classes={mainImageStyles}/>
         <UrlField label="Site internet" source='pair:homePage' />
+        <ReferenceArrayField label="Ressources Liées" source="pair:hasResource" reference="Resource">
+          <SimpleList
+            primaryText={record => record && record['pair:label']}
+            leftIcon={() => <DescriptionIcon />}
+            linkType="show"
+          />         
+        </ReferenceArrayField>
+        <ReferenceArrayField label="Projets Liées" source="pair:hasProject" reference="Project">
+          <SimpleList
+            primaryText={record => record && record['pair:label']}
+            leftIcon={() => <WorkIcon />}
+            linkType="show"
+          />         
+        </ReferenceArrayField>
       </MainList>
     </>
   </Show>

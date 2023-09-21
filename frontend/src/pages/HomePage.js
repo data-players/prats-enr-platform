@@ -1,5 +1,5 @@
 import React from 'react';
-import { ListBase, Show ,SimpleList, TextField, ImageField, ShowButton } from 'react-admin';
+import { ListBase, Show ,SimpleList, TextField, ShowButton } from 'react-admin';
 import { makeStyles, Typography } from '@material-ui/core';
 import CardMedia from '@material-ui/core/CardMedia';
 import Paper from '@material-ui/core/Paper';
@@ -12,15 +12,13 @@ import moment from 'moment';
 import 'moment/locale/fr'
 import PopupDailyGraphic from '../common/PopupDailyGraphic';
 
-
-
 const HomePage = () => {
   moment.locale('fr');
-  const config = {
-    basePath: '/Page',
-    id: process.env.REACT_APP_MIDDLEWARE_URL + 'pages/accueil-actions',
-    resource: 'Page'
-  };
+  // const config = {
+  //   basePath: '/Page',
+  //   id: process.env.REACT_APP_MIDDLEWARE_URL + 'pages/accueil-actions',
+  //   resource: 'Page'
+  // };
 
   const configAccueil = {
     basePath: '/Page',
@@ -256,6 +254,8 @@ const HomePage = () => {
                 longitude={record => record['prats:lng']}
                 label={record => record['pair:label']}
                 description={record => record['pair:comment']}
+                center= {[42.409262623071186, 2.4736404418945317]}
+                zoom= {12}
                 scrollWheelZoom
                 popupContent={({record, basePath }) => (
                   <>
@@ -295,7 +295,7 @@ const HomePage = () => {
           </Box>
         </Paper>
       </Grid>
-
+{/* 
       <Grid item sm={5} xs={12} className={mainStyle.griditemWithoutBorderLeft}>
         <Paper className={mainStyle.paper} variant="outlined" square>
           <Box component="div" classes={mainTextStyles}>
@@ -314,7 +314,7 @@ const HomePage = () => {
             <Button href="/Page/demarche/show" classes={mainButtonStyle}>En savoir plus</Button>
           </Box>
         </Paper>
-      </Grid>
+      </Grid> */}
     </Grid>
     
   );

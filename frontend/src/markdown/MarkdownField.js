@@ -3,7 +3,7 @@ import { LargeLabel } from '@semapps/archipelago-layout';
 import Markdown from 'markdown-to-jsx';
 import * as addons from "../addons";
 
-const MarkdownField = ({ source, record }) =>
+const MarkdownField = ({ source, record }) => 
   record && record[source] ? <Markdown options={{
     createElement(type, props, children) {
       if( props.label ) {

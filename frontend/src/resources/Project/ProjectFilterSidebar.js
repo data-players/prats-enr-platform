@@ -28,7 +28,7 @@ const ProjectFilterSidebar = () => {
           reference="Portrait"
           source="pair:hasPortrait"
           limit={100}
-          sort={{ field: 'pair:label', order: 'ASC' }}
+          sort={{ field: 'prats:listOrder', order: 'ASC' }}
           icon={<AccountBoxIcon/>}
         />
       </CardContent>

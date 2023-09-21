@@ -10,6 +10,8 @@ import {
   BreadcrumbsItemFinal
 } from '../../common/BreadCrump'
 import AccountBoxIcon from '@material-ui/icons/AccountBox';
+import AnnouncementIcon from '@material-ui/icons/Announcement';
+import WorkIcon from '@material-ui/icons/Work';
 
 const mainImage = makeStyles({
   image: {
@@ -53,10 +55,17 @@ const ProjectShow = props => {
             linkType="show"
           />         
         </ReferenceArrayField>
+        <ReferenceArrayField label="Actualitées Liées Au Projet" source="pair:hasNews" reference="News">
+          <SimpleList
+            primaryText={record => record && record['pair:label']}
+            leftIcon={() => <AnnouncementIcon />}
+            linkType="show"
+          />         
+        </ReferenceArrayField>
         <ReferenceArrayField label="Ressources Liées Au Projet" source="pair:hasResource" reference="Resource">
           <SimpleList
             primaryText={record => record && record['pair:label']}
-            leftIcon={() => <AccountBoxIcon />}
+            leftIcon={() => <WorkIcon />}
             linkType="show"
           />         
         </ReferenceArrayField>

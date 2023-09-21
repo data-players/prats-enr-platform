@@ -1,9 +1,9 @@
 import React from 'react';
-import { ImageInput, SimpleForm, TextInput } from 'react-admin';
+import { ImageInput, SimpleForm, TextInput, AutocompleteArrayInput, NumberInput } from 'react-admin';
 import { Edit } from '@semapps/archipelago-layout';
 import { MarkdownInput } from '@semapps/markdown-components';
 import PortraitTitle from './PortraitTitle';
-import { ImageField } from '@semapps/semantic-data-provider';
+import { ImageField, ReferenceArrayInput } from '@semapps/semantic-data-provider';
 
 export const PortraitEdit = props => (
   <Edit title={<PortraitTitle />} {...props}>
@@ -18,7 +18,13 @@ export const PortraitEdit = props => (
         <ImageField source="src" />
       </ImageInput>
       <TextInput label="Site internet" source="pair:homePage" fullWidth/>
-      <TextInput label="Ordre dans la liste : choisir un chiffre, 1 sera le premier à afficher" source='prats:listOrder' fullWidth />
+      <ReferenceArrayInput label="Ressources liées" reference="Resource" source="pair:hasResource">
+        <AutocompleteArrayInput optionText="pair:label" fullWidth/>
+      </ReferenceArrayInput> 
+      <ReferenceArrayInput label="Projets liées" reference="Project" source="pair:hasProject">
+        <AutocompleteArrayInput optionText="pair:label" fullWidth/>
+      </ReferenceArrayInput> 
+      <NumberInput label="Ordre dans la liste : choisir un chiffre, 1 sera le premier à afficher" source='prats:listOrder' fullWidth />
     </SimpleForm>
   </Edit>
 );
