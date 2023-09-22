@@ -5,7 +5,7 @@ import MarkdownField from '../markdown/MarkdownField';
 const useStyles = makeStyles(() => ({
   content: {
     height: 150,
-    maxWidth: 350,
+    maxWidth: 300,
     position: 'relative',
     overflow: 'hidden',
     '&:after': {
