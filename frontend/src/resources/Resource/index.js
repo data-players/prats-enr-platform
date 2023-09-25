@@ -12,7 +12,7 @@ export default {
     edit: ResourceEdit,
     icon: DescriptionIcon,
     options: {
-      label: 'Resources'
+      label: 'Ressources'
     }
   },
   dataModel: {
@@ -22,7 +22,7 @@ export default {
   },
   translations: {
     fr: {
-      name: 'Resource |||| Resources',
+      name: 'Ressource |||| Ressources',
       fields: {
         'pair:label': 'Titre',
         'pair:description': 'Contenu',
