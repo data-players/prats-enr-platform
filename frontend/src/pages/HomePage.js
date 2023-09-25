@@ -159,7 +159,7 @@ const HomePage = () => {
     },
     graphText: {
       fontSize: "25px",
-      textAlign: "center"
+      textAlign: "center",
     }
   }))
 
@@ -247,37 +247,42 @@ const HomePage = () => {
 
       <Grid item sm={12} xs={12} className={mainStyle.griditem}>
         <Paper className={mainStyle.paper} variant="outlined" square>
-          <Box component="div" className={mainTextStyles.graphText} >
-            <ListBase resource="Task" basePath="/Task" perPage={1000} >
-              <MapList
-                latitude={record => record['prats:lat']}
-                longitude={record => record['prats:lng']}
-                label={record => record['pair:label']}
-                description={record => record['pair:comment']}
-                center= {[42.409262623071186, 2.4736404418945317]}
-                zoom= {12}
-                scrollWheelZoom
-                popupContent={({record, basePath }) => (
-                  <>
-                    <Box className={mainStyle.popupImageContainer}>
-                      <PopupDailyGraphic record={record} source="prats:dailyGraphiqueID" />
-                    </Box>
-                    <Box className={mainStyle.popupTextContainer}>
-                      <Typography component="h3">
-                        <TextField record={record} source="pair:label" className={mainStyle.popupTitle} />
-                      </Typography>
-                      <TextField record={record} source="pair:comment" />
-                    </Box>
-                    <ShowButton record={record} basePath={basePath} label ={"+ d'infos"}/>
-                  </>
-                )}
-              />
-            </ListBase>            
+          <Box component="div" className={mainTextStyles.graphText}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: "10px" }}>
+              <img src='https://image.noelshack.com/fichiers/2023/39/1/1695624674-capture-d-ecran-du-2023-09-25-08-47-35.png' style={{ maxWidth: "500px", height:"700px" }} />
+              <div style={{ flex: 1 }}>
+                <ListBase resource="Task" basePath="/Task" perPage={1000}>
+                  <MapList
+                    latitude={record => record['prats:lat']}
+                    longitude={record => record['prats:lng']}
+                    label={record => record['pair:label']}
+                    description={record => record['pair:comment']}
+                    center={[42.409262623071186, 2.4736404418945317]}
+                    zoom={12}
+                    scrollWheelZoom
+                    popupContent={({ record, basePath }) => (
+                      <>
+                        <Box className={mainStyle.popupImageContainer}>
+                          <PopupDailyGraphic record={record} source="prats:dailyGraphiqueID" />
+                        </Box>
+                        <Box className={mainStyle.popupTextContainer}>
+                          <Typography component="h3">
+                            <TextField record={record} source="pair:label" className={mainStyle.popupTitle} />
+                          </Typography>
+                          <TextField record={record} source="pair:comment" />
+                        </Box>
+                        <ShowButton record={record} basePath={basePath} label={"+ d'infos"} />
+                      </>
+                    )}
+                  />
+                </ListBase>
+              </div>
+            </div>
           </Box>
         </Paper>
       </Grid>
 
-      <Grid item sm={6} xs={12} className={mainStyle.griditem}>
+      <Grid item sm={6} xs={12} className={mainStyle.griditemWithoutBorderLeft}>
         <Paper className={mainStyle.paper} variant="outlined" square>
           <Box component="div" className={mainTextStyles.graphText} >
             <Show hasEdit={false} classes={mainShowStyle} hasList={false} {...configDailyGraphique}>
@@ -286,7 +291,7 @@ const HomePage = () => {
           </Box>
         </Paper>
       </Grid>
-      <Grid item sm={6} xs={12} className={mainStyle.griditem}>
+      <Grid item sm={6} xs={12} className={mainStyle.griditemWithoutBorderLeft}>
         <Paper className={mainStyle.paper} variant="outlined" square>
           <Box component="div" className={mainTextStyles.graphText} >
             <Show hasEdit={false} classes={mainShowStyle} hasList={false} {...configMonthlyGraphique}>
