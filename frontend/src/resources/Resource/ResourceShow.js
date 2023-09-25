@@ -36,7 +36,7 @@ const ResourceShow = props => {
 
   return <Show title={<ResourceTitle />} {...props}>
     <>        
-      <BreadcrumbsItem to='/Resource'>Resources</BreadcrumbsItem>
+      <BreadcrumbsItem to='/Resource'>Ressources</BreadcrumbsItem>
       <BreadcrumbsItemFinal/>
       
       <MainList>
