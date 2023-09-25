@@ -15,7 +15,7 @@ export const ResourceEdit = props => (
         <ImageField source="src" />
       </ImageInput>
       <TextInput label="Lien Externe" source="pair:homePage" fullWidth/>
-      <TextInput label="Ordre dans la liste : choisir un chiffre, 1 sera le premier à afficher" source='prats:listOrder' fullWidth />
+      <TextInput label="Ordre dans la liste : choisir un chiffre, 000001 sera le premier à afficher" source='prats:listOrder' fullWidth />
     </SimpleForm>
   </Edit>
 );
