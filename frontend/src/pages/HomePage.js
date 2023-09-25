@@ -248,11 +248,12 @@ const HomePage = () => {
       <Grid item sm={12} xs={12} className={mainStyle.griditem}>
         <Paper className={mainStyle.paper} variant="outlined" square>
           <Box component="div" className={mainTextStyles.graphText}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: "10px" }}>
-              <img src='https://image.noelshack.com/fichiers/2023/39/1/1695624674-capture-d-ecran-du-2023-09-25-08-47-35.png' style={{ maxWidth: "500px", height:"700px" }} />
+            <div style={{ display: 'flex', gap: "5px" }}>
+              <img src='https://image.noelshack.com/fichiers/2023/39/1/1695639434-map.jpg' style={{maxHeight:"550px"}} />
               <div style={{ flex: 1 }}>
                 <ListBase resource="Task" basePath="/Task" perPage={1000}>
                   <MapList
+                  style={{height:"550px"}}
                     latitude={record => record['prats:lat']}
                     longitude={record => record['prats:lng']}
                     label={record => record['pair:label']}
