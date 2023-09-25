@@ -1,5 +1,5 @@
 import React from 'react';
-import { SimpleForm, TextInput } from 'react-admin';
+import { SimpleForm, TextInput, required } from 'react-admin';
 import { Create } from '@semapps/archipelago-layout';
 
 const ResourceCreate = props => (
