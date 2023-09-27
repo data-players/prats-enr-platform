@@ -1,6 +1,6 @@
 import React from 'react';
 import { ListBase, Show ,SimpleList, TextField, ShowButton } from 'react-admin';
-import { makeStyles, Typography } from '@material-ui/core';
+import { makeStyles, Typography, withWidth } from '@material-ui/core';
 import CardMedia from '@material-ui/core/CardMedia';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
@@ -12,7 +12,7 @@ import moment from 'moment';
 import 'moment/locale/fr'
 import PopupDailyGraphic from '../common/PopupDailyGraphic';
 
-const HomePage = () => {
+const HomePage = ({ width }) => {
   moment.locale('fr');
   // const config = {
   //   basePath: '/Page',
@@ -95,7 +95,16 @@ const HomePage = () => {
       [theme.breakpoints.down("xs")]: {
         borderBottom: "none"
       },
-
+    gridMapImgItem: {
+      ...griditem,
+      [theme.breakpoints.up("xs")]: {
+        paddingLeft: "0px"
+      },
+      [theme.breakpoints.down("xs")]: {
+        paddingLeft: "20px",
+        maxWidth: "100px"
+      },
+    },
     },
     griditemWithoutPadding: {
       ...griditem,
@@ -160,6 +169,12 @@ const HomePage = () => {
     graphText: {
       fontSize: "25px",
       textAlign: "center",
+    },
+    image: {
+      maxHeight: "550px",
+      [theme.breakpoints.down("xs")]: {
+        maxHeight: "300px",
+      }
     }
   }))
 
@@ -191,14 +206,14 @@ const HomePage = () => {
   const divButtonStyle = divButton()
   const mainButtonStyle = mainButton();
   const urlImage = "https://upload.wikimedia.org/wikipedia/commons/4/49/Prats-de-Moll%C3%B3-la_Preste%2C_Eglise_Saintes_Juste_et_Ruffine-PM_47091.jpg";
-
+  console.log(width)
   const rowStyle = (record, index) => ({
       borderBottomStyle: "solid",
       borderTopStyle: index===0?"solid":"none",
       borderWidth:"1px",
       borderColor:"grey",
-      height: "85px"
-  });
+      height: width === "xs" ? "120px" : "85px",
+    });
 
 
   return(
@@ -244,41 +259,44 @@ const HomePage = () => {
           </Box>
         </Paper>
       </Grid>
+      
 
-      <Grid item sm={12} xs={12} className={mainStyle.griditem}>
+      <Grid item sm={6} xs={12} className={mainStyle.griditem}>
+        <Paper className={mainStyle.paper} variant="outlined" square>
+          <Box component="div" className={mainTextStyles}>
+            <img src='https://image.noelshack.com/fichiers/2023/39/1/1695639434-map.jpg' className={mainTextStyles.image} />
+          </Box>
+        </Paper>
+      </Grid>
+      <Grid item sm={6} xs={12} className={mainStyle.griditem}>
         <Paper className={mainStyle.paper} variant="outlined" square>
           <Box component="div" className={mainTextStyles.graphText}>
-            <div style={{ display: 'flex', gap: "5px" }}>
-              <img src='https://image.noelshack.com/fichiers/2023/39/1/1695639434-map.jpg' style={{maxHeight:"550px"}} />
-              <div style={{ flex: 1 }}>
-                <ListBase resource="Task" basePath="/Task" perPage={1000}>
-                  <MapList
-                  style={{height:"550px"}}
-                    latitude={record => record['prats:lat']}
-                    longitude={record => record['prats:lng']}
-                    label={record => record['pair:label']}
-                    description={record => record['pair:comment']}
-                    center={[42.409262623071186, 2.4736404418945317]}
-                    zoom={12}
-                    scrollWheelZoom
-                    popupContent={({ record, basePath }) => (
-                      <>
-                        <Box className={mainStyle.popupImageContainer}>
-                          <PopupDailyGraphic record={record} source="prats:dailyGraphiqueID" />
-                        </Box>
-                        <Box className={mainStyle.popupTextContainer}>
-                          <Typography component="h3">
-                            <TextField record={record} source="pair:label" className={mainStyle.popupTitle} />
-                          </Typography>
-                          <TextField record={record} source="pair:comment" />
-                        </Box>
-                        <ShowButton record={record} basePath={basePath} label={"+ d'infos"} />
-                      </>
-                    )}
-                  />
-                </ListBase>
-              </div>
-            </div>
+            <ListBase resource="Task" basePath="/Task" perPage={1000}>
+              <MapList
+              style={{height:"550px"}}
+                latitude={record => record['prats:lat']}
+                longitude={record => record['prats:lng']}
+                label={record => record['pair:label']}
+                description={record => record['pair:comment']}
+                center={[42.409262623071186, 2.4736404418945317]}
+                zoom={12}
+                scrollWheelZoom
+                popupContent={({ record, basePath }) => (
+                  <>
+                    <Box className={mainStyle.popupImageContainer}>
+                      <PopupDailyGraphic record={record} source="prats:dailyGraphiqueID" />
+                    </Box>
+                    <Box className={mainStyle.popupTextContainer}>
+                      <Typography component="h3">
+                        <TextField record={record} source="pair:label" className={mainStyle.popupTitle} />
+                      </Typography>
+                      <TextField record={record} source="pair:comment" />
+                    </Box>
+                    <ShowButton record={record} basePath={basePath} label={"+ d'infos"} />
+                  </>
+                )}
+              />
+            </ListBase>
           </Box>
         </Paper>
       </Grid>
@@ -326,4 +344,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default withWidth()(HomePage);;
