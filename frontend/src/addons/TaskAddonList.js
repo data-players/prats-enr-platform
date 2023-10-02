@@ -5,7 +5,7 @@ import MarkdownField from '../markdown/MarkdownField';
 const useStyles = makeStyles(() => ({
   content: {
     height: 150,
-    maxWidth: 300,
+    maxWidth: 250,
     position: 'relative',
     overflow: 'hidden',
     '&:after': {
@@ -25,8 +25,7 @@ const TaskAddonList = ({ record }) => {
   return (
     <Box className={classes.content}>
       <Typography variant="h5" color="textPrimary">{record?.['pair:label']}</Typography>
-      <MarkdownField variant="body2" color="textSecondary" source='pair:description' record={record} >
-      </MarkdownField>
+      <MarkdownField variant="body2" color="textSecondary" source='pair:description' record={record} />
     </Box>
   );
 }
