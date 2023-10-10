@@ -1,5 +1,5 @@
 import React from 'react';
-import { Edit } from "@semapps/archipelago-layout";
+import Edit from "../../layout/edit/Edit";
 import { SimpleForm, TextInput } from "ra-ui-materialui";
 import OrganizationTitle from './OrganizationTitle';
 import MarkdownInput from '../../markdown/MarkdownInput'

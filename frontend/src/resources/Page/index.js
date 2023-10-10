@@ -16,9 +16,10 @@ export default {
     }
   },
   dataModel: {
-    types: ['semapps:Page'],
-    containerUri: process.env.REACT_APP_MIDDLEWARE_URL + 'pages',
-    slugField: 'semapps:title'
+    types: ['pair:Page'],
+    fieldsMapping: {
+      title: 'semapps:title'
+    }
   },
   translations: {
     fr: {

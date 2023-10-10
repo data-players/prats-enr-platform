@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Notification } from 'react-admin';
-import { Container, Box, ThemeProvider, makeStyles, Link, Typography } from '@material-ui/core';
+import { useLogout, Notification } from 'react-admin';
+import { Container, Box, ThemeProvider, makeStyles, Link, Typography, Grid } from '@material-ui/core';
 import AppBar from './AppBar';
 import ScrollToTop from './ScrollToTop';
 import SideMenu from './SideMenu';
@@ -8,7 +8,6 @@ import {
   Breadcrumbs,
   BreadcrumbsItem
 } from 'react-breadcrumbs-dynamic';
-import { Column, ColumnShowLayout } from '@semapps/archipelago-layout';
 
 const useStyles = makeStyles(theme => ({
   hero: {
@@ -76,7 +75,6 @@ const menuItems = {
   '/Task': 'Sites',
   '/Portrait': 'Portraits',
   '/Resource': 'Ressources',
-  //'/Page/ressources/show': 'Ressources',
 };
 
   // const history = createBrowserHistory();
@@ -89,6 +87,9 @@ const Layout = ({ appBar, logout, theme, children }) => {
   // const xs = useMediaQuery(theme.breakpoints.down('xs'));
   // const sm = useMediaQuery(theme.breakpoints.down('sm'));
   const [ sidebarOpen, setSidebarOpen] = useState(false);
+  const logoutfunc = useLogout();
+
+  const isAuthicate = localStorage.getItem('token') !== null
 
   return (
     <ThemeProvider theme={theme}>
@@ -108,8 +109,8 @@ const Layout = ({ appBar, logout, theme, children }) => {
 
       </Container>
       <Container maxWidth="lg" className={containerStyles.containerFooter}>
-        <ColumnShowLayout>
-          <Column xs={12} sm={4} >
+        <Grid container>
+          <Grid item xs={12} sm={4} >
             <Box className={classes.footerlinkPosition}>
               <Link href="/Page/mentions-legales/show" className={classes.footerLink}>
                 <Typography variant="subtitle2" color="textSecondary" align="left" >
@@ -126,12 +127,19 @@ const Layout = ({ appBar, logout, theme, children }) => {
                   Licence contenus
                 </Typography>
               </Link>
+              {
+              isAuthicate && <Link className={classes.footerLink} onClick={() => logoutfunc()}>
+                <Typography variant="subtitle2" color="textSecondary" align="left" >
+                  Déconexion
+                </Typography>
+              </Link>
+              }
             </Box>
-          </Column>
-          <Column xs={12} sm={8} >
+          </Grid>
+          <Grid item xs={12} sm={8} >
             <img className={classes.footerIcon} src={process.env.PUBLIC_URL + '/footer.png'} alt="logo" />
-          </Column>
-        </ColumnShowLayout>
+          </Grid>
+        </Grid>
       </Container>
 
       {/* Required for react-admin optimistic update */}

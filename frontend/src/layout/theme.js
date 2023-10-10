@@ -1,13 +1,122 @@
-import { theme } from '@semapps/archipelago-layout';
+import { createTheme } from '@material-ui/core/styles';
 
-theme.palette.primary.main = '#000000';
-theme.palette.text.primary = '#000000';
-theme.palette.primary.dark = '#000000';
-theme.palette.primary.light = '#FFFFFF';
-theme.palette.primary.contrastText = '#FFFFFF';
+const defaultTheme = createTheme();
 
-
-// theme.typography.h1.color = '#e8048b';
-
+const theme = createTheme({
+  palette: {
+    primary: { main: '#000000', contrastText: '#ffffff' },
+    secondary: { main: '#ffffff' },
+    grey: { main: '#000000' },
+    background: {
+      default: '#000000',
+    }
+  },
+  typography: {
+    details: {
+      fontSize: 8
+    }
+  },
+  components: {
+    RaChipField: {
+      styleOverrides: {
+        chip: {
+          marginLeft: 0,
+          marginTop: 0,
+          marginRight: 8,
+          marginBottom: 8
+        }
+      }
+    },
+    RaShow: {
+      styleOverrides: {
+        card: {
+          padding: 25,
+          [defaultTheme.breakpoints.down('sm')]: {
+            padding: 15
+          }
+        }
+      }
+    },
+    RaList: {
+      styleOverrides: {
+        content: {
+          padding: 25,
+          [defaultTheme.breakpoints.down('sm')]: {
+            padding: 15,
+            paddingTop: 0,
+            marginTop: -8
+          }
+        }
+      }
+    },
+    RaListToolbar: {
+      styleOverrides: {
+        toolbar: {
+          paddingLeft: '0 !important'
+        }
+      }
+    },
+    RaSingleFieldList: {
+      styleOverrides: {
+        root: {
+          marginTop: 0,
+          marginBottom: 0
+        }
+      }
+    },
+    RaAutocompleteArrayInput: {
+      styleOverrides: {
+        chipContainerFilled: {
+          '& .serverName': {
+            display: 'none'
+          }
+        }
+      }
+    },
+    RaMenuItemLink: {
+      styleOverrides: {
+        root: ({ theme }) => ({
+          '&.RaMenuItemLink-active': {
+              borderLeft: `3px solid ${theme.palette.primary.main}`,
+          },
+        }),
+      },
+    },
+    MuiTab: {
+      styleOverrides: {
+        root: {
+          minWidth: 160
+        },
+        labelIcon: {
+          paddingTop: 0
+        }
+      }
+    },
+    MuiOutlinedInput: {
+      styleOverrides: {
+        root: {
+          backgroundColor: '#efefef',
+        },
+      }
+    },
+    MuiAutocomplete: {
+      styleOverrides: {
+        inputRoot: {
+          paddingTop: 12,
+          paddingBottom: 5
+        }
+      }
+    },
+    MuiCard: {
+      styleOverrides: {
+        root: {
+          '@media print': {
+            boxShadow: 'none !important'
+          }
+        }
+      }
+    }
+  }
+});
 
 export default theme;

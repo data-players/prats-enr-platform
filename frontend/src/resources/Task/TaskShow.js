@@ -1,10 +1,11 @@
 import React from 'react';
-import { MainList, Show } from '@semapps/archipelago-layout';
-import {SimpleList, TextField} from 'react-admin';
+import MainList from '../../common/lists/MainList/MainList';
+import Show from '../../layout/show/Show';
+import {SimpleList, TextField, ImageField} from 'react-admin';
 import { MarkdownField } from '@semapps/markdown-components';
 import TaskTitle from './TaskTitle';
 import { makeStyles } from '@material-ui/core';
-import { ImageField, ReferenceArrayField } from '@semapps/semantic-data-provider';
+import { ReferenceArrayField } from '@semapps/field-components';
 import {
   BreadcrumbsItem,
   BreadcrumbsItemFinal

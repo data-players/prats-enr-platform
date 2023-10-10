@@ -1,6 +1,6 @@
 import React from 'react';
 import { SimpleForm, TextInput } from 'react-admin';
-import { Edit } from '@semapps/archipelago-layout';
+import  Edit from '../../layout/edit/Edit';
 import MarkdownInput from '../../markdown/MarkdownInput'
 import PageTitle from './PageTitle';
 

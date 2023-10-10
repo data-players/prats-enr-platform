@@ -1,9 +1,9 @@
 import React from 'react';
-import { ImageInput, SimpleForm, TextInput, AutocompleteArrayInput } from 'react-admin';
-import { Edit } from '@semapps/archipelago-layout';
-import { MarkdownInput } from '@semapps/markdown-components';
+import { ImageInput, SimpleForm, TextInput, AutocompleteArrayInput, ImageField } from 'react-admin';
+import Edit from '../../layout/edit/Edit';
+import MarkdownInput from '../../markdown/MarkdownInput';
 import PortraitTitle from './PortraitTitle';
-import { ImageField, ReferenceArrayInput } from '@semapps/semantic-data-provider';
+import { ReferenceArrayInput } from '@semapps/input-components';
 
 export const PortraitEdit = props => (
   <Edit title={<PortraitTitle />} {...props}>

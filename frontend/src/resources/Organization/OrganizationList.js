@@ -1,5 +1,6 @@
 import React from 'react';
-import { List, SimpleList } from "@semapps/archipelago-layout";
+import SimpleList from '../../common/lists/SimpleList'
+import List from '../../layout/list/List'
 import HomeIcon from '@material-ui/icons/Build';
 import { Avatar } from "@material-ui/core";
 

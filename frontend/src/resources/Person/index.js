@@ -1,4 +1,4 @@
-import PersonCreate from './PersonCreate';
+// import PersonCreate from "./PersonCreate";
 import PersonEdit from './PersonEdit';
 import PersonList from './PersonList';
 import PersonShow from './PersonShow';
@@ -8,31 +8,29 @@ export default {
   config: {
     list: PersonList,
     show: PersonShow,
-    create: PersonCreate,
+    // create: PersonCreate,
     edit: PersonEdit,
     icon: PersonIcon,
     options: {
-      label: 'Profils'
+      label: 'Personnes'
     }
   },
   dataModel: {
-    types: ['foaf:Person'],
-    containerUri: process.env.REACT_APP_MIDDLEWARE_URL + 'users',
-    dereference: ['pair:hasLocation/pair:hasPostalAddress'],
-    slugField: ['pair:label']
+    types: ['pair:Person'],
+    list: {
+      blankNodes: ['pair:hasLocation/pair:hasPostalAddress'],
+    },
+    fieldsMapping: {
+      title: 'pair:label'
+    }
   },
   translations: {
     fr: {
-      name: 'Portrait |||| Portraits',
+      name: 'Personne |||| Personnes',
       fields: {
-        'pair:label': 'Prénom ou pseudo',
-        'pair:hasType': 'Type de profil',
-        'pair:e-mail': 'Adresse e-mail',
-        'pair:image': 'Photo',
-        'pair:aboutPage': 'Page de contact',
-        'pair:webPage': 'site internet ou blog',
-        'pair:hasLocation': 'Lieu',
-        'pair:offers': 'Ressources partagées',
+        'pair:label': 'Nom complet',
+        'pair:description': 'Description',
+        'prats:openbadgeId': 'Id Openbadge'
       }
     }
   }

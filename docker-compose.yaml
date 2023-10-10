@@ -1,8 +1,8 @@
 version: '3.5'
 services:
   fuseki:
-    image: stain/jena-fuseki:3.10.0
-    container_name: fuseki_prats_enr
+    image: semapps/jena-fuseki-webacl
+    container_name: fuseki_prats
     networks:
       - semapps
     volumes:
@@ -22,33 +22,35 @@ services:
       - ./data/fuseki:/fuseki
 
   middleware:
-    build:
-      context: ./middleware
-      dockerfile: Dockerfile
-    container_name: middleware_prats_enr
-    networks:
-      - semapps
+    image: dataplayers/archipelago-middleware:0.8
     depends_on:
       - fuseki
     volumes:
-      - ./../prats-enr-platform/middleware/:/app
-      - ./data/fuseki/backups:/app/fuseki-backups # Needed to backup fuseki datasets
-      - ./data/fuseki/databases/localData:/localData
+      - './middleware/logs:/archipelago/middleware/logs'
+      - './middleware/jwt:/archipelago/middleware/jwt'
+      - './middleware/uploads:/archipelago/middleware/uploads'
+      - './addOn:/archipelago/middleware/addOn'
+      - './data/fuseki/databases/localData:/localData'
     environment:
-      - SEMAPPS_SPARQL_ENDPOINT=http://fuseki_prats_enr:3030/
+      - SEMAPPS_SPARQL_ENDPOINT=http://fuseki:3030/
       - SEMAPPS_MAIN_DATASET=localData
       - SEMAPPS_JENA_USER=admin
       - SEMAPPS_JENA_PASSWORD=admin
       - SEMAPPS_HOME_URL=http://localhost:3000/
+      - SEMAPPS_OIDC_ISSUER=https://login.lescommuns.org/auth/realms/master/
+      - SEMAPPS_OIDC_CLIENT_ID=semapps
       - SEMAPPS_BACKUP_FUSEKI_DATASETS_PATH=/app/fuseki-backups
       - SEMAPPS_FTP_HOST=ftp-ftpgo.data-players.com
       - SEMAPPS_FTP_PORT=2022
       - SEMAPPS_FTP_USER=backup
       - SEMAPPS_FTP_PASSWORD=b4ckup8462
-      - SEMAPPS_FTP_PATH=/backups/prats/backup/
+      - SEMAPPS_FTP_PATH=/backups/prats/backup
+      - SEMAPPS_REDIS_URL=redis://redis:6379/0
+    command: bash -c "cp -r ./addOn/middleware/* . && pm2-runtime 'yarn run dev'"
+    networks:
+      - semapps
     ports:
-      - "3000:3000"
-    command: bash -c "yarn install && pm2-runtime 'yarn run dev'"
+      - '3000:3000'
 
   frontend:
     build:
@@ -61,14 +63,14 @@ services:
       - ./../prats-enr-platform/frontend:/app
     environment:
       - REACT_APP_MIDDLEWARE_URL=http://localhost:3000/
-      - REACT_APP_MAPBOX_ACCESS_TOKEN=pk.eyJ1Ijoic3Jvc3NldDgxIiwiYSI6ImNrbDd0b2VkMzA1dDMycG9iemU4NnpuemsifQ.HvpZ3tnweVHEUYLb0tDvTg
+      - REACT_APP_MAPBOX_ACCESS_TOKEN=
       - PORT=4000
     restart: always
     depends_on:
       - middleware
     ports:
       - "4000:4000"
-    command: bash -c "npm rebuild --silent && npm install --silent && npm start"
+    command: bash -c "yarn install --silent && yarn start"
       
 networks:
   semapps:

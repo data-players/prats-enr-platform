@@ -1,5 +1,6 @@
 import React from "react";
-import { MultiViewsList, SimpleList } from "@semapps/archipelago-layout";
+import { MultiViewsList } from '@semapps/list-components';
+import SimpleList from "../../common/lists/SimpleList";
 import { MapList } from "@semapps/geo-components";
 import { Avatar } from "@material-ui/core";
 import MapIcon from "@material-ui/icons/Map";

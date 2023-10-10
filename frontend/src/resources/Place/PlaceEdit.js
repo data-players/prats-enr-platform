@@ -1,5 +1,5 @@
 import React from 'react';
-import { Edit } from '@semapps/archipelago-layout';
+import  Edit from '../../layout/edit/Edit';
 import PlaceTitle from './PlaceTitle';
 import PlaceForm from "./PlaceForm";
 

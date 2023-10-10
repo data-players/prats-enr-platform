@@ -1,15 +1,16 @@
 import React from 'react';
 import TaskAddonList from '../../addons/TaskAddonList';
-import { List, ImageField, ShowButton,TextField } from 'react-admin';
+import { ImageField, ShowButton,TextField, Title } from 'react-admin';
 import { Box, makeStyles, Typography } from '@material-ui/core';
 import CustomMasonryList from '../../addons/CustomMasonryList';
 import { MapList } from '@semapps/geo-components';
+import List from '../../layout/list/List';
 import {
   BreadcrumbsItem,
 } from '../../common/BreadCrump'
 import MapIcon from '@material-ui/icons/Map';
 import ListIcon from '@material-ui/icons/List';
-import { MultiViewsList } from '@semapps/archipelago-layout';
+import { MultiViewsList } from '@semapps/list-components';
 
 const useStyles = makeStyles(theme => ({
   popupImageContainer: {
@@ -26,12 +27,14 @@ const useStyles = makeStyles(theme => ({
 
 const TaskList = props => {
   const classes = useStyles();
+  const isAuthicate = localStorage.getItem('token') !== null
 
   return (
     <>
       <BreadcrumbsItem style={{'text-decoration': 'none', 'color':'black'}} to='/Task'>Sites</BreadcrumbsItem>
       <MultiViewsList
         ListComponent={List}
+        actions={isAuthicate ? undefined : false}
         views={{
           list: {
             label: 'Liste',

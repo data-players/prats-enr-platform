@@ -1,15 +1,15 @@
+const CONFIG = require('./config');
+const { ACTOR_TYPES } = require("@semapps/activitypub");
+
 module.exports = [
   {
-    path: '/',
+    path: '/'
   },
   {
-    path: '/users',
-    acceptedTypes: ['pair:Person']
-  },
-  {
-    path: '/events',
-    acceptedTypes: 'pair:Event',
-    dereference: ['pair:hasLocation/pair:hasPostalAddress']
+    path: '/organizations',
+    acceptedTypes: ['pair:Organization'],
+    preferredView: '/Organization',
+    dereference: ['sec:publicKey', 'pair:hasLocation/pair:hasPostalAddress'],
   },
   {
     path: '/places',
@@ -19,6 +19,73 @@ module.exports = [
   {
     path: '/documents',
     acceptedTypes: 'pair:Document'
+  },
+  {
+    path: '/events',
+    preferredView: '/Event',
+    acceptedTypes: ['pair:Event'],
+    dereference: ['pair:hasLocation/pair:hasPostalAddress']
+
+  },
+  {
+    path: '/users',
+    preferredView: '/Person',
+    acceptedTypes: ['pair:Person'],
+    dereference: ['sec:publicKey', 'pair:hasLocation/pair:hasPostalAddress']
+  },
+  {
+    path: '/bots',
+    acceptedTypes: [ACTOR_TYPES.APPLICATION],
+    dereference: ['sec:publicKey'],
+    excludeFromMirror: true
+  },
+  {
+    path: '/pages',
+    preferredView: '/Page',
+    acceptedTypes: ['pair:Page']
+  },
+  {
+    path: '/files'
+  },
+  {
+    path: '/organization-types',
+    preferredView: '/OrganizationType',
+    acceptedTypes: ['pair:OrganizationType'],
+  },
+  {
+    path: '/resources',
+    preferredView: '/Resource',
+    acceptedTypes: ['pair:Resource'],
+  },
+  {
+    path: '/topics',
+    preferredView: '/Topic',
+    acceptedTypes: ['pair:Topic'],
+  },
+  {
+    path: '/task',
+    acceptedTypes: 'pair:Task',
+    dereference: ['pair:hasLocation/pair:hasPostalAddress'],
+  },
+  {
+    path: '/news',
+    preferredView: "/News",
+    acceptedTypes: 'pair:News'
+  },
+  {
+    path: '/project',
+    preferredView: '/Project',
+    acceptedTypes: 'pair:Project',
+  },
+  {
+    path: '/portrait',
+    preferredView: '/Portrait',
+    acceptedTypes: 'pair:Portrait',
+  },
+  {
+    path: '/resource',
+    preferredView: '/Resource',
+    acceptedTypes: 'pair:Resource',
   },
   {
     path: '/status',
@@ -46,36 +113,5 @@ module.exports = [
       'pair:SubjectType',
       'pair:TaskType'
     ]
-  },
-  {
-    path: '/organizations',
-    acceptedTypes: 'pair:Organization'
-  },
-  {
-    path: '/news',
-    acceptedTypes: 'pair:Document'
-  },
-  {
-    path: '/task',
-    acceptedTypes: 'pair:Task',
-    dereference: ['pair:hasLocation/pair:hasPostalAddress'],
-  },
-  {
-    path: '/pages'
-  },
-  {
-    path: '/files'
-  },
-  {
-    path: '/project',
-    acceptedTypes: 'pair:Project',
-  },
-  {
-    path: '/portrait',
-    acceptedTypes: 'pair:Portrait',
-  },
-  {
-    path: '/resource',
-    acceptedTypes: 'pair:Resource',
   },
 ];

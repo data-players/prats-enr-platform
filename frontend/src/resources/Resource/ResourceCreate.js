@@ -1,6 +1,6 @@
 import React from 'react';
 import { SimpleForm, TextInput, required } from 'react-admin';
-import { Create } from '@semapps/archipelago-layout';
+import Create from '../../layout/create/Create';
 
 const ResourceCreate = props => (
   <Create {...props}>

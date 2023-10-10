@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
   bar: {
-    background : theme.palette.primary.light,
+    background : theme.palette.secondary.light,
     maxWidth: "1280px",
     margin: "auto",
     borderStyle:"solid",
@@ -89,7 +89,7 @@ const AppBar = ({ menuItems, setSidebarOpen }) => {
                 <MenuIcon />
               </IconButton>
             ) : (
-            <Grid container justify="flex-end" spacing={0}>
+            <Grid container justifyContent="flex-end" spacing={0}>
               {Object.keys(menuItems).map(link => (
                 <Grid item md={2} sm={4} xs={2} key={link} >
                   <Box display="flex" height={64} alignItems="center" justifyContent="center" className={classes.menuButton}>

@@ -1,10 +1,12 @@
 import React from 'react';
-import { Create } from '@semapps/archipelago-layout';
-import PersonForm from './PersonForm';
+import { SimpleForm, TextInput } from 'react-admin';
+import Create from '../../layout/create/Create';
 
-export const PersonCreate = props => (
+const PersonCreate = props => (
   <Create {...props}>
-    <PersonForm mode="create" />
+    <SimpleForm>
+      <TextInput source="pair:label" fullWidth />
+    </SimpleForm>
   </Create>
 );
 

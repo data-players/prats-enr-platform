@@ -206,7 +206,6 @@ const HomePage = ({ width }) => {
   const divButtonStyle = divButton()
   const mainButtonStyle = mainButton();
   const urlImage = "https://upload.wikimedia.org/wikipedia/commons/4/49/Prats-de-Moll%C3%B3-la_Preste%2C_Eglise_Saintes_Juste_et_Ruffine-PM_47091.jpg";
-  console.log(width)
   const rowStyle = (record, index) => ({
       borderBottomStyle: "solid",
       borderTopStyle: index===0?"solid":"none",

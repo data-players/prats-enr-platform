@@ -1,7 +1,8 @@
 import React from 'react';
 import { makeStyles} from '@material-ui/core';
 // import { Show } from 'react-admin';
-import { MainList, Show } from '@semapps/archipelago-layout';
+import Show from '../../layout/show/Show';
+import MainList from '../../common/lists/MainList/MainList';
 import MarkdownField from "../../markdown/MarkdownField";
 import PageTitle from './PageTitle';
 import {

@@ -1,7 +1,9 @@
 import React from 'react';
 import { ReferenceField, TextField } from 'react-admin';
 import { Avatar } from '@material-ui/core';
-import { List, SimpleList, ListActions } from '@semapps/archipelago-layout';
+import { ListActions } from '@semapps/archipelago-layout';
+import List from '../../layout/list/List';
+import SimpleList from '../../common/lists/SimpleList';
 import EventIcon from '@material-ui/icons/Event';
 import EventFilterSidebar from './EventFilterSidebar';
 import isSameDay from 'date-fns/isSameDay';

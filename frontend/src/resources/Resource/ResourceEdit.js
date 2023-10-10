@@ -1,9 +1,8 @@
 import React from 'react';
-import { ImageInput, SimpleForm, TextInput } from 'react-admin';
-import { Edit } from '@semapps/archipelago-layout';
+import { ImageInput, SimpleForm, TextInput, ImageField } from 'react-admin';
+import Edit from "../../layout/edit/Edit";
 import MarkdownInput from '../../markdown/MarkdownInput'
 import ResourceTitle from './ResourceTitle';
-import { ImageField } from '@semapps/semantic-data-provider';
 
 export const ResourceEdit = props => (
   <Edit title={<ResourceTitle />} {...props}>

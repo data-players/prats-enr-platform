@@ -1,11 +1,11 @@
 import { default as React } from 'react';
-import { List, SimpleList} from 'react-admin';
+import { SimpleList } from 'react-admin';
+import List from '../../layout/list/List';
 import {
   BreadcrumbsItem,
 } from '../../common/BreadCrump'
 import moment from 'moment';
 import 'moment/locale/fr'
-
 
 const rowStyle = (record, index) => ({
     borderBottomStyle: "solid",
@@ -25,9 +25,11 @@ const NewsList = ({source}) => {
 
 const PageList = props => {
     moment.locale('fr');
+    const isAuthicate = localStorage.getItem('token') !== null
+
     return <>
         <BreadcrumbsItem to='/News'>Actualités</BreadcrumbsItem>
-        <List {...props} sort={{field:"pair:createdAt", order:'DESC'}}   >
+        <List actions={isAuthicate ? undefined : false} {...props} sort={{field:"pair:createdAt", order:'DESC'}}   >
           <SimpleList  primaryText={record => <NewsList source={record}/>} linkType="show" rowStyle={rowStyle}/>
         </List>
     </>

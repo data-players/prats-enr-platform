@@ -1,12 +1,10 @@
 import React from 'react';
 import { UrlField, DateField, TextField } from 'react-admin';
 import { ReferenceField } from '@semapps/semantic-data-provider';
-import {
-  Hero,
-  Show,
-  MainList,
-  MarkdownField,
-} from '@semapps/archipelago-layout';
+import MainList from '../../common/lists/MainList/MainList';
+import Show from '../../layout/show/Show';
+import MarkdownField from '../../markdown/MarkdownField';
+import Hero from '../../common/lists/Hero/Hero'
 import EventTitle from './EventTitle';
 import {
   BreadcrumbsItem

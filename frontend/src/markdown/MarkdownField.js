@@ -1,7 +1,7 @@
 import React from 'react';
-import { LargeLabel } from '@semapps/archipelago-layout';
 import Markdown from 'markdown-to-jsx';
 import * as addons from "../addons";
+import LargeLabel from '../common/lists/MainList/LargeLabel';
 
 const MarkdownField = ({ source, record }) => 
   record && record[source] ? <Markdown options={{

@@ -1,5 +1,6 @@
 import React from 'react';
-import { MainList, Show} from '@semapps/archipelago-layout';
+import  MainList  from "../../common/lists/MainList/MainList";
+import  Show  from "../../layout/show/Show";
 import {MarkdownField} from "@semapps/markdown-components";
 import NewsTitle from './NewsTitle';
 import {
@@ -7,7 +8,7 @@ import {
   BreadcrumbsItemFinal
 } from '../../common/BreadCrump'
 import {  SimpleList, UrlField, useRecordContext } from 'react-admin';
-import { ReferenceArrayField } from '@semapps/semantic-data-provider';
+import { ReferenceArrayField } from '@semapps/field-components';
 import { makeStyles } from '@material-ui/core';
 import DescriptionIcon from '@material-ui/icons/Description';
 import AccountBoxIcon from '@material-ui/icons/AccountBox';

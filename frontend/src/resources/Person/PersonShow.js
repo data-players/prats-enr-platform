@@ -1,36 +1,27 @@
 import React from 'react';
-import { SingleFieldList } from 'react-admin';
-import { Hero, Show, ColumnShowLayout, Column, AvatarField, MarkdownField } from '@semapps/archipelago-layout';
-import { ReferenceField, ReferenceArrayField } from '@semapps/semantic-data-provider';
-import PersonTitle from './PersonTitle';
-import { ChipField, ImageField } from 'ra-ui-materialui';
-import { makeStyles } from '@material-ui/styles';
-import { TextField } from '@material-ui/core';
+import Show from "../../layout/show/Show";
+import PersonTitle from "./PersonTitle";
+import {  useRecordContext } from 'react-admin';
+import MarkdownField from '../../markdown/MarkdownField';
+  
+const OpenbadgePassportComponent = ({source}) => {
+    const record = useRecordContext();
+    if (!record || !record[source]) return null;
 
-const mainImage = makeStyles({
-  image: {
-    borderRadius: '50%',
-    objectFit: 'cover',
-    maxWidth: '20em',
-    maxHeight :'20em'
-  }
-});
+    const link = "https://openbadgepassport.com/app/profile/" + record[source] + "/embed";
 
-const PersonShow = props => {
-  const mainImageStyles = mainImage();
-
-  return <Show title={<PersonTitle />} {...props}>
-    <ColumnShowLayout>
-      <Column xs={12} sm={7} showLabe={false}>
-        <MarkdownField  source="pair:description" />
-      </Column>
-      <Column xs={12} sm={2} showLabel>
-      </Column>
-      <Column xs={12} sm={3} showLabel={false}>
-        <ImageField source="image" classes={mainImageStyles}/>
-      </Column>
-    </ColumnShowLayout>
-  </Show>
+    return (
+        <iframe width="90%" height="850" src={link} frameborder="0" />
+    )
 }
+
+const PersonShow = props => (
+    <Show title={<PersonTitle />} {...props}>
+        <>
+            <MarkdownField source="pair:description"/>
+            <OpenbadgePassportComponent source="prats:openbadgeId" />
+        </>
+    </Show>
+);
 
 export default PersonShow;

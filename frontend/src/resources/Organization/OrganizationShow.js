@@ -1,5 +1,5 @@
 import React from 'react';
-import { Show } from "@semapps/archipelago-layout";
+import  Show  from "../../layout/show/Show";
 import OrganizationTitle from "./OrganizationTitle";
 import MarkdownField from "../../markdown/MarkdownField";
 

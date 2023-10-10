@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslate, getFieldLabelTranslationArgs, useShowContext } from 'react-admin';
 import { Box, Typography } from '@material-ui/core';
-import { LargeLabel } from '@semapps/archipelago-layout';
+import LargeLabel from '../common/lists/MainList/LargeLabel';
 
 const SubList = ({ children, label }) => {
   const translate = useTranslate();

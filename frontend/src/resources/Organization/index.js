@@ -18,7 +18,9 @@ export default {
     dataModel: {
         types: ['semapps:Organization'],
         containerUri: process.env.REACT_APP_MIDDLEWARE_URL + 'organizations',
-        slugField: 'semapps:title'
+        fieldsMapping: {
+          title: 'semapps:title'
+        }  
       },
       translations: {
         fr: {

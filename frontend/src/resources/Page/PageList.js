@@ -1,6 +1,7 @@
 import React from 'react';
 import { Avatar } from "@material-ui/core";
-import { List, SimpleList } from '@semapps/archipelago-layout';
+import SimpleList from '../../common/lists/SimpleList'
+import List from '../../layout/list/List'
 import DescriptionIcon from '@material-ui/icons/Description';
 
 const PageList = props => (

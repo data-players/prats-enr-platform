@@ -1,8 +1,11 @@
 import React from 'react';
-import { Show, MarkdownField, MainList, SimpleList } from '@semapps/archipelago-layout';
+import MainList from '../../common/lists/MainList/MainList';
+import SimpleList from '../../common/lists/SimpleList';
+import MarkdownField from '../../markdown/MarkdownField';
+import  Show  from "../../layout/show/Show";
 import { Avatar, makeStyles } from '@material-ui/core';
 import { MapField } from '@semapps/geo-components';
-import { ReferenceArrayField } from '@semapps/semantic-data-provider';
+import { ReferenceArrayField } from '@semapps/field-components';
 import PlaceTitle from './PlaceTitle';
 import PersonIcon from "@material-ui/icons/Person";
 

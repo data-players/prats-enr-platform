@@ -19,7 +19,9 @@ export default {
     types: ['pair:Place'],
     containerUri: process.env.REACT_APP_MIDDLEWARE_URL + 'places',
     dereference: ['pair:hasPostalAddress'],
-    slugField: 'pair:label'
+    fieldsMapping: {
+      title: 'pair:label'
+    }  
   },
   translations: {
     fr: {

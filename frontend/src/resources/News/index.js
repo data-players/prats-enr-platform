@@ -16,10 +16,10 @@ export default {
     }
   },
   dataModel: {
-    types: ['pair:Document'],
-    containerUri: process.env.REACT_APP_MIDDLEWARE_URL + 'news',
-    slugField: 'pair:label',
-    forceArray: ['pair:hasResource']
+    types: ['pair:News'],
+    fieldsMapping: {
+      title: 'pair:label'
+    },
   },
   translations: {
     fr: {

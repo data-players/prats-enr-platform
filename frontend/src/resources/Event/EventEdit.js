@@ -1,5 +1,5 @@
 import React from 'react';
-import { Edit } from '@semapps/archipelago-layout';
+import  Edit from '../../layout/edit/Edit';
 import EventTitle from './EventTitle';
 import EventForm from "./EventForm";
 
