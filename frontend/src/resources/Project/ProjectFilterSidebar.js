@@ -7,7 +7,7 @@ const useStyles = makeStyles(theme => ({
   card: {
     paddingTop: 0,
     [theme.breakpoints.up('sm')]: {
-      minWidth: '15em',
+      width: '15em',
       marginLeft: '1em'
     },
     [theme.breakpoints.down('sm')]: {
