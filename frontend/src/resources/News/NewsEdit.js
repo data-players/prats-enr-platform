@@ -1,5 +1,5 @@
 import React from 'react';
-import { SimpleForm, TextInput, DateInput, ReferenceArrayInput, AutocompleteArrayInput } from 'react-admin';
+import { SimpleForm, TextInput, DateInput, AutocompleteArrayInput } from 'react-admin';
 import { Edit } from '@semapps/archipelago-layout';
 import MarkdownInput from '../../markdown/MarkdownInput'
 import NewsTitle from './NewsTitle';
@@ -7,6 +7,7 @@ import {
   BreadcrumbsItem,
   BreadcrumbsItemFinal
 } from '../../common/BreadCrump'
+import { ReferenceArrayInput } from '@semapps/input-components';
 
 export const NewsEdit = props => (
   <Edit title={<NewsTitle />} {...props}>
