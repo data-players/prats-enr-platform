@@ -29,7 +29,7 @@ const PageShow = props => {
   const resourceId = props.id.startsWith(process.env.REACT_APP_MIDDLEWARE_URL) ? props.id : process.env.REACT_APP_MIDDLEWARE_URL + 'pages/' + props.id;
   return (
 
-      <Show title={<PageTitle />} classes={classes} {...props} id={resourceId} hasEdit={false} hasList={false}>
+      <Show title={<PageTitle />} classes={classes} {...props} id={resourceId}  déco>
         <>
           <BreadcrumbsItem to='/Page'>Pages</BreadcrumbsItem>
           <BreadcrumbsItemFinal/>

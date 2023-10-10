@@ -130,7 +130,7 @@ const Layout = ({ appBar, logout, theme, children }) => {
               {
               isAuthicate && <Link className={classes.footerLink} onClick={() => logoutfunc()}>
                 <Typography variant="subtitle2" color="textSecondary" align="left" >
-                  Déconexion
+                  Déconnexion
                 </Typography>
               </Link>
               }
