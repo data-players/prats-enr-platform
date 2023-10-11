@@ -59,6 +59,10 @@ module.exports = {
       superAdmins: [
       'http://localhost:3000/users/simon.louvet.zen',
       'http://localhost:3000/users/bastien.siguier',
+      'https://data.energiesdeprats.fr/bastien.siguier',
+      'https://data.energiesdeprats.fr/simon.louvet.zen',
+      'https://data.energiesdeprats.fr/bastien.siguier',
+      'https://data.energiesdeprats.fr/audrey.bard',
     ]
     }
   }
