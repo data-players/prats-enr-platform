@@ -24,6 +24,9 @@ export const PortraitEdit = props => (
       <ReferenceArrayInput label="Projets liées" reference="Project" source="pair:hasProject">
         <AutocompleteArrayInput optionText="pair:label" fullWidth/>
       </ReferenceArrayInput> 
+      <ReferenceArrayInput label="Actualitées liées" reference="News" source="pair:hasNews">
+        <AutocompleteArrayInput optionText="pair:label" fullWidth/>
+      </ReferenceArrayInput> 
       <TextInput label="Ordre dans la liste : choisir un chiffre, 000001 sera le premier à afficher" source='prats:listOrder' fullWidth />
     </SimpleForm>
   </Edit>

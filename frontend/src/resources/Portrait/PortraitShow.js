@@ -12,6 +12,7 @@ import {
 } from '../../common/BreadCrump'
 import WorkIcon from '@material-ui/icons/Work';
 import DescriptionIcon from '@material-ui/icons/Description';
+import AnnouncementIcon from '@material-ui/icons/Announcement';
 
 const mainImage = makeStyles({
   image: {
@@ -58,6 +59,13 @@ const PortraitShow = props => {
           <SimpleList
             primaryText={record => record && record['pair:label']}
             leftIcon={() => <WorkIcon />}
+            linkType="show"
+          />         
+        </ReferenceArrayField>
+        <ReferenceArrayField label="Actualitées Liées" source="pair:hasNews" reference="News">
+          <SimpleList
+            primaryText={record => record && record['pair:label']}
+            leftIcon={() => <AnnouncementIcon />}
             linkType="show"
           />         
         </ReferenceArrayField>
