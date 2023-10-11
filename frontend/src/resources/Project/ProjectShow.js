@@ -17,8 +17,7 @@ import WorkIcon from '@material-ui/icons/Work';
 const mainImage = makeStyles({
   image: {
     objectFit: 'cover',
-    width: '100%',
-    maxHeight :'100%'
+    maxHeight: '30rem',
   }
 });
 

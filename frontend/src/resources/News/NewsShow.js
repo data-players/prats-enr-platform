@@ -27,14 +27,6 @@ const text = makeStyles({
   }
 })
 
-const imgMD = ({children,src,...props}) => {
-  return (<>
-    <div {...props}>
-      <img src={src} alt="" style={{width:"100%"}}></img>
-    </div>
-  </>)
-}
-
 const StartEndDateComponent = ({ createdAt, endedAt, css}) => {
   const record = useRecordContext();
   if (!record) return null;
@@ -57,7 +49,6 @@ const NewsShow = props => {
         <StartEndDateComponent createdAt="pair:createdAt" endedAt="pair:endedAt" css={classes.time}/>
         <MainList  >
           <MarkdownField overrides={{
-              img: imgMD,
           }} source="pair:description" label="Description" addLabel={false} />
           <UrlField label="Lien extérieur" source="prats:link" />
           <ReferenceArrayField label="Portraits Liés" source="pair:hasPortrait" reference="Portrait">
