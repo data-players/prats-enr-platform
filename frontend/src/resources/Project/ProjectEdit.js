@@ -4,6 +4,7 @@ import  Edit from '../../layout/edit/Edit';
 import { MarkdownInput } from '@semapps/markdown-components';
 import ProjectTitle from './ProjectTitle';
 import { ReferenceArrayInput } from '@semapps/input-components';
+import CustomImageField from '../../common/CustomImagefield';
 
 export const ProjectEdit = props => (
   <Edit title={<ProjectTitle />} {...props}>
@@ -12,10 +13,10 @@ export const ProjectEdit = props => (
       <TextInput label="Courte description" source="pair:comment" fullWidth />
       <MarkdownInput multiline source="pair:description" fullWidth />
       <ImageInput source="image" accept="image/*">
-        <ImageField source="src" />
+        <CustomImageField source="src" />
       </ImageInput>
       <ImageInput source="pair:logo" accept="image/*">
-        <ImageField source="src" />
+        <CustomImageField source="src" />
       </ImageInput>
       <TextInput label="Site internet" source="pair:homePage" fullWidth />
       <TextInput label="Lien extérieur" source="prats:link" fullWidth />

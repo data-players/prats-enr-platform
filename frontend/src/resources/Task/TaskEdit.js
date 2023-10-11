@@ -4,6 +4,8 @@ import Edit from "../../layout/edit/Edit";
 import { MarkdownInput } from '@semapps/markdown-components';
 import TaskTitle from './TaskTitle';
 import { ReferenceArrayInput } from '@semapps/input-components';
+import CustomImageField from '../../common/CustomImagefield';
+
 
 export const TaskEdit = props => (
   <Edit title={<TaskTitle />} {...props}>
@@ -18,7 +20,7 @@ export const TaskEdit = props => (
         <AutocompleteArrayInput optionText="pair:label" fullWidth/>
       </ReferenceArrayInput> 
       <ImageInput source="image" accept="image/*">
-        <ImageField source="src" />
+        <CustomImageField />
       </ImageInput>
       {/* <LocationInput ti="Addresse" source="pair:hasLocation" fullWidth /> */}
       <TextInput label="Latitude" source="prats:lat" fullWidth />
