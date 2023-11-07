@@ -22,6 +22,9 @@ export const TaskEdit = props => (
       <ImageInput source="image" accept="image/*">
         <CustomImageField />
       </ImageInput>
+      <ReferenceArrayInput label="Ressources liées" reference="Resource" source="pair:hasResource">
+        <AutocompleteArrayInput optionText="pair:label" fullWidth/>
+      </ReferenceArrayInput> 
       {/* <LocationInput ti="Addresse" source="pair:hasLocation" fullWidth /> */}
       <TextInput label="Latitude" source="prats:lat" fullWidth />
       <TextInput label="Longitude" source="prats:lng" fullWidth />

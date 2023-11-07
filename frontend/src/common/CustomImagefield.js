@@ -1,8 +1,8 @@
 import React from "react";
 
-const CustomImageField = (props) => {
+const CustomImageField = ({record}) => {
     return (
-      <img src={props.record} height="150px" />
+      <img src={record} height="150px" />
     )
   }
 

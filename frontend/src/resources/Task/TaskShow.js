@@ -12,7 +12,7 @@ import {
 } from '../../common/BreadCrump'
 import CustomMapField from './CustomMapField';
 import AccountBoxIcon from '@material-ui/icons/AccountBox';
-
+import WorkIcon from '@material-ui/icons/Work';
 
 const mainImage = makeStyles({
   image: {
@@ -47,7 +47,7 @@ const TaskShow = props => {
       <BreadcrumbsItemFinal/>
       <MainList>
         <TextField source="pair:comment" addLabel={false} className={classes.comment} />
-        <ImageField source="image" classes={mainImageStyles}/>
+        <ImageField source="image" addLabel={false} classes={mainImageStyles}/>
         <MarkdownField label="description" source="pair:description" addLabel={false} />
         <MarkdownField label="graph" source="prats:graphic" addLabel={false} />   
         <TextField label="Propriétaire" source="prats:owner" className={classes.item} />             
@@ -60,6 +60,13 @@ const TaskShow = props => {
         </ReferenceArrayField>
         <TextField label="Energie" source='prats:powerEnergy' className={classes.item} />      
         <CustomMapField />
+        <ReferenceArrayField label="Ressources Liées Au Projet" source="pair:hasResource" reference="Resource">
+          <SimpleList
+            primaryText={record => record && record['pair:label']}
+            leftIcon={() => <WorkIcon />}
+            linkType="show"
+          />         
+        </ReferenceArrayField>
         <TextField label="Latitude" source="prats:lat" fullWidth />
         <TextField label="Longitude" source="prats:lng" fullWidth />
       </MainList>
