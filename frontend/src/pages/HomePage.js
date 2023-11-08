@@ -212,6 +212,9 @@ const HomePage = ({ width }) => {
       borderWidth:"1px",
       borderColor:"grey",
       height: width === "xs" ? "120px" : "85px",
+      whiteSpace: 'nowrap',  
+      overflow: 'hidden',    
+      textOverflow: 'ellipsis' 
     });
 
 
@@ -251,7 +254,7 @@ const HomePage = ({ width }) => {
             </Show>
           </Box>
           <ListBase resource="News" basePath="/News" sort={{field:"pair:createdAt", order:'DESC'}} perPage={2}>
-            <SimpleList primaryText={record => <NewsList source={record}/>} linkType="show"  rowStyle={rowStyle}/>
+            <SimpleList primaryText={record => <NewsList source={record}/>} linkType="show"  rowStyle={rowStyle} />
           </ListBase>
           <Box classes={divButtonStyle}>
             <Button href="/News" classes={mainButtonStyle}>Voir toutes les actualités</Button>
