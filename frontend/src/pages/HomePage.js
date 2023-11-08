@@ -194,11 +194,13 @@ const HomePage = ({ width }) => {
     return (
       <div style={{padding:"31px 0px"}}>
         <div style={{color:"grey", fontSize:"20px"}}>{moment(source["pair:createdAt"]).format('D MMMM YYYY')}</div>
-        <div style={{color:"black", fontSize:"24px"}}>{source["pair:label"]}</div>
+        <div style={{color:"black", fontSize:"24px", whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+          {source["pair:label"]}
+        </div>
       </div>
     )
   }
-
+  
   const mainImageStyles = mainImage();
   const mainTextStyles = mainText();
   const mainStyle = main();
@@ -212,9 +214,6 @@ const HomePage = ({ width }) => {
       borderWidth:"1px",
       borderColor:"grey",
       height: width === "xs" ? "120px" : "85px",
-      whiteSpace: 'nowrap',  
-      overflow: 'hidden',    
-      textOverflow: 'ellipsis' 
     });
 
 
@@ -253,8 +252,10 @@ const HomePage = ({ width }) => {
               <MarkdownField source="semapps:content" addLabel={false} />
             </Show>
           </Box>
-          <ListBase resource="News" basePath="/News" sort={{field:"pair:createdAt", order:'DESC'}} perPage={2}>
-            <SimpleList primaryText={record => <NewsList source={record}/>} linkType="show"  rowStyle={rowStyle} />
+          <ListBase resource="News" basePath="/News" sort={{field:"pair:createdAt", order:'DESC'}} perPage={2} rowStyle={{textOverflow: "ellipsis"}}>
+            <SimpleList 
+            primaryText={record => <NewsList source={record}/>} 
+            linkType="show"  rowStyle={rowStyle} />
           </ListBase>
           <Box classes={divButtonStyle}>
             <Button href="/News" classes={mainButtonStyle}>Voir toutes les actualités</Button>
@@ -266,7 +267,7 @@ const HomePage = ({ width }) => {
       <Grid item sm={6} xs={12} className={mainStyle.griditem}>
         <Paper className={mainStyle.paper} variant="outlined" square>
           <Box component="div" className={mainTextStyles}>
-            <img src='https://image.noelshack.com/fichiers/2023/39/1/1695639434-map.jpg' className={mainTextStyles.image} />
+            <img src='https://image.noelshack.com/fichiers/2023/39/1/1695639434-map.jpg' className={mainTextStyles.image} alt="" />
           </Box>
         </Paper>
       </Grid>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { AutocompleteArrayInput, ImageInput, NumberInput, SimpleForm, TextInput, ImageField } from 'react-admin';
+import { AutocompleteArrayInput, ImageInput, NumberInput, SimpleForm, TextInput } from 'react-admin';
 import Edit from "../../layout/edit/Edit";
 import { MarkdownInput } from '@semapps/markdown-components';
 import TaskTitle from './TaskTitle';

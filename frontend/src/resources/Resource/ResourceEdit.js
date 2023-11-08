@@ -1,5 +1,5 @@
 import React from 'react';
-import { ImageInput, SimpleForm, TextInput, ImageField } from 'react-admin';
+import { ImageInput, SimpleForm, TextInput } from 'react-admin';
 import Edit from "../../layout/edit/Edit";
 import MarkdownInput from '../../markdown/MarkdownInput'
 import ResourceTitle from './ResourceTitle';
