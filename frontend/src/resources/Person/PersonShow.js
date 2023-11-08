@@ -6,9 +6,7 @@ import MarkdownField from '../../markdown/MarkdownField';
 
 const PersonShow = props => (
     <Show title={<PersonTitle />} {...props}>
-        <>
-            <MarkdownField source="pair:description"/>
-        </>
+        <MarkdownField source="pair:description"/>
     </Show>
 );
 
