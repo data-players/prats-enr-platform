@@ -63,6 +63,7 @@ module.exports = {
       'https://data.energiesdeprats.fr/users/simon.louvet.zen',
       'https://data.energiesdeprats.fr/users/audrey.bard',
     ]
-    }
+    },
+    activitypub:false
   }
 };
